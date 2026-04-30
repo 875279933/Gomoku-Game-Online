@@ -440,6 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedLang = this.value;
             let targetUrl = 'https://playgomokugame.com/';
             if (selectedLang === 'en') targetUrl = 'https://playgomokugame.com/';
+			else if (selectedLang === 'en') targetUrl = 'https://playgomokugame.com/';
             else if (selectedLang === 'es') targetUrl = 'https://playgomokugame.com/es/';
             else if (selectedLang === 'fr') targetUrl = 'https://playgomokugame.com/fr/';
             else if (selectedLang === 'de') targetUrl = 'https://playgomokugame.com/de/';
