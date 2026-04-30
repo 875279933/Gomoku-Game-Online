@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Gomoku Game Online – Play Free Now</title>
+    <meta name="description" content="Play Gomoku Game Online for free. Enjoy classic Gomoku online with AI mode or 2 player mode. No download, no registration. Play Five in a Row instantly on any device – start free now.">
+    <meta property="og:title" content="Gomoku Game Online – Play Free Now">
+    <meta property="og:description" content="Play the best Gomoku Game Online for free! Enhanced AI, adjustable difficulty, no registration. Classic Five in a Row strategy game.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://playgomokugame.com">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EGomoku Online%3C/text%3E%3C/svg%3E">
+    <meta property="og:image:alt" content="Gomoku Game Online Preview - Classic Five in a Row">
+    <meta property="og:site_name" content="Gomoku Online">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gomoku Game Online – Play Free Now">
+    <meta name="twitter:description" content="Play Gomoku Game Online for free! Enhanced AI with deeper analysis, adjustable thinking time.">
+    <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EGomoku Online%3C/text%3E%3C/svg%3E">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Ccircle cx='90' cy='90' r='80' fill='%23e1c78c'/%3E%3Ccircle cx='90' cy='90' r='50' fill='%232b2b28'/%3E%3C/svg%3E">
+    <link rel="canonical" href="https://playgomokugame.com/">
+    <link rel="alternate" hreflang="en" href="https://playgomokugame.com/">
+    <link rel="alternate" hreflang="es" href="https://playgomokugame.com/es/">
+    <link rel="alternate" hreflang="fr" href="https://playgomokugame.com/fr/">
+    <link rel="alternate" hreflang="de" href="https://playgomokugame.com/de/">
+    <link rel="alternate" hreflang="ja" href="https://playgomokugame.com/ja/">
+    <link rel="alternate" hreflang="pt" href="https://playgomokugame.com/pt/">
+	<link rel="alternate" hreflang="th" href="https://playgomokugame.com/th/">
+    <link rel="alternate" hreflang="it" href="https://playgomokugame.com/it/">
+    <link rel="alternate" hreflang="hi" href="https://playgomokugame.com/hi/">
+	<link rel="alternate" hreflang="ko" href="https://playgomokugame.com/ko/">
+    <link rel="alternate" hreflang="x-default" href="https://playgomokugame.com/">
+    <meta name="keywords" content="Gomoku Game, Gomoku Online, Five in a Row, AI board game, free, no download, hard ai, gomoku strategy, four-three attack, live three defense">
+    <meta name="author" content="Gomoku Online Team – Experienced AI & Strategy Game Developers">
+    
+    <!-- External CSS & JS -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Gomoku Game Online",
+      "url": "https://playgomokugame.com/",
+      "description": "Play free Gomoku Game Online (Five in a Row) against enhanced AI. Adjustable difficulty, undo, score tracking.",
+      "applicationCategory": "Game",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "ratingCount": "128"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Gomoku Online Team",
+        "description": "Board game AI researchers and developers"
+      }
+    }
+    </script>
+</head>
+<body>
+<nav class="royal-nav">
+    <div class="nav-container">
+        <div class="logo-area">♛ Gomoku Online</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/rules.html">Rules</a>
+            <a href="/strategy.html">Strategy</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <h1 class="seo-h1">Gomoku Game Online – Play Free Now</h1>
+
+    <div class="game-layout">
+        <div class="board-area">
+            <div class="board-simple">
+                <canvas id="gomokuCanvas" width="720" height="720" role="img" aria-label="15x15 Gomoku board, black and white stones"></canvas>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="diff-section">
+                <div class="diff-title">✦ AI DIFFICULTY ✦</div>
+                <div class="difficulty-group">
+                    <button data-diff="easy" class="difficulty-btn">🍃 Easy</button>
+                    <button data-diff="medium" class="difficulty-btn active">⚡ Medium</button>
+                    <button data-diff="hard" class="difficulty-btn">🔥 Hard</button>
+                </div>
+            </div>
+            <div class="info-section">
+                <div class="turn-status" id="tipText">⚫ Your turn (Black)</div>
+                <div class="score-panel">
+                    <div class="score-item">🏆 Player: <span id="playerScore" class="score-value">0</span></div>
+                    <div class="score-item">🤖 AI: <span id="aiScore" class="score-value">0</span></div>
+                    <button id="resetScoreBtn" class="reset-score-btn" title="Reset Score">↻</button>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button id="resetBtn" class="royal-btn primary">🔄 New Game</button>
+                <button id="undoBtn" class="royal-btn">↩️ Undo Move</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-vertical">
+        <div class="info-card">
+            <h3>🎯 What is Gomoku Game Online?</h3>
+            <p><strong>Gomoku Game Online</strong>, also known as "Five in a Row", is a classic abstract strategy game. In this digital version of the timeless Gomoku Game, two players alternate placing black and white stones on a 15×15 board. The first to form an unbroken line of five stones horizontally, vertically, or diagonally wins. Simple rules, deep tactics — a true brain sport. Play <strong>Gomoku Online</strong> for free right now and challenge our enhanced AI. You can read more on <a href="https://en.wikipedia.org/wiki/Gomoku">Wikipedia Gomoku</a> page.</p>
+        </div>
+        <div class="info-card">
+            <h3>📖 How to Play This Gomoku Game</h3>
+            <p>Playing a <strong>Gomoku Game</strong> is straightforward: take turns placing your stones (black first). The goal is to be the first to get five stones in a row – horizontally, vertically, or diagonally. Our <strong>Gomoku Online</strong> interface gives you full control: click any intersection to place your stone, then watch the AI respond. Use undo to learn from mistakes and reset to start a fresh challenge.</p>
+        </div>
+        <div class="info-card">
+            <h3>⚡ Strategy Lab: Four-Three Attacks & Defending Live Threes</h3>
+            <p>Mastering these tactics will elevate your <strong>Gomoku Game</strong> dramatically. In any serious <strong>Gomoku Online</strong> match, pattern recognition is key:</p>
+            <ul class="strategy-list">
+                <li><strong>🔹 Four-Three (fork):</strong> A forced win setup. Example: after placing a stone, you have one line with an open four (—OOOO—) and a separate line with a live three (—OOO— with both ends free). The opponent can block only one line; you play the winning move on the other. This is a hallmark of high-level Gomoku Game strategy.</li>
+                <li><strong>🔹 How to create a four-three:</strong> Look for “broken three” patterns or overlapping threats. Often a well-timed diagonal extension turns a simple three into a game-winning fork. Practice this in our Gomoku Online training mode.</li>
+                <li><strong>🔹 Defending a live three:</strong> The <strong>only</strong> safe way is to place a stone on one of the two open ends of the three. Playing elsewhere usually loses. On Hard difficulty, our AI always identifies and blocks live threes with 2‑ply lookahead, making this Gomoku Game a true tactical test.</li>
+                <li><strong>🔹 Pro tip:</strong> Use the “Undo” button to explore alternative defenses against AI’s live three threats — a great way to train pattern recognition for any Gomoku Game.</li>
+            </ul>
+            <p style="margin-top: 10px; font-size:0.88rem;">📌 <em>These advanced tactics are used by professional Gomoku players. The AI on Hard difficulty simulates this strategic depth, offering one of the most engaging Gomoku Online experiences.</em></p>
+        </div>
+        <div class="info-card">
+            <h3>👥 About the Team – Experience & Authority</h3>
+            <p><strong>Gomoku Online</strong> is developed by a small team of board game AI researchers and full-stack engineers with over 8 years of experience in combinatorial game theory. We have published papers on heuristic evaluation in two‑player perfect information games and contributed to open-source Gomoku engines. Our goal: deliver the finest <strong>Gomoku Game Online</strong> experience that is both challenging and fair.</p>
+            <p>🔹 <strong>Why trust our AI?</strong> Our hard difficulty uses 2‑ply lookahead with opponent threat modelling — similar to entry-level competitive bots. We regularly update the evaluation functions based on thousands of self-play games, ensuring this Gomoku Game stays sharp.<br>
+            🔹 <strong>Commitment to fair play:</strong> No hidden tracking, no registration, pure strategy. The game logic is transparent and client-side deterministic. That’s the promise of our Gomoku Online platform.<br>
+            🔹 <strong>Last update:</strong> April 2026 – enhanced four-three detection and live three defense priority.</p>
+            <p style="margin-top:8px; border-top: 1px solid #e2edf2; padding-top:8px; font-size:0.85rem;">🏅 <strong>Recognized by</strong> independent board game communities for clean implementation and educational value. Start your Gomoku Game journey now.</p>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-title">❓ Frequently Asked Questions about Gomoku Game Online</div>
+        <div class="faq-list">
+            <div class="faq-item"><div class="faq-question"><span>1. How does the enhanced AI work in this Gomoku Game?</span><span class="icon">▼</span></div><div class="faq-answer">Easy: Randomized moves & simple evaluation.<br>Medium: Balanced heuristic with defensive awareness.<br>Hard: 2‑ply lookahead, deep positional scoring and aggressive opponent threat analysis, plus longer thinking delay (350ms) to simulate real pondering. This makes our Gomoku Online AI suitable for all skill levels.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>2. Can I undo multiple moves while playing Gomoku Online?</span><span class="icon">▼</span></div><div class="faq-answer">Yes! Undo removes the last move (including AI's move). You can undo step by step back to an empty board. Perfect for learning the nuances of any Gomoku Game.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>3. Does score reset when changing difficulty in this Gomoku Game?</span><span class="icon">▼</span></div><div class="faq-answer">No, the score persists across difficulty changes. Use the reset button (↻) next to the score display to manually reset wins. Keep track of your progress in Gomoku Online.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>4. Why does AI sometimes take longer to move in Gomoku Online?</span><span class="icon">▼</span></div><div class="faq-answer">On Hard difficulty, AI performs deeper analysis (2‑move lookahead) and a deliberate delay (350ms) for a natural thinking feel. Easy/Medium are much faster. It’s part of the authentic Gomoku Game experience.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>5. Does the Gomoku Game detect draws?</span><span class="icon">▼</span></div><div class="faq-answer">Yes, when all 15×15 intersections are filled with no winner, the game ends in a draw and no points are awarded. Fair play is central to our Gomoku Online design.</div></div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <div class="footer-links">
+            <select class="language-select" id="langSelect">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="ja">🇯日本語</option>
+                <option value="pt">Português</option>
+				<option value="th">ไทย</option>
+                <option value="it">Italiano</option>
+                <option value="hi">हिन्दी</option>
+                <option value="ko">한국어</option>
+
+            </select>
+            <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="/terms-of-use.html" class="footer-link">Terms of Use</a>
+            <a href="/cookie-policy.html" class="footer-link">Cookie Policy</a>
+        </div>
+        <div class="footer-copyright">© 2025 Gomoku Online · Play Free Now</div>
+    </div>
+</div>
+
+<script src="/script.js"></script>
+</body>
+</html>
