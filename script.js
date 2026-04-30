@@ -223,13 +223,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function updateStatus() {
         if (!gameActive) {
-            if (winner === 'player') tipTextSpan.innerText = '?? You win! Great match ??';
-            else if (winner === 'ai') tipTextSpan.innerText = '?? AI wins ¡ª try again ??';
-            else if (winner === 'draw') tipTextSpan.innerText = '?? Draw! Well played ??';
-            else tipTextSpan.innerText = currentTurn === 'player' ? '? Your turn' : '? AI thinking';
+            if (winner === 'player') tipTextSpan.innerText = 'You win! Great match';
+            else if (winner === 'ai') tipTextSpan.innerText = 'AI wins ¡ª try again';
+            else if (winner === 'draw') tipTextSpan.innerText = 'Draw! Well played';
+            else tipTextSpan.innerText = currentTurn === 'player' ? 'Your turn' : 'AI thinking';
             return;
         }
-        tipTextSpan.innerText = currentTurn === 'player' ? '? Your turn (Black)' : '? AI is thinking ...';
+        tipTextSpan.innerText = currentTurn === 'player' ? 'Your turn (Black)' : 'AI is thinking ...';
     }
     
     function endGame(type, winSide = null) {
@@ -245,9 +245,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         updateStatus();
         let msg = '';
-        if (winner === 'player') msg = '?? Congratulations! You won! ??\nClick OK to start a new game.';
-        else if (winner === 'ai') msg = '?? AI wins this round. Better luck next time!\nClick OK to play again.';
-        else if (winner === 'draw') msg = '?? It\'s a draw! Well played!\nClick OK to start a fresh game.';
+        if (winner === 'player') msg = 'Congratulations! You won! \nClick OK to start a new game.';
+        else if (winner === 'ai') msg = 'AI wins this round. Better luck next time!\nClick OK to play again.';
+        else if (winner === 'draw') msg = 'It\'s a draw! Well played!\nClick OK to start a fresh game.';
         if (msg) { alert(msg); resetGame(); }
     }
     
