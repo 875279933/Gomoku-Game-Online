@@ -27,6 +27,27 @@
     </url>
 
     <url>
+        <loc>https://playgomokugame.com/blog/</loc>
+        <lastmod>2026-05-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://playgomokugame.com/how-to-play-gomoku.html</loc>
+        <lastmod>2026-05-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://playgomokugame.com/how-to-win-gomoku.html</loc>
+        <lastmod>2026-05-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
         <loc>https://playgomokugame.com/privacy-policy.html</loc>
         <lastmod>2026-04-30</lastmod>
         <changefreq>yearly</changefreq>
