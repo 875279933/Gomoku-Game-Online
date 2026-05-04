@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>404 - Page Not Found | Play Gomoku Online</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Play Gomoku Online - Five in a Row game.">
+    <meta name="robots" content="noindex, follow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f7f3;
+            color: #2c3e2f;
+            padding: 0 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            max-width: 600px;
+            text-align: center;
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            color: #2c5e2e;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #2c5e2e;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #3a6b3c;
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #2c5e2e;
+            border: 2px solid #2c5e2e;
+            margin-left: 10px;
+        }
+        .btn-secondary:hover {
+            background: #2c5e2e;
+            color: white;
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #e8f5e9;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 0;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 10px;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <div class="content">
+            <div class="logo">♛</div>
+            <h1>Oops! Page Not Found</h1>
+            <p>The page you're looking for doesn't exist or has been moved.</p>
+            <p>Let's get you back to playing Gomoku!</p>
+            <div>
+                <a href="/" class="btn">🎮 Play Gomoku</a>
+                <a href="/blog/" class="btn btn-secondary">📝 Visit Blog</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
