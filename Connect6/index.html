@@ -189,7 +189,7 @@
     <div class="info-vertical">
         <div class="info-card">
             <h3>🎯 What is Connect6 Game Online?</h3>
-            <p><strong>Connect6 Game Online</strong> is a fair and balanced strategy game where players connect six stones in a row to win. Unlike traditional Gomoku, Connect6 uses a unique "double-move" rule that naturally balances the first-move advantage. In this digital version, you play against an AI opponent on a 19×19 board. The first to form an unbroken line of six stones horizontally, vertically, or diagonally wins. Simple rules, deep tactics — a true brain sport. Play <strong>Connect6 Online</strong> for free right now and challenge our enhanced AI.</p>
+            <p><strong>Connect6 Game Online</strong> is a fair and balanced strategy game where players connect six stones in a row to win. Unlike traditional Gomoku, this game uses a unique "double-move" rule that naturally balances the first-move advantage. In this digital version, you play against an AI opponent on a 19×19 board. The first to form an unbroken line of six stones horizontally, vertically, or diagonally wins. Simple rules, deep tactics — a true brain sport. Play <strong>Connect6 Online</strong> for free right now and challenge our enhanced AI.</p>
         </div>
         <div class="info-card">
             <h3>📖 How to Play This Connect6 Game</h3>
@@ -197,7 +197,7 @@
         </div>
         <div class="info-card">
             <h3>⚡ Why Connect6 is Fairer Than Gomoku</h3>
-            <p>The genius of Connect6 lies in its "double-move" rule. After Black's first move, each player places 2 stones per turn. This ensures the stone count difference is always exactly 1, giving the second player (White) the ability to counterattack effectively. No complex forbidden moves are needed – the game is naturally balanced.</p>
+            <p>The genius of this game lies in its "double-move" rule. After Black's first move, each player places 2 stones per turn. This ensures the stone count difference is always exactly 1, giving the second player (White) the ability to counterattack effectively. No complex forbidden moves are needed – the game is naturally balanced.</p>
             <table class="comparison-table">
                 <tr>
                     <th>Feature</th>
@@ -238,10 +238,10 @@
     <div class="faq-section">
         <div class="faq-title">❓ Frequently Asked Questions about Connect6 Game Online</div>
         <div class="faq-list">
-            <div class="faq-item"><div class="faq-question"><span>1. How does the AI work in this Connect6 Game?</span><span class="icon">▼</span></div><div class="faq-answer">Easy: Randomized moves with basic evaluation.<br>Medium: Balanced heuristic with double-move awareness.<br>Hard: Advanced evaluation considering Connect6's unique mechanics and strategic depth. This makes our Connect6 Online AI suitable for all skill levels.</div></div>
-            <div class="faq-item"><div class="faq-question"><span>2. Why does Connect6 use 2 stones per turn after the first move?</span><span class="icon">▼</span></div><div class="faq-answer">The "double-move" rule is the key to Connect6's fairness. By allowing 2 stones per turn after the first move, the second player can always counterattack effectively, eliminating the huge first-move advantage that plagues traditional Gomoku.</div></div>
-            <div class="faq-item"><div class="faq-question"><span>3. Can I undo multiple moves while playing Connect6 Online?</span><span class="icon">▼</span></div><div class="faq-answer">Yes! Undo removes the last move (including AI's 2 stones). You can undo step by step back to an empty board. Perfect for learning the nuances of Connect6 strategy.</div></div>
-            <div class="faq-item"><div class="faq-question"><span>4. Is Connect6 more complex than Gomoku?</span><span class="icon">▼</span></div><div class="faq-answer">Yes, Connect6 has much higher complexity, similar to Go. The double-move rule creates exponentially more possible positions and requires deeper strategic thinking. This makes Connect6 a more challenging and rewarding game for experienced players.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>1. How does the AI work in this Connect6 Game?</span><span class="icon">▼</span></div><div class="faq-answer">Easy: Randomized moves with basic evaluation.<br>Medium: Balanced heuristic with double-move awareness.<br>Hard: Advanced evaluation considering the game's unique mechanics and strategic depth. This makes our Connect6 Online AI suitable for all skill levels.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>2. Why does Connect6 use 2 stones per turn after the first move?</span><span class="icon">▼</span></div><div class="faq-answer">The "double-move" rule is the key to this game's fairness. By allowing 2 stones per turn after the first move, the second player can always counterattack effectively, eliminating the huge first-move advantage that plagues traditional Gomoku.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>3. Can I undo multiple moves while playing Connect6 Online?</span><span class="icon">▼</span></div><div class="faq-answer">Yes! Undo removes the last move (including AI's 2 stones). You can undo step by step back to an empty board. Perfect for learning the nuances of strategy.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>4. Is Connect6 more complex than Gomoku?</span><span class="icon">▼</span></div><div class="faq-answer">Yes, this game has much higher complexity, similar to Go. The double-move rule creates exponentially more possible positions and requires deeper strategic thinking. This makes it a more challenging and rewarding game for experienced players.</div></div>
             <div class="faq-item"><div class="faq-question"><span>5. What happens if the board fills up without a winner?</span><span class="icon">▼</span></div><div class="faq-answer">If the board is completely filled and no player has connected six stones, the game ends in a draw. This is rare but possible in well-matched games with strong defensive play.</div></div>
         </div>
     </div>
@@ -698,6 +698,25 @@
 
     initBoard();
     updateStatus();
+    
+    initFaq();
+    
+    function initFaq() {
+        document.querySelectorAll('.faq-item').forEach(item => {
+            let q = item.querySelector('.faq-question'), a = item.querySelector('.faq-answer'), icon = q.querySelector('.icon');
+            q.addEventListener('click', () => {
+                let open = a.classList.contains('show');
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    if (ans !== a && ans.classList.contains('show')) {
+                        ans.classList.remove('show');
+                        ans.parentElement.querySelector('.faq-question .icon').textContent = '▼';
+                    }
+                });
+                if (!open) { a.classList.add('show'); icon.textContent = '▲'; }
+                else { a.classList.remove('show'); icon.textContent = '▼'; }
+            });
+        });
+    }
 </script>
 </body>
 </html>
