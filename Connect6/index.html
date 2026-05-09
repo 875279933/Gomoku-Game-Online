@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Connect6 Game Online – Play Free Now</title>
+    <meta name="description" content="Play Connect6 Game Online for free. Connect six stones in a row to win. Fair and balanced strategy game with AI opponent. No download, no registration.">
+    <meta property="og:title" content="Connect6 Game Online – Play Free Now">
+    <meta property="og:description" content="Play the best Connect6 Game Online for free! Enhanced AI, adjustable difficulty, no registration. Fair and balanced strategy game.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://playgomokugame.com/Connect6/">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EConnect6 Online%3C/text%3E%3C/svg%3E">
+    <meta property="og:image:alt" content="Connect6 Game Online Preview - Fair Strategy Game">
+    <meta property="og:site_name" content="Connect6 Online">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Connect6 Game Online – Play Free Now">
+    <meta name="twitter:description" content="Play Connect6 Game Online for free! Enhanced AI with fair and balanced gameplay. Connect six stones to win.">
+    <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EConnect6 Online%3C/text%3E%3C/svg%3E">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Ccircle cx='90' cy='90' r='80' fill='%23e1c78c'/%3E%3Ccircle cx='90' cy='90' r='50' fill='%232b2b28'/%3E%3C/svg%3E">
+    <link rel="canonical" href="https://playgomokugame.com/Connect6/">
+    <meta name="keywords" content="Connect6 Game, Connect6 Online, Six in a Row, AI board game, free, no download, fair game, connect6 strategy, balanced gameplay">
+    <meta name="author" content="Connect6 Online Team – Fair Strategy Game Developers">
+    
+    <link rel="stylesheet" href="/style.css">
+    
+    <style>
+        #connect6Canvas {
+            border: 0.5px solid #8b6946;
+            border-radius: 4px;
+            background-color: #e1c78c;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        
+        .stones-display {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+            padding: 0.8rem;
+            background: #ffffff;
+            border-radius: 1rem;
+            border: 1px solid #e9edf2;
+        }
+        
+        .stone-count {
+            text-align: center;
+        }
+        
+        .stone-count .label {
+            font-size: 0.75rem;
+            color: #5f7f9c;
+            margin-bottom: 0.3rem;
+        }
+        
+        .stone-count .number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #2c5a7a;
+        }
+        
+        .move-indicator {
+            font-size: 0.85rem;
+            color: #5f7f9c;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .comparison-table th {
+            color: #2c5a7a;
+            font-weight: 600;
+            background: #f8fafc;
+        }
+        
+        .comparison-table td {
+            color: #2c3e44;
+        }
+        
+        .winner-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .winner-content {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            max-width: 400px;
+            animation: popIn 0.3s ease;
+        }
+        
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .winner-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2c5a7a;
+        }
+        
+        .winner-content p {
+            color: #5f7f9c;
+            margin-bottom: 1.5rem;
+        }
+        
+        .winner-content .royal-btn {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+<nav class="royal-nav">
+    <div class="nav-container">
+        <div class="logo-area">♛ Connect6 Online</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/Connect6/" class="active">Connect6</a>
+            <a href="/blog/">Blog</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <h1 class="seo-h1">Connect6 Game Online – Play Free Now</h1>
+
+    <div class="game-layout">
+        <div class="board-area">
+            <div class="board-simple">
+                <canvas id="connect6Canvas" width="720" height="720" role="img" aria-label="19x19 Connect6 board, black and white stones"></canvas>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="diff-section">
+                <div class="diff-title">✦ AI DIFFICULTY ✦</div>
+                <div class="difficulty-group">
+                    <button data-diff="easy" class="difficulty-btn">🍃 Easy</button>
+                    <button data-diff="medium" class="difficulty-btn active">⚡ Medium</button>
+                    <button data-diff="hard" class="difficulty-btn">🔥 Hard</button>
+                </div>
+            </div>
+            <div class="info-section">
+                <div class="turn-status" id="tipText">⚫ Your turn (Black)</div>
+                <div class="stones-display">
+                    <div class="stone-count">
+                        <div class="label">Black</div>
+                        <div class="number" id="blackCount">0</div>
+                    </div>
+                    <div class="stone-count">
+                        <div class="label">White (AI)</div>
+                        <div class="number" id="whiteCount">0</div>
+                    </div>
+                </div>
+                <div class="move-indicator" id="moveIndicator">First move: Place 1 stone</div>
+            </div>
+            <div class="action-buttons">
+                <button id="resetBtn" class="royal-btn primary">🔄 New Game</button>
+                <button id="undoBtn" class="royal-btn">↩️ Undo Move</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-vertical">
+        <div class="info-card">
+            <h3>🎯 What is Connect6 Game Online?</h3>
+            <p><strong>Connect6 Game Online</strong> is a fair and balanced strategy game where players connect six stones in a row to win. Unlike traditional Gomoku, Connect6 uses a unique "double-move" rule that naturally balances the first-move advantage. In this digital version, you play against an AI opponent on a 19×19 board. The first to form an unbroken line of six stones horizontally, vertically, or diagonally wins. Simple rules, deep tactics — a true brain sport. Play <strong>Connect6 Online</strong> for free right now and challenge our enhanced AI.</p>
+        </div>
+        <div class="info-card">
+            <h3>📖 How to Play This Connect6 Game</h3>
+            <p>Playing <strong>Connect6 Game</strong> is straightforward but strategically rich: Black places 1 stone first, then both players take turns placing 2 stones per turn. The goal is to be the first to get six stones in a row – horizontally, vertically, or diagonally. Our <strong>Connect6 Online</strong> interface gives you full control: click any intersection to place your stone, then watch the AI respond with 2 stones. Use undo to learn from mistakes and reset to start a fresh challenge.</p>
+        </div>
+        <div class="info-card">
+            <h3>⚡ Why Connect6 is Fairer Than Gomoku</h3>
+            <p>The genius of Connect6 lies in its "double-move" rule. After Black's first move, each player places 2 stones per turn. This ensures the stone count difference is always exactly 1, giving the second player (White) the ability to counterattack effectively. No complex forbidden moves are needed – the game is naturally balanced.</p>
+            <table class="comparison-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>Gomoku</th>
+                    <th>Connect6</th>
+                </tr>
+                <tr>
+                    <td>Stones per turn</td>
+                    <td>1 stone</td>
+                    <td>1st: 1, then 2 stones</td>
+                </tr>
+                <tr>
+                    <td>First move advantage</td>
+                    <td>Huge, needs forbidden moves</td>
+                    <td>Naturally balanced</td>
+                </tr>
+                <tr>
+                    <td>Win condition</td>
+                    <td>Connect 5</td>
+                    <td>Connect 6 or more</td>
+                </tr>
+                <tr>
+                    <td>Complexity</td>
+                    <td>Medium</td>
+                    <td>High (similar to Go)</td>
+                </tr>
+            </table>
+        </div>
+        <div class="info-card">
+            <h3>👥 About the Team – Experience & Authority</h3>
+            <p><strong>Connect6 Online</strong> is developed by a team of board game AI researchers and full-stack engineers with expertise in fair game design and combinatorial game theory. Our goal: deliver the finest <strong>Connect6 Game Online</strong> experience that is both challenging and fair.</p>
+            <p>🔹 <strong>Why trust our AI?</strong> Our AI uses advanced evaluation algorithms that understand Connect6's unique double-move mechanics, providing a challenging yet fair opponent for all skill levels.<br>
+            🔹 <strong>Commitment to fair play:</strong> No hidden tracking, no registration, pure strategy. The game logic is transparent and client-side deterministic. That's the promise of our Connect6 Online platform.<br>
+            🔹 <strong>Last update:</strong> May 2026 – Enhanced AI evaluation for Connect6's unique gameplay.</p>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-title">❓ Frequently Asked Questions about Connect6 Game Online</div>
+        <div class="faq-list">
+            <div class="faq-item"><div class="faq-question"><span>1. How does the AI work in this Connect6 Game?</span><span class="icon">▼</span></div><div class="faq-answer">Easy: Randomized moves with basic evaluation.<br>Medium: Balanced heuristic with double-move awareness.<br>Hard: Advanced evaluation considering Connect6's unique mechanics and strategic depth. This makes our Connect6 Online AI suitable for all skill levels.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>2. Why does Connect6 use 2 stones per turn after the first move?</span><span class="icon">▼</span></div><div class="faq-answer">The "double-move" rule is the key to Connect6's fairness. By allowing 2 stones per turn after the first move, the second player can always counterattack effectively, eliminating the huge first-move advantage that plagues traditional Gomoku.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>3. Can I undo multiple moves while playing Connect6 Online?</span><span class="icon">▼</span></div><div class="faq-answer">Yes! Undo removes the last move (including AI's 2 stones). You can undo step by step back to an empty board. Perfect for learning the nuances of Connect6 strategy.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>4. Is Connect6 more complex than Gomoku?</span><span class="icon">▼</span></div><div class="faq-answer">Yes, Connect6 has much higher complexity, similar to Go. The double-move rule creates exponentially more possible positions and requires deeper strategic thinking. This makes Connect6 a more challenging and rewarding game for experienced players.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>5. What happens if the board fills up without a winner?</span><span class="icon">▼</span></div><div class="faq-answer">If the board is completely filled and no player has connected six stones, the game ends in a draw. This is rare but possible in well-matched games with strong defensive play.</div></div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <div class="footer-links">
+            <a href="/">Gomoku</a> | 
+            <a href="/Connect6/">Connect6</a> | 
+            <a href="/blog/">Blog</a> |
+            <a href="/privacy-policy.html">Privacy</a> | 
+            <a href="/terms-of-use.html">Terms of Use</a> | 
+            <a href="/cookie-policy.html">Cookie Policy</a>
+        </div>
+        <div class="footer-copyright">© 2026 Connect6 Online – Play Free Now. All rights reserved.</div>
+    </div>
+</div>
+
+<div class="winner-modal" id="winnerModal">
+    <div class="winner-content">
+        <h2 id="winnerText">Black Wins!</h2>
+        <p>First to connect six stones</p>
+        <button class="royal-btn primary" onclick="resetGame()">Play Again</button>
+    </div>
+</div>
+
+<script>
+    const BOARD_SIZE = 19;
+    const WIN_LENGTH = 6;
+    const CELL_SIZE = 720 / BOARD_SIZE;
+    const STONE_RADIUS = CELL_SIZE * 0.4;
+    
+    let board = [];
+    let currentPlayer = 'black';
+    let moveCount = 0;
+    let stonesInCurrentTurn = 0;
+    let gameOver = false;
+    let moveHistory = [];
+    let difficulty = 'medium';
+    let isAIThinking = false;
+    let blackStones = 0;
+    let whiteStones = 0;
+
+    const canvas = document.getElementById('connect6Canvas');
+    const ctx = canvas.getContext('2d');
+
+    function initBoard() {
+        board = [];
+        for (let i = 0; i < BOARD_SIZE; i++) {
+            board[i] = [];
+            for (let j = 0; j < BOARD_SIZE; j++) {
+                board[i][j] = null;
+            }
+        }
+        drawBoard();
+    }
+
+    function drawBoard() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.strokeStyle = '#8b6946';
+        ctx.lineWidth = 1;
+        
+        for (let i = 0; i < BOARD_SIZE; i++) {
+            const pos = CELL_SIZE / 2 + i * CELL_SIZE;
+            
+            ctx.beginPath();
+            ctx.moveTo(pos, CELL_SIZE / 2);
+            ctx.lineTo(pos, canvas.height - CELL_SIZE / 2);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(CELL_SIZE / 2, pos);
+            ctx.lineTo(canvas.width - CELL_SIZE / 2, pos);
+            ctx.stroke();
+        }
+        
+        for (let i = 0; i < BOARD_SIZE; i++) {
+            for (let j = 0; j < BOARD_SIZE; j++) {
+                if (board[i][j]) {
+                    drawStone(i, j, board[i][j]);
+                }
+            }
+        }
+        
+        if (moveHistory.length > 0) {
+            const lastMove = moveHistory[moveHistory.length - 1];
+            drawLastMoveMarker(lastMove.row, lastMove.col);
+        }
+    }
+
+    function drawStone(row, col, player) {
+        const x = CELL_SIZE / 2 + col * CELL_SIZE;
+        const y = CELL_SIZE / 2 + row * CELL_SIZE;
+        
+        ctx.beginPath();
+        ctx.arc(x, y, STONE_RADIUS, 0, Math.PI * 2);
+        
+        const gradient = ctx.createRadialGradient(
+            x - STONE_RADIUS * 0.3, y - STONE_RADIUS * 0.3, 0,
+            x, y, STONE_RADIUS
+        );
+        
+        if (player === 'black') {
+            gradient.addColorStop(0, '#555');
+            gradient.addColorStop(1, '#000');
+        } else {
+            gradient.addColorStop(0, '#fff');
+            gradient.addColorStop(1, '#ddd');
+        }
+        
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        
+        if (player === 'white') {
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+        }
+    }
+
+    function drawLastMoveMarker(row, col) {
+        const x = CELL_SIZE / 2 + col * CELL_SIZE;
+        const y = CELL_SIZE / 2 + row * CELL_SIZE;
+        
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#f39c12';
+        ctx.fill();
+    }
+
+    function getBoardPosition(event) {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        
+        const x = (event.clientX - rect.left) * scaleX;
+        const y = (event.clientY - rect.top) * scaleY;
+        
+        const col = Math.floor(x / CELL_SIZE);
+        const row = Math.floor(y / CELL_SIZE);
+        
+        return { row, col };
+    }
+
+    function handleCanvasClick(event) {
+        if (gameOver || isAIThinking) return;
+        
+        const { row, col } = getBoardPosition(event);
+        
+        if (row < 0 || row >= BOARD_SIZE || col < 0 || col >= BOARD_SIZE) return;
+        if (board[row][col]) return;
+        
+        const maxStonesPerTurn = moveCount === 0 ? 1 : 2;
+        if (stonesInCurrentTurn >= maxStonesPerTurn) return;
+        
+        placeStone(row, col);
+        stonesInCurrentTurn++;
+        
+        if (checkWin(row, col)) {
+            gameOver = true;
+            showWinner(currentPlayer);
+            return;
+        }
+        
+        if (stonesInCurrentTurn >= maxStonesPerTurn) {
+            endTurn();
+        } else {
+            updateStatus();
+        }
+        
+        drawBoard();
+    }
+
+    function placeStone(row, col) {
+        board[row][col] = currentPlayer;
+        moveHistory.push({ row, col, player: currentPlayer });
+        
+        if (currentPlayer === 'black') {
+            blackStones++;
+        } else {
+            whiteStones++;
+        }
+        
+        updateCounts();
+    }
+
+    function endTurn() {
+        moveCount++;
+        stonesInCurrentTurn = 0;
+        currentPlayer = currentPlayer === 'black' ? 'white' : 'black';
+        updateStatus();
+        
+        if (currentPlayer === 'white' && !gameOver) {
+            setTimeout(() => makeAIMove(), 500);
+        }
+    }
+
+    function makeAIMove() {
+        isAIThinking = true;
+        updateStatus();
+        
+        const maxStones = moveCount === 0 ? 1 : 2;
+        
+        for (let i = 0; i < maxStones; i++) {
+            const move = getAIMove();
+            if (move) {
+                placeStone(move.row, move.col);
+                stonesInCurrentTurn++;
+                
+                if (checkWin(move.row, move.col)) {
+                    gameOver = true;
+                    showWinner('white');
+                    isAIThinking = false;
+                    drawBoard();
+                    return;
+                }
+            }
+        }
+        
+        isAIThinking = false;
+        endTurn();
+        drawBoard();
+    }
+
+    function getAIMove() {
+        const emptyCells = [];
+        for (let i = 0; i < BOARD_SIZE; i++) {
+            for (let j = 0; j < BOARD_SIZE; j++) {
+                if (!board[i][j]) {
+                    emptyCells.push({ row: i, col: j });
+                }
+            }
+        }
+        
+        if (emptyCells.length === 0) return null;
+        
+        if (difficulty === 'easy') {
+            return emptyCells[Math.floor(Math.random() * emptyCells.length)];
+        }
+        
+        const scoredMoves = emptyCells.map(cell => ({
+            ...cell,
+            score: evaluatePosition(cell.row, cell.col)
+        }));
+        
+        scoredMoves.sort((a, b) => b.score - a.score);
+        
+        if (difficulty === 'medium') {
+            const topMoves = scoredMoves.slice(0, Math.min(5, scoredMoves.length));
+            return topMoves[Math.floor(Math.random() * topMoves.length)];
+        }
+        
+        return scoredMoves[0];
+    }
+
+    function evaluatePosition(row, col) {
+        let score = 0;
+        const directions = [[0, 1], [1, 0], [1, 1], [1, -1]];
+        
+        for (const [dx, dy] of directions) {
+            score += evaluateDirection(row, col, dx, dy, 'white');
+            score += evaluateDirection(row, col, dx, dy, 'black') * 0.9;
+        }
+        
+        const center = Math.floor(BOARD_SIZE / 2);
+        const distFromCenter = Math.abs(row - center) + Math.abs(col - center);
+        score += (BOARD_SIZE - distFromCenter) * 0.5;
+        
+        return score;
+    }
+
+    function evaluateDirection(row, col, dx, dy, player) {
+        let count = 1;
+        let openEnds = 0;
+        
+        for (let i = 1; i < WIN_LENGTH; i++) {
+            const newRow = row + dx * i;
+            const newCol = col + dy * i;
+            if (newRow >= 0 && newRow < BOARD_SIZE && newCol >= 0 && newCol < BOARD_SIZE) {
+                if (board[newRow][newCol] === player) {
+                    count++;
+                } else if (board[newRow][newCol] === null) {
+                    openEnds++;
+                    break;
+                } else {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+        
+        for (let i = 1; i < WIN_LENGTH; i++) {
+            const newRow = row - dx * i;
+            const newCol = col - dy * i;
+            if (newRow >= 0 && newRow < BOARD_SIZE && newCol >= 0 && newCol < BOARD_SIZE) {
+                if (board[newRow][newCol] === player) {
+                    count++;
+                } else if (board[newRow][newCol] === null) {
+                    openEnds++;
+                    break;
+                } else {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+        
+        if (count >= WIN_LENGTH) return 10000;
+        if (count === WIN_LENGTH - 1 && openEnds === 2) return 5000;
+        if (count === WIN_LENGTH - 1 && openEnds === 1) return 1000;
+        if (count === WIN_LENGTH - 2 && openEnds === 2) return 500;
+        if (count === WIN_LENGTH - 2 && openEnds === 1) return 100;
+        if (count === WIN_LENGTH - 3 && openEnds === 2) return 50;
+        
+        return count * 10 + openEnds * 5;
+    }
+
+    function updateStatus() {
+        const tipText = document.getElementById('tipText');
+        const moveIndicator = document.getElementById('moveIndicator');
+        
+        if (isAIThinking) {
+            tipText.textContent = '🤖 AI is thinking...';
+            moveIndicator.textContent = 'AI is calculating best moves';
+        } else {
+            tipText.textContent = currentPlayer === 'black' ? '⚫ Your turn (Black)' : '⚪ AI turn (White)';
+            
+            const maxStones = moveCount === 0 ? 1 : 2;
+            const remaining = maxStones - stonesInCurrentTurn;
+            
+            if (moveCount === 0 && stonesInCurrentTurn === 0) {
+                moveIndicator.textContent = 'First move: Place 1 stone';
+            } else {
+                moveIndicator.textContent = `Place ${remaining} more stone${remaining > 1 ? 's' : ''}`;
+            }
+        }
+    }
+
+    function updateCounts() {
+        document.getElementById('blackCount').textContent = blackStones;
+        document.getElementById('whiteCount').textContent = whiteStones;
+    }
+
+    function checkWin(row, col) {
+        const directions = [[0, 1], [1, 0], [1, 1], [1, -1]];
+        const player = board[row][col];
+        
+        for (const [dx, dy] of directions) {
+            let count = 1;
+            
+            for (let i = 1; i < WIN_LENGTH; i++) {
+                const newRow = row + dx * i;
+                const newCol = col + dy * i;
+                if (newRow >= 0 && newRow < BOARD_SIZE &&
+                    newCol >= 0 && newCol < BOARD_SIZE &&
+                    board[newRow][newCol] === player) {
+                    count++;
+                } else {
+                    break;
+                }
+            }
+            
+            for (let i = 1; i < WIN_LENGTH; i++) {
+                const newRow = row - dx * i;
+                const newCol = col - dy * i;
+                if (newRow >= 0 && newRow < BOARD_SIZE &&
+                    newCol >= 0 && newCol < BOARD_SIZE &&
+                    board[newRow][newCol] === player) {
+                    count++;
+                } else {
+                    break;
+                }
+            }
+            
+            if (count >= WIN_LENGTH) return true;
+        }
+        
+        return false;
+    }
+
+    function showWinner(player) {
+        const modal = document.getElementById('winnerModal');
+        const text = document.getElementById('winnerText');
+        
+        text.textContent = player === 'black' ? '🎉 You Win!' : '🤖 AI Wins!';
+        modal.style.display = 'flex';
+    }
+
+    function undoMove() {
+        if (moveHistory.length === 0 || gameOver || isAIThinking) return;
+        
+        const maxStones = moveCount === 0 ? 1 : 2;
+        const toUndo = Math.min(stonesInCurrentTurn || maxStones, moveHistory.length);
+        
+        for (let i = 0; i < toUndo; i++) {
+            const move = moveHistory.pop();
+            board[move.row][move.col] = null;
+            
+            if (move.player === 'black') {
+                blackStones--;
+            } else {
+                whiteStones--;
+            }
+        }
+        
+        if (stonesInCurrentTurn === 0 && moveCount > 0) {
+            moveCount--;
+            currentPlayer = currentPlayer === 'black' ? 'white' : 'black';
+            stonesInCurrentTurn = moveCount === 0 ? 1 : 2;
+        } else {
+            stonesInCurrentTurn = 0;
+        }
+        
+        updateStatus();
+        updateCounts();
+        drawBoard();
+    }
+
+    function resetGame() {
+        document.getElementById('winnerModal').style.display = 'none';
+        currentPlayer = 'black';
+        moveCount = 0;
+        stonesInCurrentTurn = 0;
+        gameOver = false;
+        moveHistory = [];
+        isAIThinking = false;
+        blackStones = 0;
+        whiteStones = 0;
+        initBoard();
+        updateStatus();
+        updateCounts();
+    }
+
+    function setDifficulty(level) {
+        difficulty = level;
+        document.querySelectorAll('.difficulty-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.diff === level) {
+                btn.classList.add('active');
+            }
+        });
+    }
+
+    canvas.addEventListener('click', handleCanvasClick);
+    
+    document.querySelectorAll('.difficulty-btn').forEach(btn => {
+        btn.addEventListener('click', () => setDifficulty(btn.dataset.diff));
+    });
+    
+    document.getElementById('resetBtn').addEventListener('click', resetGame);
+    document.getElementById('undoBtn').addEventListener('click', undoMove);
+
+    initBoard();
+    updateStatus();
+</script>
+</body>
+</html>
