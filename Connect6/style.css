@@ -1,0 +1,107 @@
+#connect6Canvas {
+    border: 0.5px solid #8b6946;
+    border-radius: 4px;
+    background-color: #e1c78c;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.stones-display {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    background: #ffffff;
+    border-radius: 1rem;
+    border: 1px solid #e9edf2;
+}
+
+.stone-count {
+    text-align: center;
+}
+
+.stone-count .label {
+    font-size: 0.75rem;
+    color: #5f7f9c;
+    margin-bottom: 0.3rem;
+}
+
+.stone-count .number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2c5a7a;
+}
+
+.move-indicator {
+    font-size: 0.85rem;
+    color: #5f7f9c;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.comparison-table th {
+    color: #2c5a7a;
+    font-weight: 600;
+    background: #f8fafc;
+}
+
+.comparison-table td {
+    color: #2c3e44;
+}
+
+.winner-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.winner-content {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 2rem;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    max-width: 400px;
+    animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.winner-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2c5a7a;
+}
+
+.winner-content p {
+    color: #5f7f9c;
+    margin-bottom: 1.5rem;
+}
+
+.winner-content .royal-btn {
+    margin-top: 1rem;
+}
