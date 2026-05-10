@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Connect6 Spiel Online – Kostenlos Jetzt Spielen</title>
+    <meta name="description" content="Spielen Sie Connect6 Online kostenlos. Verbinden Sie sechs Steine in einer Reihe, um zu gewinnen. Fair und ausgewogenes Strategiespiel mit KI-Gegner. Kein Download, keine Registrierung.">
+    <meta property="og:title" content="Connect6 Spiel Online – Kostenlos Jetzt Spielen">
+    <meta property="og:description" content="Spielen Sie das beste Connect6 Online kostenlos! Verbesserte KI, einstellbare Schwierigkeit, keine Registrierung. Fair und ausgewogenes Strategiespiel.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://playgomokugame.com/Connect6/">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EConnect6 Online%3C/text%3E%3C/svg%3E">
+    <meta property="og:image:alt" content="Connect6 Online Vorschau - Fair Strategiespiel">
+    <meta property="og:site_name" content="Connect6 Online">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Connect6 Spiel Online – Kostenlos Jetzt Spielen">
+    <meta name="twitter:description" content="Spielen Sie Connect6 Online kostenlos! Verbesserte KI mit fairer und ausgewogener Gameplay. Verbinden Sie sechs Steine, um zu gewinnen.">
+    <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EConnect6 Online%3C/text%3E%3C/svg%3E">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Ccircle cx='90' cy='90' r='80' fill='%23e1c78c'/%3E%3Ccircle cx='90' cy='90' r='50' fill='%232b2b28'/%3E%3C/svg%3E">
+    <link rel="canonical" href="https://playgomokugame.com/Connect6/index-de.html">
+    <meta name="keywords" content="Connect6, Connect6 Online, Sechs in einer Reihe, KI-Brettspiel, kostenlos, kein Download, faires Spiel, Connect6 Strategie, ausgewogenes Gameplay">
+    <meta name="author" content="Connect6 Online Team – Entwickler fairer Strategiespiele">
+    
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="royal-nav">
+    <div class="nav-container">
+        <div class="logo-area">♛ Connect6 Online</div>
+        <div class="nav-links">
+            <a href="/">Startseite</a>
+            <a href="/Connect6/" class="active">Connect6</a>
+            <a href="/blog/">Blog</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <h1 class="seo-h1">Connect6 Spiel Online – Kostenlos Jetzt Spielen</h1>
+
+    <div class="game-layout">
+        <div class="board-area">
+            <div class="board-simple">
+                <canvas id="connect6Canvas" width="720" height="720" role="img" aria-label="19x19 Connect6 Brett, schwarze und weiße Steine"></canvas>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="diff-section">
+                <div class="diff-title">✦ KI-SCHWIERIGKEIT ✦</div>
+                <div class="difficulty-group">
+                    <button data-diff="easy" class="difficulty-btn">🍃 Einfach</button>
+                    <button data-diff="medium" class="difficulty-btn active">⚡ Mittel</button>
+                    <button data-diff="hard" class="difficulty-btn">🔥 Schwer</button>
+                </div>
+            </div>
+            <div class="info-section">
+                <div class="turn-status" id="tipText">⚫ Dein Zug (Schwarz)</div>
+                <div class="stones-display">
+                    <div class="stone-count">
+                        <div class="label">Schwarz</div>
+                        <div class="number" id="blackCount">0</div>
+                    </div>
+                    <div class="stone-count">
+                        <div class="label">Weiß (KI)</div>
+                        <div class="number" id="whiteCount">0</div>
+                    </div>
+                </div>
+                <div class="move-indicator" id="moveIndicator">Erster Zug: Platziere 1 Stein</div>
+            </div>
+            <div class="action-buttons">
+                <button id="resetBtn" class="royal-btn primary">🔄 Neues Spiel</button>
+                <button id="undoBtn" class="royal-btn">↩️ Zug Rückgängig</button>
+            </div>
+            <div class="language-selector">
+                <div class="lang-label">🌐 Sprache</div>
+                <div class="lang-links">
+                    <a href="/Connect6/" class="lang-link">English</a>
+                    <a href="/Connect6/index-es.html" class="lang-link">Español</a>
+                    <a href="/Connect6/index-fr.html" class="lang-link">Français</a>
+                    <a href="/Connect6/index-de.html" class="lang-link active">Deutsch</a>
+                    <a href="/Connect6/index-ja.html" class="lang-link">日本語</a>
+                    <a href="/Connect6/index-pt.html" class="lang-link">Português</a>
+                    <a href="/Connect6/index-th.html" class="lang-link">ไทย</a>
+                    <a href="/Connect6/index-it.html" class="lang-link">Italiano</a>
+                    <a href="/Connect6/index-hi.html" class="lang-link">हिन्दी</a>
+                    <a href="/Connect6/index-ko.html" class="lang-link">한국어</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-vertical">
+        <div class="info-card">
+            <h3>🎯 Was ist Connect6 Online?</h3>
+            <p><strong>Connect6 Online</strong> ist ein faires und ausgewogenes Strategiespiel, bei dem Spieler sechs Steine in einer Reihe verbinden müssen, um zu gewinnen. Im Gegensatz zum traditionellen Gomoku verwendet dieses Spiel eine einzigartige "Doppelzug"-Regel, die den Vorteil des ersten Zugs natürlich ausgleicht. In dieser digitalen Version spielst du gegen einen KI-Gegner auf einem 19×19-Brett. Wer zuerst eine ununterbrochene Linie von sechs Steinen horizontal, vertikal oder diagonal bildet, gewinnt. Einfache Regeln, tiefe Taktik – eine echte Denksportart. Spiele <strong>Connect6 Online</strong> jetzt kostenlos und fordere unsere verbesserte KI heraus.</p>
+        </div>
+        <div class="info-card">
+            <h3>📖 Wie spielt man Connect6?</h3>
+            <p>Das Spielen von <strong>Connect6</strong> ist einfach, aber strategisch reich: Schwarz platziert zuerst 1 Stein, dann setzen beide Spieler abwechselnd 2 Steine pro Zug. Das Ziel ist es, zuerst sechs Steine in einer Reihe zu bekommen – horizontal, vertikal oder diagonal. Unsere <strong>Connect6 Online</strong>-Schnittstelle gibt dir volle Kontrolle: Klicke auf eine beliebige Kreuzung, um deinen Stein zu setzen, und beobachte, wie die KI mit 2 Steinen antwortet. Nutze Rückgängig, um aus Fehlern zu lernen, und setze zurück, um eine neue Herausforderung zu beginnen.</p>
+        </div>
+        <div class="info-card">
+            <h3>⚡ Warum ist Connect6 fairer als Gomoku?</h3>
+            <p>Das Genie dieses Spiels liegt in seiner "Doppelzug"-Regel. Nach dem ersten Zug von Schwarz platziert jeder Spieler 2 Steine pro Zug. Dadurch wird sichergestellt, dass die Differenz in der Steinanzahl immer genau 1 beträgt, was dem zweiten Spieler (Weiß) die Möglichkeit gibt, effektiv zu kontern. Keine komplexen verbotenen Züge erforderlich – das Spiel ist natürlich ausgewogen.</p>
+            <table class="comparison-table">
+                <tr>
+                    <th>Merkmal</th>
+                    <th>Gomoku</th>
+                    <th>Connect6</th>
+                </tr>
+                <tr>
+                    <td>Steine pro Zug</td>
+                    <td>1 Stein</td>
+                    <td>1. Zug: 1, dann 2 Steine</td>
+                </tr>
+                <tr>
+                    <td>Vorteil des ersten Zugs</td>
+                    <td>Groß, erfordert verbotene Züge</td>
+                    <td>Natürlich ausgewogen</td>
+                </tr>
+                <tr>
+                    <td>Siegbedingung</td>
+                    <td>5 verbinden</td>
+                    <td>6 oder mehr verbinden</td>
+                </tr>
+                <tr>
+                    <td>Komplexität</td>
+                    <td>Mittel</td>
+                    <td>Hoch (ähnlich wie Go)</td>
+                </tr>
+            </table>
+        </div>
+        <div class="info-card">
+            <h3>👥 Über das Team – Erfahrung und Autorität</h3>
+            <p><strong>Connect6 Online</strong> wird von einem Team von Brettspiel-KI-Forschern und Full-Stack-Ingenieuren entwickelt, die Erfahrung im Design fairer Spiele und kombinatorischer Spieltheorie haben. Unser Ziel: Die beste <strong>Connect6 Online</strong>-Erfahrung zu liefern, die sowohl herausfordernd als auch fair ist.</p>
+            <p>🔹 <strong>Warum unserer KI vertrauen?</strong> Unsere KI nutzt fortschrittliche Evaluierungsalgorithmen, die die einzigartige Doppelzug-Mechanik von Connect6 verstehen und einen herausfordernden, aber fairen Gegner für alle Fähigkeitsstufen bieten.<br>
+            🔹 <strong>Engagement für faires Spielen:</strong> Keine versteckte Verfolgung, keine Registrierung, reine Strategie. Die Spiel-Logik ist transparent und client-seitig deterministisch. Das ist das Versprechen unserer Connect6 Online-Plattform.<br>
+            🔹 <strong>Letztes Update:</strong> Mai 2026 – Verbesserte KI-Evaluierung für das einzigartige Gameplay von Connect6.</p>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-title">❓ Häufig gestellte Fragen zu Connect6 Online</div>
+        <div class="faq-list">
+            <div class="faq-item"><div class="faq-question"><span>1. Wie funktioniert die KI in diesem Connect6 Spiel?</span><span class="icon">▼</span></div><div class="faq-answer">Einfach: Zufällige Züge mit grundlegender Evaluierung.<br>Mittel: Ausgewogene Heuristik mit Doppelzug-Bewusstsein.<br>Schwer: Fortschrittliche Evaluierung, die die einzigartige Mechanik und strategische Tiefe des Spiels berücksichtigt. Dies macht unsere Connect6 Online-KI für alle Fähigkeitsstufen geeignet.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>2. Warum verwendet Connect6 nach dem ersten Zug 2 Steine pro Zug?</span><span class="icon">▼</span></div><div class="faq-answer">Die "Doppelzug"-Regel ist der Schlüssel zur Fairness dieses Spiels. Durch die Erlaubnis von 2 Steinen pro Zug nach dem ersten Zug kann der zweite Spieler immer effektiv kontern, wodurch der enorme Vorteil des ersten Zugs beseitigt wird, der das traditionelle Gomoku betrifft.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>3. Kann ich mehrere Züge rückgängig machen, während ich Connect6 Online spiele?</span><span class="icon">▼</span></div><div class="faq-answer">Ja! Rückgängig entfernt den letzten Zug (einschließlich der 2 Steine der KI). Du kannst Schritt für Schritt bis zu einem leeren Brett zurückgehen. Perfekt, um die Nuancen der Strategie zu lernen.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>4. Ist Connect6 komplexer als Gomoku?</span><span class="icon">▼</span></div><div class="faq-answer">Ja, dieses Spiel hat eine viel höhere Komplexität, ähnlich wie Go. Die Doppelzug-Regel schafft exponentiell mehr mögliche Positionen und erfordert ein tieferes strategisches Denken. Dies macht es zu einem herausfordernderen und lohnenderen Spiel für erfahrene Spieler.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>5. Was passiert, wenn das Brett ohne Sieger gefüllt ist?</span><span class="icon">▼</span></div><div class="faq-answer">Wenn das Brett vollständig gefüllt ist und kein Spieler sechs Steine verbunden hat, endet das Spiel unentschieden. Dies ist selten, aber möglich in gut abgestimmten Spielen mit starker defensiver Spielweise.</div></div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <div class="footer-links">
+            <a href="/">Gomoku</a> | 
+            <a href="/blog/">Blog</a> |
+            <a href="/privacy-policy.html">Datenschutz</a> | 
+            <a href="/terms-of-use.html">Nutzungsbedingungen</a> | 
+            <a href="/cookie-policy.html">Cookie-Richtlinie</a>
+        </div>
+        <div class="footer-copyright">© 2026 Connect6 Online – Kostenlos Jetzt Spielen. Alle Rechte vorbehalten.</div>
+    </div>
+</div>
+
+<div class="winner-modal" id="winnerModal">
+    <div class="winner-content">
+        <h2 id="winnerText">Schwarz Gewinnt!</h2>
+        <p>Erster mit sechs verbundenen Steinen</p>
+        <button class="royal-btn primary" onclick="resetGame()">Nochmals Spielen</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T1PM02ZSS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1T1PM02ZSS');
+</script>
+</body>
+</html>

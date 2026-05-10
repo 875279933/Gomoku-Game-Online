@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Jeu Connect6 en Ligne – Jouez Gratuitement Maintenant</title>
+    <meta name="description" content="Jouez au Connect6 en ligne gratuitement. Connectez six pierres en ligne pour gagner. Jeu de stratégie équitable et équilibré avec un adversaire IA. Téléchargement gratuit, inscription gratuite.">
+    <meta property="og:title" content="Jeu Connect6 en Ligne – Jouez Gratuitement Maintenant">
+    <meta property="og:description" content="Jouez au meilleur Connect6 en ligne gratuitement ! IA améliorée, difficulté ajustable, inscription gratuite. Jeu de stratégie équitable et équilibré.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://playgomokugame.com/Connect6/">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EConnect6 Online%3C/text%3E%3C/svg%3E">
+    <meta property="og:image:alt" content="Aperçu Connect6 Online - Jeu de stratégie équitable">
+    <meta property="og:site_name" content="Connect6 Online">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jeu Connect6 en Ligne – Jouez Gratuitement Maintenant">
+    <meta name="twitter:description" content="Jouez au Connect6 en ligne gratuitement ! IA améliorée avec gameplay équitable et équilibré. Connectez six pierres pour gagner.">
+    <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EConnect6 Online%3C/text%3E%3C/svg%3E">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Ccircle cx='90' cy='90' r='80' fill='%23e1c78c'/%3E%3Ccircle cx='90' cy='90' r='50' fill='%232b2b28'/%3E%3C/svg%3E">
+    <link rel="canonical" href="https://playgomokugame.com/Connect6/index-fr.html">
+    <meta name="keywords" content="Connect6, Connect6 en Ligne, Six en Ligne, jeu de plateau IA, gratuit, sans téléchargement, jeu équitable, stratégie connect6, gameplay équilibré">
+    <meta name="author" content="Connect6 Online Team – Développeurs de Jeux de Stratégie Équitables">
+    
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="royal-nav">
+    <div class="nav-container">
+        <div class="logo-area">♛ Connect6 Online</div>
+        <div class="nav-links">
+            <a href="/">Accueil</a>
+            <a href="/Connect6/" class="active">Connect6</a>
+            <a href="/blog/">Blog</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <h1 class="seo-h1">Jeu Connect6 en Ligne – Jouez Gratuitement Maintenant</h1>
+
+    <div class="game-layout">
+        <div class="board-area">
+            <div class="board-simple">
+                <canvas id="connect6Canvas" width="720" height="720" role="img" aria-label="Planche Connect6 19x19, pierres noires et blanches"></canvas>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="diff-section">
+                <div class="diff-title">✦ DIFFICULTÉ IA ✦</div>
+                <div class="difficulty-group">
+                    <button data-diff="easy" class="difficulty-btn">🍃 Facile</button>
+                    <button data-diff="medium" class="difficulty-btn active">⚡ Moyen</button>
+                    <button data-diff="hard" class="difficulty-btn">🔥 Difficile</button>
+                </div>
+            </div>
+            <div class="info-section">
+                <div class="turn-status" id="tipText">⚫ Votre tour (Noir)</div>
+                <div class="stones-display">
+                    <div class="stone-count">
+                        <div class="label">Noir</div>
+                        <div class="number" id="blackCount">0</div>
+                    </div>
+                    <div class="stone-count">
+                        <div class="label">Blanc (IA)</div>
+                        <div class="number" id="whiteCount">0</div>
+                    </div>
+                </div>
+                <div class="move-indicator" id="moveIndicator">Premier coup : Placez 1 pierre</div>
+            </div>
+            <div class="action-buttons">
+                <button id="resetBtn" class="royal-btn primary">🔄 Nouvelle Partie</button>
+                <button id="undoBtn" class="royal-btn">↩️ Annuler le Coup</button>
+            </div>
+            <div class="language-selector">
+                <div class="lang-label">🌐 Langue</div>
+                <div class="lang-links">
+                    <a href="/Connect6/" class="lang-link">English</a>
+                    <a href="/Connect6/index-es.html" class="lang-link">Español</a>
+                    <a href="/Connect6/index-fr.html" class="lang-link active">Français</a>
+                    <a href="/Connect6/index-de.html" class="lang-link">Deutsch</a>
+                    <a href="/Connect6/index-ja.html" class="lang-link">日本語</a>
+                    <a href="/Connect6/index-pt.html" class="lang-link">Português</a>
+                    <a href="/Connect6/index-th.html" class="lang-link">ไทย</a>
+                    <a href="/Connect6/index-it.html" class="lang-link">Italiano</a>
+                    <a href="/Connect6/index-hi.html" class="lang-link">हिन्दी</a>
+                    <a href="/Connect6/index-ko.html" class="lang-link">한국어</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-vertical">
+        <div class="info-card">
+            <h3>🎯 Qu'est-ce que Connect6 en Ligne ?</h3>
+            <p><strong>Connect6 en Ligne</strong> est un jeu de stratégie équitable et équilibré où les joueurs connectent six pierres en ligne pour gagner. Contrairement au Gomoku traditionnel, ce jeu utilise une règle unique de "double coup" qui équilibre naturellement l'avantage du premier joueur. Dans cette version numérique, vous jouez contre un adversaire IA sur un plateau de 19×19. Le premier à former une ligne ininterrompue de six pierres horizontalement, verticalement ou diagonalement gagne. Règles simples, tactiques profondes : un véritable sport mental. Jouez <strong>Connect6 en Ligne</strong> gratuitement maintenant et relevez le défi de notre IA améliorée.</p>
+        </div>
+        <div class="info-card">
+            <h3>📖 Comment Jouer à ce Jeu Connect6</h3>
+            <p>Jouer à <strong>Connect6</strong> est simple mais stratégiquement riche : Noir place 1 pierre en premier, puis les deux joueurs alternent en plaçant 2 pierres par tour. Le but est d'être le premier à obtenir six pierres en ligne – horizontalement, verticalement ou diagonalement. Notre interface <strong>Connect6 en Ligne</strong> vous donne un contrôle total : cliquez sur n'importe quelle intersection pour placer votre pierre, puis observez l'IA répondre avec 2 pierres. Utilisez annuler pour apprendre de vos erreurs et réinitialiser pour commencer un nouveau défi.</p>
+        </div>
+        <div class="info-card">
+            <h3>⚡ Pourquoi Connect6 est-il Plus Équitable que Gomoku ?</h3>
+            <p>Le génie de ce jeu réside dans sa règle du "double coup". Après le premier coup de Noir, chaque joueur place 2 pierres par tour. Cela garantit que la différence de nombre de pierres est toujours exactement de 1, donnant au second joueur (Blanc) la possibilité de contre-attaquer efficacement. Aucun mouvement interdit complexe n'est nécessaire – le jeu est naturellement équilibré.</p>
+            <table class="comparison-table">
+                <tr>
+                    <th>Fonctionnalité</th>
+                    <th>Gomoku</th>
+                    <th>Connect6</th>
+                </tr>
+                <tr>
+                    <td>Pierres par tour</td>
+                    <td>1 pierre</td>
+                    <td>1er : 1, puis 2 pierres</td>
+                </tr>
+                <tr>
+                    <td>Avantage du premier coup</td>
+                    <td>Énorme, nécessite des mouvements interdits</td>
+                    <td>Naturellement équilibré</td>
+                </tr>
+                <tr>
+                    <td>Condition de victoire</td>
+                    <td>Connecter 5</td>
+                    <td>Connecter 6 ou plus</td>
+                </tr>
+                <tr>
+                    <td>Complexité</td>
+                    <td>Moyenne</td>
+                    <td>Élevée (similaire au Go)</td>
+                </tr>
+            </table>
+        </div>
+        <div class="info-card">
+            <h3>👥 À Propos de l'Équipe – Expérience et Autorité</h3>
+            <p><strong>Connect6 en Ligne</strong> est développé par une équipe de chercheurs en IA de jeux de plateau et d'ingénieurs full-stack spécialisés dans le design de jeux équitables et la théorie des jeux combinatoires. Notre objectif : offrir la meilleure expérience <strong>Connect6 en Ligne</strong> à la fois stimulante et équitable.</p>
+            <p>🔹 <strong>Pourquoi faire confiance à notre IA ?</strong> Notre IA utilise des algorithmes d'évaluation avancés qui comprennent la mécanique unique du double coup de Connect6, offrant un adversaire stimulant mais équitable pour tous les niveaux de compétence.<br>
+            🔹 <strong>Engagement envers le jeu équitable :</strong> Aucun suivi caché, aucune inscription, pure stratégie. La logique du jeu est transparente et déterministe côté client. C'est la promesse de notre plateforme Connect6 Online.<br>
+            🔹 <strong>Dernière mise à jour :</strong> Mai 2026 – Évaluation IA améliorée pour le gameplay unique de Connect6.</p>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-title">❓ Questions Fréquentes sur Connect6 en Ligne</div>
+        <div class="faq-list">
+            <div class="faq-item"><div class="faq-question"><span>1. Comment fonctionne l'IA dans ce Jeu Connect6 ?</span><span class="icon">▼</span></div><div class="faq-answer">Facile : Mouvements aléatoires avec évaluation basique.<br>Moyen : Heuristique équilibrée avec conscience du double coup.<br>Difficile : Évaluation avancée tenant compte de la mécanique unique et de la profondeur stratégique du jeu. Cela rend notre IA Connect6 Online adaptée à tous les niveaux de compétence.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>2. Pourquoi Connect6 utilise-t-il 2 pierres par tour après le premier coup ?</span><span class="icon">▼</span></div><div class="faq-answer">La règle du "double coup" est la clé de l'équité de ce jeu. En autorisant 2 pierres par tour après le premier coup, le second joueur peut toujours contre-attaquer efficacement, éliminant l'énorme avantage du premier coup qui affecte le Gomoku traditionnel.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>3. Puis-je annuler plusieurs coups en jouant Connect6 en Ligne ?</span><span class="icon">▼</span></div><div class="faq-answer">Oui ! Annuler supprime le dernier coup (y compris les 2 pierres de l'IA). Vous pouvez annuler étape par étape jusqu'à un plateau vide. Parfait pour apprendre les subtilités de la stratégie.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>4. Connect6 est-il plus complexe que Gomoku ?</span><span class="icon">▼</span></div><div class="faq-answer">Oui, ce jeu a une complexité beaucoup plus élevée, similaire au Go. La règle du double coup crée exponentiellement plus de positions possibles et nécessite une réflexion stratégique plus profonde. Cela en fait un jeu plus stimulant et gratifiant pour les joueurs expérimentés.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>5. Que se passe-t-il si le plateau est rempli sans gagnant ?</span><span class="icon">▼</span></div><div class="faq-answer">Si le plateau est complètement rempli et qu'aucun joueur n'a connecté six pierres, le jeu se termine par un match nul. Cela est rare mais possible dans des parties bien équilibrées avec une défense solide.</div></div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <div class="footer-links">
+            <a href="/">Gomoku</a> | 
+            <a href="/blog/">Blog</a> |
+            <a href="/privacy-policy.html">Confidentialité</a> | 
+            <a href="/terms-of-use.html">Conditions d'Utilisation</a> | 
+            <a href="/cookie-policy.html">Politique de Cookies</a>
+        </div>
+        <div class="footer-copyright">© 2026 Connect6 Online – Jouez Gratuitement Maintenant. Tous droits réservés.</div>
+    </div>
+</div>
+
+<div class="winner-modal" id="winnerModal">
+    <div class="winner-content">
+        <h2 id="winnerText">Noir Gagne !</h2>
+        <p>Premier à connecter six pierres</p>
+        <button class="royal-btn primary" onclick="resetGame()">Jouer à Nouveau</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T1PM02ZSS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1T1PM02ZSS');
+</script>
+</body>
+</html>

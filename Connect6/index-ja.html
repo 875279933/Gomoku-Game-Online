@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Connect6ゲームオンライン – 無料で今すぐプレイ</title>
+    <meta name="description" content="Connect6ゲームをオンラインで無料でプレイ。6個の石を連ねて勝つ。AI対戦の公正でバランスの取れた戦略ゲーム。ダウンロード不要、登録不要。">
+    <meta property="og:title" content="Connect6ゲームオンライン – 無料で今すぐプレイ">
+    <meta property="og:description" content="最高のConnect6ゲームをオンラインで無料でプレイ！強化されたAI、調整可能な難易度、登録不要。公正でバランスの取れた戦略ゲーム。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://playgomokugame.com/Connect6/">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EConnect6 Online%3C/text%3E%3C/svg%3E">
+    <meta property="og:image:alt" content="Connect6オンラインプレビュー - 公正な戦略ゲーム">
+    <meta property="og:site_name" content="Connect6 Online">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Connect6ゲームオンライン – 無料で今すぐプレイ">
+    <meta name="twitter:description" content="Connect6ゲームをオンラインで無料でプレイ！強化されたAIで公正かつバランスの取れたゲームプレイ。6個の石を連ねて勝つ。">
+    <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EConnect6 Online%3C/text%3E%3C/svg%3E">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Ccircle cx='90' cy='90' r='80' fill='%23e1c78c'/%3E%3Ccircle cx='90' cy='90' r='50' fill='%232b2b28'/%3E%3C/svg%3E">
+    <link rel="canonical" href="https://playgomokugame.com/Connect6/index-ja.html">
+    <meta name="keywords" content="Connect6, Connect6オンライン, 六目並べ, AIボードゲーム, 無料, ダウンロード不要, 公正なゲーム, Connect6戦略, バランスの取れたゲームプレイ">
+    <meta name="author" content="Connect6 Onlineチーム – 公正な戦略ゲーム開発者">
+    
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="royal-nav">
+    <div class="nav-container">
+        <div class="logo-area">♛ Connect6 Online</div>
+        <div class="nav-links">
+            <a href="/">ホーム</a>
+            <a href="/Connect6/" class="active">Connect6</a>
+            <a href="/blog/">ブログ</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <h1 class="seo-h1">Connect6ゲームオンライン – 無料で今すぐプレイ</h1>
+
+    <div class="game-layout">
+        <div class="board-area">
+            <div class="board-simple">
+                <canvas id="connect6Canvas" width="720" height="720" role="img" aria-label="19x19 Connect6盤、黒石と白石"></canvas>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="diff-section">
+                <div class="diff-title">✦ AI難易度 ✦</div>
+                <div class="difficulty-group">
+                    <button data-diff="easy" class="difficulty-btn">🍃 簡単</button>
+                    <button data-diff="medium" class="difficulty-btn active">⚡ 普通</button>
+                    <button data-diff="hard" class="difficulty-btn">🔥 難しい</button>
+                </div>
+            </div>
+            <div class="info-section">
+                <div class="turn-status" id="tipText">⚫ あなたのターン（黒）</div>
+                <div class="stones-display">
+                    <div class="stone-count">
+                        <div class="label">黒</div>
+                        <div class="number" id="blackCount">0</div>
+                    </div>
+                    <div class="stone-count">
+                        <div class="label">白（AI）</div>
+                        <div class="number" id="whiteCount">0</div>
+                    </div>
+                </div>
+                <div class="move-indicator" id="moveIndicator">最初の手：1石を置く</div>
+            </div>
+            <div class="action-buttons">
+                <button id="resetBtn" class="royal-btn primary">🔄 新しいゲーム</button>
+                <button id="undoBtn" class="royal-btn">↩️ 手を戻す</button>
+            </div>
+            <div class="language-selector">
+                <div class="lang-label">🌐 言語</div>
+                <div class="lang-links">
+                    <a href="/Connect6/" class="lang-link">English</a>
+                    <a href="/Connect6/index-es.html" class="lang-link">Español</a>
+                    <a href="/Connect6/index-fr.html" class="lang-link">Français</a>
+                    <a href="/Connect6/index-de.html" class="lang-link">Deutsch</a>
+                    <a href="/Connect6/index-ja.html" class="lang-link active">日本語</a>
+                    <a href="/Connect6/index-pt.html" class="lang-link">Português</a>
+                    <a href="/Connect6/index-th.html" class="lang-link">ไทย</a>
+                    <a href="/Connect6/index-it.html" class="lang-link">Italiano</a>
+                    <a href="/Connect6/index-hi.html" class="lang-link">हिन्दी</a>
+                    <a href="/Connect6/index-ko.html" class="lang-link">한국어</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-vertical">
+        <div class="info-card">
+            <h3>🎯 Connect6オンラインとは？</h3>
+            <p><strong>Connect6オンライン</strong>は、プレイヤーが6個の石を連ねて勝つ公正でバランスの取れた戦略ゲームです。伝統的な五目並べとは異なり、このゲームは「ダブルムーブ」ルールを使用して先手の優位性を自然にバランスさせます。このデジタルバージョンでは、19×19の盤でAI対戦を楽しめます。水平、垂直、または対角線方向に6個の石を連ねたプレイヤーが勝者となります。単純なルール、深い戦術 – 真の頭脳スポーツです。<strong>Connect6オンライン</strong>を今すぐ無料でプレイし、強化されたAIに挑戦してください。</p>
+        </div>
+        <div class="info-card">
+            <h3>📖 Connect6の遊び方</h3>
+            <p><strong>Connect6</strong>のプレイはシンプルですが戦略的に豊かです：黒が最初に1石を置き、その後両プレイヤーはターンごとに2石ずつ置きます。目標は、水平、垂直、または対角線方向に6個の石を連ねることです。<strong>Connect6オンライン</strong>のインターフェースは完全なコントロールを提供します：任意の交点をクリックして石を置き、AIが2石で応答するのを見てください。間違いから学ぶために元に戻すを使用し、新しい挑戦を開始するためにリセットしてください。</p>
+        </div>
+        <div class="info-card">
+            <h3>⚡ Connect6が五目並べより公正な理由</h3>
+            <p>このゲームの天才性は「ダブルムーブ」ルールにあります。黒の最初の手の後、各プレイヤーはターンごとに2石を置きます。これにより、石の数の差が常に正確に1となり、後手（白）が効果的に反撃できる能力を与えます。複雑な禁止手は必要ありません – ゲームは自然にバランスが取れています。</p>
+            <table class="comparison-table">
+                <tr>
+                    <th>特徴</th>
+                    <th>五目並べ</th>
+                    <th>Connect6</th>
+                </tr>
+                <tr>
+                    <td>1ターンあたりの石</td>
+                    <td>1石</td>
+                    <td>最初：1、その後：2石</td>
+                </tr>
+                <tr>
+                    <td>先手の優位性</td>
+                    <td>大きい、禁止手が必要</td>
+                    <td>自然にバランス</td>
+                </tr>
+                <tr>
+                    <td>勝利条件</td>
+                    <td>5つ連ねる</td>
+                    <td>6つ以上連ねる</td>
+                </tr>
+                <tr>
+                    <td>複雑さ</td>
+                    <td>中程度</td>
+                    <td>高い（囲碁に類似）</td>
+                </tr>
+            </table>
+        </div>
+        <div class="info-card">
+            <h3>👥 チームについて – 経験と権威</h3>
+            <p><strong>Connect6オンライン</strong>は、公正なゲームデザインと組合せゲーム理論の専門知識を持つボードゲームAI研究者とフルスタックエンジニアのチームによって開発されています。私たちの目標は、挑戦的でありながら公正な最高の<strong>Connect6オンライン</strong>体験を提供することです。</p>
+            <p>🔹 <strong>なぜ私たちのAIを信頼するのか？</strong>私たちのAIはConnect6のユニークなダブルムーブメカニクスを理解する高度な評価アルゴリズムを使用し、すべてのスキルレベルに対して挑戦的で公正な対戦相手を提供します。<br>
+            🔹 <strong>公正なプレイへのコミットメント：</strong>隠しトラッキングなし、登録不要、純粋な戦略。ゲームロジックは透明でクライアント側で決定論的です。これが私たちのConnect6オンラインプラットフォームの約束です。<br>
+            🔹 <strong>最終更新：</strong>2026年5月 – Connect6のユニークなゲームプレイのためのAI評価の強化。</p>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-title">❓ Connect6オンラインに関するよくある質問</div>
+        <div class="faq-list">
+            <div class="faq-item"><div class="faq-question"><span>1. このConnect6ゲームのAIはどのように動作しますか？</span><span class="icon">▼</span></div><div class="faq-answer">簡単：基本的な評価を伴うランダムな手。<br>普通：ダブルムーブを意識したバランスの取れたヒューリスティック。<br>難しい：ゲームのユニークなメカニクスと戦略的深さを考慮した高度な評価。これにより、私たちのConnect6オンラインAIはすべてのスキルレベルに適しています。</div></div>
+            <div class="faq-item"><div class="faq-question"><span>2. Connect6はなぜ最初の手の後に1ターンあたり2石を使用するのですか？</span><span class="icon">▼</span></div><div class="faq-answer">「ダブルムーブ」ルールはこのゲームの公正性の鍵です。最初の手の後に1ターンあたり2石を許可することで、後手は常に効果的に反撃でき、伝統的な五目並べを悩ませる大きな先手の優位性を排除します。</div></div>
+            <div class="faq-item"><div class="faq-question"><span>3. Connect6オンラインをプレイしている間に複数の手を元に戻すことはできますか？</span><span class="icon">▼</span></div><div class="faq-answer">はい！元に戻すは最後の手（AIの2石を含む）を削除します。空の盤まで一歩ずつ元に戻すことができます。戦略のニュアンスを学ぶのに最適です。</div></div>
+            <div class="faq-item"><div class="faq-question"><span>4. Connect6は五目並べより複雑ですか？</span><span class="icon">▼</span></div><div class="faq-answer">はい、このゲームは囲碁に類似しているため、はるかに高い複雑さを持っています。ダブルムーブルールは指数関数的に多くの可能な位置を作成し、より深い戦略的思考を必要とします。これにより、経験豊富なプレイヤーにとってより挑戦的で報われるゲームになっています。</div></div>
+            <div class="faq-item"><div class="faq-question"><span>5. 勝者なしで盤がいっぱいになった場合はどうなりますか？</span><span class="icon">▼</span></div><div class="faq-answer">盤が完全にいっぱいになり、どのプレイヤーも6個の石を連ねていない場合、ゲームは引き分けで終了します。これはまれですが、強い防御プレイのある互角なゲームでは可能です。</div></div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <div class="footer-links">
+            <a href="/">Gomoku</a> | 
+            <a href="/blog/">ブログ</a> |
+            <a href="/privacy-policy.html">プライバシー</a> | 
+            <a href="/terms-of-use.html">利用規約</a> | 
+            <a href="/cookie-policy.html">クッキーポリシー</a>
+        </div>
+        <div class="footer-copyright">© 2026 Connect6 Online – 無料で今すぐプレイ。全著作権所有。</div>
+    </div>
+</div>
+
+<div class="winner-modal" id="winnerModal">
+    <div class="winner-content">
+        <h2 id="winnerText">黒の勝利！</h2>
+        <p>最初に6個の石を連ねた</p>
+        <button class="royal-btn primary" onclick="resetGame()">もう一度プレイ</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T1PM02ZSS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1T1PM02ZSS');
+</script>
+</body>
+</html>

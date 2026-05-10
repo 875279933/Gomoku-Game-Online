@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>เกม Connect6 ออนไลน์ – เล่นฟรีตอนนี้</title>
+    <meta name="description" content="เล่นเกม Connect6 ออนไลน์ฟรี เชื่อมหกก้อนหินเป็นแถวเพื่อชนะ เกมยุทธศาสตร์ที่ยุติธรรมและสมดุลกับตัวต่อสู้ AI ไม่ต้องดาวน์โหลด ไม่ต้องลงทะเบียน">
+    <meta property="og:title" content="เกม Connect6 ออนไลน์ – เล่นฟรีตอนนี้">
+    <meta property="og:description" content="เล่นเกม Connect6 ออนไลน์ฟรีที่ดีที่สุด! AI ที่ได้รับการปรับปรุง ระดับความยากที่ปรับได้ ไม่ต้องลงทะเบียน เกมยุทธศาสตร์ที่ยุติธรรมและสมดุล">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://playgomokugame.com/Connect6/">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EConnect6 Online%3C/text%3E%3C/svg%3E">
+    <meta property="og:image:alt" content="ตัวอย่างเกม Connect6 ออนไลน์ - เกมยุทธศาสตร์ที่ยุติธรรม">
+    <meta property="og:site_name" content="Connect6 Online">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="เกม Connect6 ออนไลน์ – เล่นฟรีตอนนี้">
+    <meta name="twitter:description" content="เล่นเกม Connect6 ออนไลน์ฟรี! AI ที่ได้รับการปรับปรุงด้วยเกมที่ยุติธรรมและสมดุล เชื่อมหกก้อนหินเพื่อชนะ">
+    <meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23e1c78c'/%3E%3Ccircle cx='600' cy='315' r='150' fill='%232b2b28'/%3E%3Ctext x='600' y='380' font-size='48' text-anchor='middle' fill='%23fefef7' font-family='Arial'%3EConnect6 Online%3C/text%3E%3C/svg%3E">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Ccircle cx='90' cy='90' r='80' fill='%23e1c78c'/%3E%3Ccircle cx='90' cy='90' r='50' fill='%232b2b28'/%3E%3C/svg%3E">
+    <link rel="canonical" href="https://playgomokugame.com/Connect6/index-th.html">
+    <meta name="keywords" content="Connect6, Connect6 Online, หกในแถว, เกมกระดาน AI, ฟรี, ไม่ต้องดาวน์โหลด, เกมยุติธรรม, ยุทธศาสตร์ connect6, เกมที่สมดุล">
+    <meta name="author" content="ทีม Connect6 Online – นักพัฒนาเกมยุทธศาสตร์ที่ยุติธรรม">
+    
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="royal-nav">
+    <div class="nav-container">
+        <div class="logo-area">♛ Connect6 Online</div>
+        <div class="nav-links">
+            <a href="/">หน้าแรก</a>
+            <a href="/Connect6/" class="active">Connect6</a>
+            <a href="/blog/">บล็อก</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <h1 class="seo-h1">เกม Connect6 ออนไลน์ – เล่นฟรีตอนนี้</h1>
+
+    <div class="game-layout">
+        <div class="board-area">
+            <div class="board-simple">
+                <canvas id="connect6Canvas" width="720" height="720" role="img" aria-label="กระดาน Connect6 ขนาด 19x19 หินสีดำและขาว"></canvas>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="diff-section">
+                <div class="diff-title">✦ ระดับความยาก AI ✦</div>
+                <div class="difficulty-group">
+                    <button data-diff="easy" class="difficulty-btn">🍃 ง่าย</button>
+                    <button data-diff="medium" class="difficulty-btn active">⚡ ปานกลาง</button>
+                    <button data-diff="hard" class="difficulty-btn">🔥 ยาก</button>
+                </div>
+            </div>
+            <div class="info-section">
+                <div class="turn-status" id="tipText">⚫ ตาของคุณ (สีดำ)</div>
+                <div class="stones-display">
+                    <div class="stone-count">
+                        <div class="label">สีดำ</div>
+                        <div class="number" id="blackCount">0</div>
+                    </div>
+                    <div class="stone-count">
+                        <div class="label">ขาว (AI)</div>
+                        <div class="number" id="whiteCount">0</div>
+                    </div>
+                </div>
+                <div class="move-indicator" id="moveIndicator">ตาแรก: วาง 1 ก้อน</div>
+            </div>
+            <div class="action-buttons">
+                <button id="resetBtn" class="royal-btn primary">🔄 เกมใหม่</button>
+                <button id="undoBtn" class="royal-btn">↩️ ย้อนกลับ</button>
+            </div>
+            <div class="language-selector">
+                <div class="lang-label">🌐 ภาษา</div>
+                <div class="lang-links">
+                    <a href="/Connect6/" class="lang-link">English</a>
+                    <a href="/Connect6/index-es.html" class="lang-link">Español</a>
+                    <a href="/Connect6/index-fr.html" class="lang-link">Français</a>
+                    <a href="/Connect6/index-de.html" class="lang-link">Deutsch</a>
+                    <a href="/Connect6/index-ja.html" class="lang-link">日本語</a>
+                    <a href="/Connect6/index-pt.html" class="lang-link">Português</a>
+                    <a href="/Connect6/index-th.html" class="lang-link active">ไทย</a>
+                    <a href="/Connect6/index-it.html" class="lang-link">Italiano</a>
+                    <a href="/Connect6/index-hi.html" class="lang-link">हिन्दी</a>
+                    <a href="/Connect6/index-ko.html" class="lang-link">한국어</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-vertical">
+        <div class="info-card">
+            <h3>🎯 Connect6 ออนไลน์คืออะไร?</h3>
+            <p><strong>Connect6 ออนไลน์</strong> เป็นเกมยุทธศาสตร์ที่ยุติธรรมและสมดุล ซึ่งผู้เล่นต้องเชื่อมหกก้อนหินเป็นแถวเพื่อชนะ แตกต่างจาก Gomoku ดั้งเดิม เกมนี้ใช้กฎ "การเคลื่อนที่สองครั้ง" ที่เป็นเอกลักษณ์ซึ่งทำให้ข้อดีของการเล่นแรกสมดุลโดยธรรมชาติ ในเวอร์ชันดิจิทัลนี้ คุณเล่นกับตัวต่อสู้ AI บนกระดานขนาด 19×19 ผู้แรกที่สร้างแถวหกก้อนที่ไม่ขาดตอน แนวนอน แนวตั้ง หรือแนวทแยงจะชนะ กฎง่ายๆ ยุทธศาสตร์ลึก – เป็นกีฬาที่ใช้สมองจริงๆ เล่น <strong>Connect6 ออนไลน์</strong> ฟรีตอนนี้และท้าทาย AI ที่ได้รับการปรับปรุงของเรา</p>
+        </div>
+        <div class="info-card">
+            <h3>📖 วิธีเล่นเกม Connect6 นี้</h3>
+            <p>การเล่น <strong>Connect6</strong> มีความเรียบง่าย แต่มีลึกซึ้งทางยุทธศาสตร์: สีดำวาง 1 ก้อนเป็นตาแรก จากนั้นทั้งสองผู้เล่นสลับกันวาง 2 ก้อนต่อตา เป้าหมายคือการเป็นคนแรกที่ได้หกก้อนเป็นแถว – แนวนอน แนวตั้ง หรือแนวทแยง อินเตอร์เฟซ <strong>Connect6 ออนไลน์</strong> ให้การควบคุมเต็มรูปแบบ: คลิกที่จุดตัดใดๆ เพื่อวางหิน แล้วดู AI ตอบสนองด้วย 2 ก้อน ใช้ฟังก์ชันย้อนกลับเพื่อเรียนรู้จากข้อผิดพลาด และรีเซ็ตเพื่อเริ่มท้าทายใหม่</p>
+        </div>
+        <div class="info-card">
+            <h3>⚡ ทำไม Connect6 ยุติธรรมกว่า Gomoku?</h3>
+            <p>ความชาญฉลาดของเกมนี้อยู่ที่กฎ "การเคลื่อนที่สองครั้ง" หลังตาแรกของสีดำ แต่ละผู้เล่นวาง 2 ก้อนต่อตา สิ่งนี้ทำให้ความต่างของจำนวนหินเป็น 1 เสมอ ให้ผู้เล่นที่สอง (สีขาว) สามารถตอบโต้ได้อย่างมีประสิทธิภาพ ไม่จำเป็นต้องมีการเคลื่อนที่ห้ามที่ซับซ้อน – เกมจะสมดุลโดยธรรมชาติ</p>
+            <table class="comparison-table">
+                <tr>
+                    <th>ลักษณะ</th>
+                    <th>Gomoku</th>
+                    <th>Connect6</th>
+                </tr>
+                <tr>
+                    <td>จำนวนหินต่อตา</td>
+                    <td>1 ก้อน</td>
+                    <td>ตาแรก: 1, ต่อไป: 2 ก้อน</td>
+                </tr>
+                <tr>
+                    <td>ข้อดีของการเล่นแรก</td>
+                    <td>มาก มีความจำเป็นต้องห้าม</td>
+                    <td>สมดุลโดยธรรมชาติ</td>
+                </tr>
+                <tr>
+                    <td>เงื่อนไขชนะ</td>
+                    <td>เชื่อม 5</td>
+                    <td>เชื่อม 6 ขึ้นไป</td>
+                </tr>
+                <tr>
+                    <td>ความซับซ้อน</td>
+                    <td>ปานกลาง</td>
+                    <td>สูง (คล้ายกับ Go)</td>
+                </tr>
+            </table>
+        </div>
+        <div class="info-card">
+            <h3>👥 เกี่ยวกับทีม – ประสบการณ์และสิทธิ์</h3>
+            <p><strong>Connect6 ออนไลน์</strong> ถูกพัฒนาโดยทีมนักวิจัย AI เกมกระดานและวิศวกร full-stack ที่มีประสบการณ์ในการออกแบบเกมที่ยุติธรรมและทฤษฎีเกมผสมผสาน เป้าหมายของเรา: ให้ประสบการณ์ <strong>Connect6 ออนไลน์</strong> ที่ดีที่สุด ซึ่งท้าทายและยุติธรรม</p>
+            <p>🔹 <strong>ทำไมถึงเชื่อถือ AI ของเรา?</strong> AI ของเราใช้อัลกอริทึมประเมินขั้นสูงซึ่งเข้าใจกลไกการเคลื่อนที่สองครั้งของ Connect6 ให้ตัวต่อสู้ที่ท้าทายแต่ยุติธรรมสำหรับทุกระดับทักษะ<br>
+            🔹 <strong>ความมุ่งมั่นในการเล่นเกมที่ยุติธรรม:</strong> ไม่มีการติดตามลับ ไม่ต้องลงทะเบียน ยุทธศาสตร์บริสุทธิ์ ตรรกะของเกมโปร่งใสและมีผลตายตัวที่ฝั่งไคลเอ็นต์ นี่คือคำสัญญาของแพลตฟอร์ม Connect6 Online ของเรา<br>
+            🔹 <strong>การอัปเดตล่าสุด:</strong> พฤษภาคม 2026 – ประเมิน AI ที่ได้รับการปรับปรุงสำหรับการเล่นเกม Connect6 ที่เป็นเอกลักษณ์</p>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-title">❓ คำถามที่พบบ่อยเกี่ยวกับ Connect6 Online</div>
+        <div class="faq-list">
+            <div class="faq-item"><div class="faq-question"><span>1. AI ในเกม Connect6 นี้ทำงานอย่างไร?</span><span class="icon">▼</span></div><div class="faq-answer">ง่าย: การเคลื่อนที่แบบสุ่มด้วยการประเมินพื้นฐาน.<br>ปานกลาง: การประเมินที่สมดุลด้วยการตระหนักถึงการเคลื่อนที่สองครั้ง.<br>ยาก: การประเมินขั้นสูงโดยพิจารณากลไกที่เป็นเอกลักษณ์และความลึกของยุทธศาสตร์ของเกม สิ่งนี้ทำให้ AI Connect6 Online ของเราสมบูรณ์สำหรับทุกระดับทักษะ.</div></div>
+            <div class="faq-item"><div class="faq-question"><span>2. ทำไม Connect6 ใช้ 2 ก้อนต่อตา หลังตาแรก?</span><span class="icon">▼</span></div><div class="faq-answer">กฎ "การเคลื่อนที่สองครั้ง" คือกุญแจสำคัญของความยุติธรรมของเกมนี้ โดยอนุญาตให้ใช้ 2 ก้อนต่อตาหลังตาแรก ผู้เล่นที่สองสามารถตอบโต้ได้อย่างมีประสิทธิภาพเสมอ ลบข้อดีอันใหญ่ของการเล่นแรกที่ทำให้ Gomoku ดั้งเดิมมีปัญหา</div></div>
+            <div class="faq-item"><div class="faq-question"><span>3. ฉันสามารถย้อนกลับหลายตาในขณะเล่น Connect6 Online ได้หรือไม่?</span><span class="icon">▼</span></div><div class="faq-answer">ได้! ย้อนกลับจะลบตาล่าสุด (รวมถึง 2 ก้อนของ AI) คุณสามารถย้อนกลับขั้นโดยขั้นจนกระทั่งกระดานว่าง เหมาะสำหรับการเรียนรู้ลักษณะยุทธศาสตร์</div></div>
+            <div class="faq-item"><div class="faq-question"><span>4. Connect6 ซับซ้อนกว่า Gomoku หรือไม่?</span><span class="icon">▼</span></div><div class="faq-answer">ใช่ เกมนี้มีความซับซ้อนสูงกว่ามาก คล้ายกับ Go กฎการเคลื่อนที่สองครั้งสร้างตำแหน่งที่เป็นไปได้มากขึ้นเป็นเลขชี้กำลังและต้องการความคิดยุทธศาสตร์ที่ลึกกว่า สิ่งนี้ทำให้เป็นเกมที่ท้าทายและมีผลตอบแทนสำหรับผู้เล่นที่มีประสบการณ์</div></div>
+            <div class="faq-item"><div class="faq-question"><span>5. จะเกิดอะไรขึ้นหากกระดานเต็มแล้วไม่มีผู้ชนะ?</span><span class="icon">▼</span></div><div class="faq-answer">หากกระดานเต็มแล้วและไม่มีผู้เล่นเชื่อมหกก้อน เกมจะจบลงด้วยผลเสมอ นี่เป็นเรื่องที่หายาก แต่เป็นไปได้ในเกมที่เป็นระดับเดียวกันและมีการป้องกันที่แข็งแกร่ง</div></div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <div class="footer-links">
+            <a href="/">Gomoku</a> | 
+            <a href="/blog/">บล็อก</a> |
+            <a href="/privacy-policy.html">ความเป็นส่วนตัว</a> | 
+            <a href="/terms-of-use.html">ข้อกำหนดการใช้งาน</a> | 
+            <a href="/cookie-policy.html">นโยบายคุกกี้</a>
+        </div>
+        <div class="footer-copyright">© 2026 Connect6 Online – เล่นฟรีตอนนี้. สงวนลิขสิทธิ์.</div>
+    </div>
+</div>
+
+<div class="winner-modal" id="winnerModal">
+    <div class="winner-content">
+        <h2 id="winnerText">สีดำชนะ!</h2>
+        <p>เป็นคนแรกที่เชื่อมหกก้อน</p>
+        <button class="royal-btn primary" onclick="resetGame()">เล่นอีกครั้ง</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T1PM02ZSS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1T1PM02ZSS');
+</script>
+</body>
+</html>
