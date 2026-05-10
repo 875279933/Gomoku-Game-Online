@@ -105,3 +105,44 @@
 .winner-content .royal-btn {
     margin-top: 1rem;
 }
+
+.language-selector {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9edf2;
+}
+
+.lang-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #5f7f9c;
+    margin-bottom: 0.8rem;
+}
+
+.lang-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.lang-link {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    color: #5f7f9c;
+    background: #f8fafc;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.lang-link:hover {
+    background: #e8f5e9;
+    color: #2c5e2e;
+    border-color: #c8e6c9;
+}
+
+.lang-link.active {
+    background: #2c5e2e;
+    color: white;
+}
