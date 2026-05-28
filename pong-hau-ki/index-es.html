@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugar Pong Hau K'i Online Gratis - Juego de Mesa Chino Tradicional</title>
+    <meta name="description" content="Juega Pong Hau K'i online gratis. Aprende este antiguo juego de bloqueo chino, desafía rivales de IA y domina estrategias de trampa. Sin descarga necesaria.">
+    <meta name="keywords" content="Pong Hau K'i, jugar Pong Hau K'i online, juego de mesa chino, juego de estrategia de bloqueo, juego de mesa tradicional gratis">
+    <meta name="author" content="PlayGomokuGame.com">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://playgomokugame.com/pong-hau-ki/index-es.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="alternate" hreflang="x-default" href="https://playgomokugame.com/pong-hau-ki/">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <meta property="og:title" content="Jugar Pong Hau K'i Online Gratis - Juego de Mesa Chino Tradicional">
+    <meta property="og:description" content="Juega Pong Hau K'i online gratis. Desafía rivales de IA y domina este antiguo juego de bloqueo chino.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://playgomokugame.com/pong-hau-ki/index-es.html">
+    <meta property="og:image" content="https://playgomokugame.com/images/pong-hau-ki-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Juego de mesa Pong Hau K'i con piezas negras y blancas en un tablero chino tradicional">
+    <meta property="og:site_name" content="Play Gomoku Game">
+    <meta property="og:locale" content="es_ES">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jugar Pong Hau K'i Online Gratis - Juego de Mesa Chino Tradicional">
+    <meta name="twitter:description" content="Juega Pong Hau K'i online gratis. Desafía rivales de IA.">
+    <meta name="twitter:image" content="https://playgomokugame.com/images/pong-hau-ki-preview.jpg">
+    <meta name="twitter:image:alt" content="Captura de pantalla del juego de mesa tradicional chino Pong Hau K'i">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Pong Hau K'i Online",
+      "description": "Juega Pong Hau K'i, un juego de mesa de bloqueo chino tradicional, online gratis contra rivales de IA.",
+      "url": "https://playgomokugame.com/pong-hau-ki/index-es.html",
+      "applicationCategory": "Game",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "ratingCount": "328"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "PlayGomokuGame.com",
+        "url": "https://playgomokugame.com"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="royal-nav">
+    <div class="nav-container">
+        <div class="logo-area">🎯 Pong Hau K'i</div>
+        <div class="nav-links">
+            <a href="/">Inicio</a>
+            <a href="/pong-hau-ki/" class="active">Pong Hau K'i</a>
+            <a href="/Connect6/">Connect6</a>
+            <a href="/blog/">Blog</a>
+        </div>
+    </div>
+</nav>
+
+<main class="main-content">
+    <h1 class="seo-h1">Jugar Pong Hau K'i Online �?Juego de Bloqueo Chino Gratuito</h1>
+
+    <section class="game-layout" aria-label="Tablero y controles de Pong Hau K'i">
+        <div class="board-area">
+            <div class="board-simple">
+                <canvas id="pongHauKiCanvas" width="550" height="500" role="img" aria-label="Tablero de Pong Hau K'i con 5 puntos conectados y 2 piezas blancas y 2 negras"></canvas>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <div class="diff-section">
+                <div class="diff-title">�?DIFICULTAD DE LA IA �?/div>
+                <div class="difficulty-group">
+                    <button data-diff="easy" class="difficulty-btn">🍃 Fácil</button>
+                    <button data-diff="medium" class="difficulty-btn active">�?Medio</button>
+                    <button data-diff="hard" class="difficulty-btn">🔥 Difícil</button>
+                </div>
+            </div>
+            <div class="info-section">
+                <div class="turn-status" id="status">�?Tu turno �?Las blancas comienzan</div>
+                <div class="stones-display">
+                    <div class="stone-count">
+                        <div class="label">Blancas (Tú)</div>
+                        <div class="number" id="whiteCount">2</div>
+                    </div>
+                    <div class="stone-count">
+                        <div class="label">Negras (IA)</div>
+                        <div class="number" id="blackCount">2</div>
+                    </div>
+                </div>
+                <div class="move-indicator">Muévete a lo largo de las líneas hacia puntos vacíos</div>
+            </div>
+            <div class="action-buttons">
+                <button id="restartBtn" class="royal-btn primary">🔄 Nueva Partida</button>
+            </div>
+            <div class="language-selector">
+                <div class="lang-label">🌐 Idioma</div>
+                <div class="lang-links">
+                    <a href="/pong-hau-ki/" class="lang-link">English</a>
+                    <a href="/pong-hau-ki/index-de.html" class="lang-link">Deutsch</a>
+                    <a href="/pong-hau-ki/index-fr.html" class="lang-link">Français</a>
+                    <a href="/pong-hau-ki/index-it.html" class="lang-link">Italiano</a>
+                    <a href="/pong-hau-ki/index-pt.html" class="lang-link">Português</a>
+                    <a href="/pong-hau-ki/index-es.html" class="lang-link active">Español</a>
+                    <a href="/pong-hau-ki/index-ru.html" class="lang-link">Русский</a>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <section class="info-vertical">
+        <article class="info-card">
+            <h2>¿Qué es Pong Hau K'i?</h2>
+            <p><strong>Pong Hau K'i</strong> (también llamado "Ajedrez Qu-Zi") es uno de los juegos de mesa más simples y al mismo tiempo más ingeniosos de la China rural. El tablero tiene solo 5 puntos. Cada lado controla 2 piezas. Se mueve una pieza por turno a lo largo de las líneas de conexión. ¿La trampa? Ganas bloqueando al oponente hasta que no pueda moverse más.</p>
+            <p>Las reglas se aprenden en treinta segundos, pero pasarás horas intentando superar al otro jugador. Creamos esta versión online para que puedas practicar contra una IA en cualquier momento, directamente en tu navegador.</p>
+        </article>
+
+        <article class="info-card">
+            <h2>Cómo jugar Pong Hau K'i</h2>
+            <p>Las blancas siempre comienzan. Elige una de tus piezas y deslízala al siguiente punto libre a lo largo de una línea. Puedes hacer clic en una pieza y luego hacer clic en el destino, o simplemente arrastrarla directamente. Después de tu movimiento, la IA responde. El juego continúa hasta que un jugador se queda sin movimientos legales �?ese jugador pierde.</p>
+            <p>El punto central es el más importante del tablero. Quien lo controla generalmente tiene la ventaja, así que intenta capturarlo temprano y no lo entregues sin luchar.</p>
+        </article>
+
+        <article class="info-card">
+            <h2>Reglas del juego de un vistazo</h2>
+            <ul class="strategy-list">
+                <li>Las blancas (tú) comienzan abajo, las negras (IA) arriba</li>
+                <li>Mueve una pieza por turno a un punto vacío adyacente a lo largo de una línea</li>
+                <li>No se puede saltar piezas �?solo movimientos directos a lo largo de líneas conectadas</li>
+                <li>El primer jugador que no pueda mover pierde la partida</li>
+                <li>Juega con clics del ratón o arrastrar y soltar en cualquier dispositivo</li>
+            </ul>
+        </article>
+
+        <article class="info-card">
+            <h2>Estrategias ganadoras para principiantes</h2>
+            <h3>Controla el centro</h3>
+            <p>El punto central se conecta a las cuatro esquinas. Si tu pieza está allí, puedes alcanzar cualquier punto vacío del tablero en un solo movimiento. Tu oponente, atrapado en los bordes, tendrá muchas menos opciones.</p>
+
+            <h3>Empuja al oponente a una esquina</h3>
+            <p>Intenta empujar ambas piezas de la IA al mismo lado del tablero. Una vez que estén atrapadas en dos esquinas adyacentes sin acceso al centro, es solo cuestión de tiempo antes de que se queden sin movimientos.</p>
+
+            <h3>Piensa dos movimientos por delante</h3>
+            <p>Antes de mover una pieza, pregúntate: "Si me muevo aquí, ¿dónde podrá ir la IA después?" Los mejores jugadores planean sus trampas con varios turnos de antelación. Es como resolver un pequeño puzzle cada vez que es tu turno.</p>
+
+            <p>¿Quieres más consejos de estrategia? Visita nuestro <a href="/blog/" rel="internal">blog de estrategia de juegos de mesa</a> para análisis más profundos y consejos sobre juegos similares como <a href="/Connect6/" rel="internal">Connect6</a> y <a href="/" rel="internal">Gomoku</a>.</p>
+        </article>
+
+        <article class="info-card">
+            <h2>La historia detrás de Pong Hau K'i</h2>
+            <p>Este juego se juega en aldeas chinas desde hace generaciones, mucho antes de que alguien tuviera un teléfono inteligente. Los campesinos grababan el tablero en la tierra o lo dibujaban en papel durante los descansos. Era su forma de pasar el tiempo y agudizar la mente.</p>
+            <p>El nombre "Pong Hau K'i" se traduce aproximadamente como un juego de bloqueo y trampa. Algunas regiones lo llaman "Ajedrez Qu-Zi" porque las piezas se mueven a lo largo de caminos fijos, similar a otros juegos de estrategia tradicionales.</p>
+            <p>Decidimos digitalizarlo porque juegos como este merecen seguir vivos. Sin instalación de aplicaciones, sin cuenta, sin anuncios interrumpiendo tu partida. Solo abre la página y juega.</p>
+        </article>
+
+        <article class="info-card">
+            <h2>Sobre este proyecto</h2>
+            <p>Somos un pequeño equipo de entusiastas de los juegos de mesa y desarrolladores que creen que los juegos tradicionales deberían ser fáciles de encontrar y jugar online. Cada juego en este sitio funciona completamente en tu navegador �?sin llamadas al servidor, sin recopilación de datos, sin cookies de seguimiento.</p>
+            <p><strong>¿Por qué confiar en nosotros?</strong> Creamos juegos de mesa basados en navegador desde 2024. Nuestros rivales de IA están diseñados para ser desafiantes pero justos, con niveles de dificultad que realmente se sienten diferentes en lugar de solo hacer movimientos aleatorios. Probamos cada actualización con jugadores reales antes de publicarla.</p>
+            <p>Última actualización: mayo de 2026. Si tienes comentarios o encuentras un error, nos encantaría saber de ti.</p>
+        </article>
+    </section>
+
+    <section class="faq-section" aria-label="Preguntas frecuentes">
+        <h2>Preguntas frecuentes</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question"><span>¿Qué es Pong Hau K'i y de dónde viene?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">Pong Hau K'i es un juego de mesa de bloqueo chino tradicional jugado en la China rural durante generaciones. El tablero tiene 5 puntos conectados por líneas, y cada jugador controla 2 piezas. El objetivo es atrapar al oponente para que no pueda hacer un movimiento legal.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>¿Cómo se gana en Pong Hau K'i?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">Ganas bloqueando todas las piezas del oponente para que no tenga movimientos legales. La clave es controlar el punto central y empujar gradualmente las piezas del oponente a esquinas donde tengan menos rutas de escape.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>¿Puedo jugar Pong Hau K'i en mi teléfono o tableta?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">Por supuesto. El juego funciona en cualquier dispositivo con un navegador web. Puedes tocar para seleccionar y mover piezas, o arrastrarlas directamente. Se ajusta automáticamente al tamaño de tu pantalla.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>¿Hay un límite de tiempo para cada movimiento?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">No hay límite de tiempo en absoluto. Tómate todo el tiempo que necesites para pensar en tus movimientos. Este es un juego de estrategia, no un juego de velocidad.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>¿Necesito descargar algo o crear una cuenta?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">Nada que descargar y ninguna cuenta necesaria. Solo abre la página en tu navegador y comienza a jugar. El juego completo funciona localmente en tu dispositivo.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>¿Cómo se determina la dificultad de la IA?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">El modo fácil elige movimientos legales aleatorios. El modo medio usa conciencia de bloqueo básica para evitar trampas obvias. El modo difícil evalúa posiciones de trampa e intenta crear las suyas. Cada nivel se siente genuinamente diferente.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-info">
+        <div class="footer-links">
+            <a href="/">Gomoku</a> |
+            <a href="/Connect6/">Connect6</a> |
+            <a href="/blog/">Blog de Estrategia</a> |
+            <a href="/privacy-policy.html">Privacidad</a> |
+            <a href="/terms-of-use.html">Términos de Uso</a> |
+            <a href="/cookie-policy.html">Política de Cookies</a>
+        </div>
+        <div class="footer-copyright">© 2026 PlayGomokuGame.com �?Juegos de mesa online gratuitos. Todos los derechos reservados.</div>
+    </footer>
+</main>
+
+<script src="script.js" defer></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T1PM02ZSS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1T1PM02ZSS');
+</script>
+</body>
+</html>

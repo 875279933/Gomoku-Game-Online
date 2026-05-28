@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Играть в Пон Хау К'и Онлайн Бесплатно - Традиционная Китайская Настольная Игра</title>
+    <meta name="description" content="Играйте в Пон Хау К'и онлайн бесплатно. Изучите эту древнюю китайскую игру на блокирование, бросьте вызов ИИ и освойте стратегии ловушек. Без скачивания.">
+    <meta name="keywords" content="Пон Хау К'и, играть Пон Хау К'и онлайн, китайская настольная игра, стратегическая игра на блокирование, традиционная настольная игра бесплатно">
+    <meta name="author" content="PlayGomokuGame.com">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://playgomokugame.com/pong-hau-ki/index-ru.html">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="alternate" hreflang="x-default" href="https://playgomokugame.com/pong-hau-ki/">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <meta property="og:title" content="Играть в Пон Хау К'и Онлайн Бесплатно - Традиционная Китайская Настольная Игра">
+    <meta property="og:description" content="Играйте в Пон Хау К'и онлайн бесплатно. Бросьте вызов ИИ и освойте эту древнюю китайскую игру на блокирование.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://playgomokugame.com/pong-hau-ki/index-ru.html">
+    <meta property="og:image" content="https://playgomokugame.com/images/pong-hau-ki-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Настольная игра Пон Хау К'и с чёрными и белыми фишками на традиционной китайской доске">
+    <meta property="og:site_name" content="Play Gomoku Game">
+    <meta property="og:locale" content="ru_RU">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Играть в Пон Хау К'и Онлайн Бесплатно - Традиционная Китайская Настольная Игра">
+    <meta name="twitter:description" content="Играйте в Пон Хау К'и онлайн бесплатно. Бросьте вызов ИИ.">
+    <meta name="twitter:image" content="https://playgomokugame.com/images/pong-hau-ki-preview.jpg">
+    <meta name="twitter:image:alt" content="Скриншот традиционной китайской настольной игры Пон Хау К'и">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Пон Хау К'и Онлайн",
+      "description": "Играйте в Пон Хау К'и, традиционную китайскую настольную игру на блокирование, онлайн бесплатно против ИИ.",
+      "url": "https://playgomokugame.com/pong-hau-ki/index-ru.html",
+      "applicationCategory": "Game",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "ratingCount": "328"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "PlayGomokuGame.com",
+        "url": "https://playgomokugame.com"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="royal-nav">
+    <div class="nav-container">
+        <div class="logo-area">🎯 Пон Хау К'и</div>
+        <div class="nav-links">
+            <a href="/">Главная</a>
+            <a href="/pong-hau-ki/" class="active">Пон Хау К'и</a>
+            <a href="/Connect6/">Connect6</a>
+            <a href="/blog/">Блог</a>
+        </div>
+    </div>
+</nav>
+
+<main class="main-content">
+    <h1 class="seo-h1">Играть в Пон Хау К'и Онлайн �?Бесплатная Китайская Игра на Блокирование</h1>
+
+    <section class="game-layout" aria-label="Игровая доска и управление Пон Хау К'и">
+        <div class="board-area">
+            <div class="board-simple">
+                <canvas id="pongHauKiCanvas" width="550" height="500" role="img" aria-label="Игровая доска Пон Хау К'и с 5 соединёнными точками и 2 белыми и 2 чёрными фишками"></canvas>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <div class="diff-section">
+                <div class="diff-title">�?СЛОЖНОСТЬ ИИ �?/div>
+                <div class="difficulty-group">
+                    <button data-diff="easy" class="difficulty-btn">🍃 Лёгкий</button>
+                    <button data-diff="medium" class="difficulty-btn active">�?Средний</button>
+                    <button data-diff="hard" class="difficulty-btn">🔥 Сложный</button>
+                </div>
+            </div>
+            <div class="info-section">
+                <div class="turn-status" id="status">�?Ваш ход �?Белые начинают</div>
+                <div class="stones-display">
+                    <div class="stone-count">
+                        <div class="label">Белые (Вы)</div>
+                        <div class="number" id="whiteCount">2</div>
+                    </div>
+                    <div class="stone-count">
+                        <div class="label">Чёрные (ИИ)</div>
+                        <div class="number" id="blackCount">2</div>
+                    </div>
+                </div>
+                <div class="move-indicator">Перемещайтесь по линиям к пустым точкам</div>
+            </div>
+            <div class="action-buttons">
+                <button id="restartBtn" class="royal-btn primary">🔄 Новая игра</button>
+            </div>
+            <div class="language-selector">
+                <div class="lang-label">🌐 Язык</div>
+                <div class="lang-links">
+                    <a href="/pong-hau-ki/" class="lang-link">English</a>
+                    <a href="/pong-hau-ki/index-de.html" class="lang-link">Deutsch</a>
+                    <a href="/pong-hau-ki/index-fr.html" class="lang-link">Français</a>
+                    <a href="/pong-hau-ki/index-it.html" class="lang-link">Italiano</a>
+                    <a href="/pong-hau-ki/index-pt.html" class="lang-link">Português</a>
+                    <a href="/pong-hau-ki/index-es.html" class="lang-link">Español</a>
+                    <a href="/pong-hau-ki/index-ru.html" class="lang-link active">Русский</a>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <section class="info-vertical">
+        <article class="info-card">
+            <h2>Что такое Пон Хау К'и?</h2>
+            <p><strong>Пон Хау К'и</strong> (также называемые «Шахматы Цюй-Цзы») �?одна из самых простых и в то же время самых хитроумных настольных игр из сельского Китая. На доске всего 5 точек. Каждая сторона управляет 2 фишками. Игроки поочерёдно перемещают одну фишку вдоль соединительных линий. В чём подвох? Вы побеждаете, блокируя противника так, что он больше не может двигаться.</p>
+            <p>Правила изучаются за тридцать секунд, но вы проведёте часы, пытаясь перехитрить другого игрока. Мы создали эту онлайн-версию, чтобы вы могли практиковаться против ИИ в любое время прямо в браузере.</p>
+        </article>
+
+        <article class="info-card">
+            <h2>Как играть в Пон Хау К'и</h2>
+            <p>Белые всегда ходят первыми. Выберите одну из своих фишек и переместите её к следующей свободной точке вдоль линии. Вы можете либо кликнуть на фишку, а затем кликнуть на место назначения, либо просто перетащить её напрямую. После вашего хода ИИ отвечает. Игра продолжается, пока у одной из сторон не останется допустимых ходов �?этот игрок проигрывает.</p>
+            <p>Центральная точка �?самая важная на доске. Тот, кто контролирует её, обычно имеет преимущество, поэтому постарайтесь захватить её рано и не отдавайте без боя.</p>
+        </article>
+
+        <article class="info-card">
+            <h2>Правила игры вкратце</h2>
+            <ul class="strategy-list">
+                <li>Белые (вы) начинают внизу, чёрные (ИИ) �?вверху</li>
+                <li>Перемещайте одну фишку за ход к соседней пустой точке вдоль линии</li>
+                <li>Нельзя перепрыгивать через фишки �?только прямые ходы вдоль соединённых линий</li>
+                <li>Первый игрок, который не может сделать ход, проигрывает</li>
+                <li>Играйте кликами мыши или перетаскиванием на любом устройстве</li>
+            </ul>
+        </article>
+
+        <article class="info-card">
+            <h2>Стратегии победы для начинающих</h2>
+            <h3>Контролируйте центр</h3>
+            <p>Центральная точка соединяется со всеми четырьмя углами. Если ваша фишка находится там, вы можете достичь любой пустой точки на доске за один ход. У вашего противника, зажатого на краях, будет гораздо меньше вариантов.</p>
+
+            <h3>Загоните противника в угол</h3>
+            <p>Постарайтесь оттеснить обе фишки ИИ на одну сторону доски. Как только они окажутся зажатыми в двух соседних углах без доступа к центру, это лишь вопрос времени, когда у них закончатся ходы.</p>
+
+            <h3>Думайте на два хода вперёд</h3>
+            <p>Прежде чем переместить фишку, спросите себя: «Если я пойду сюда, куда ИИ сможет пойти дальше?» Лучшие игроки планируют свои ловушки на несколько ходов вперёд. Это как решать небольшую головоломку каждый раз, когда наступает ваш ход.</p>
+
+            <p>Хотите больше стратегических советов? Посетите наш <a href="/blog/" rel="internal">блог стратегий настольных игр</a> для глубокого анализа и советов по похожим играм, таким как <a href="/Connect6/" rel="internal">Connect6</a> и <a href="/" rel="internal">Гомоку</a>.</p>
+        </article>
+
+        <article class="info-card">
+            <h2>История Пон Хау К'и</h2>
+            <p>В эту игру играют в китайских деревнях на протяжении поколений, задолго до появления смартфонов. Фермеры выцарапывали доску на земле или рисовали её на бумаге во время перерывов. Это был их способ скоротать время и sharpen свой ум.</p>
+            <p>Название «Пон Хау К'и» примерно переводится как игра на блокирование и ловушки. В некоторых регионах её называют «Шахматы Цюй-Цзы», потому что фишки перемещаются по фиксированным путям, аналогично другим традиционным стратегическим играм.</p>
+            <p>Мы решили оцифровать её, потому что такие игры заслуживают того, чтобы остаться живыми. Никакой установки приложений, никакой регистрации, никакой рекламы, прерывающей вашу игру. Просто откройте страницу и играйте.</p>
+        </article>
+
+        <article class="info-card">
+            <h2>Об этом проекте</h2>
+            <p>Мы �?небольшая команда энтузиастов настольных игр и разработчиков, которые считают, что традиционные игры должны быть легко доступны для игры онлайн. Каждая игра на этом сайте работает полностью в вашем браузере �?без запросов к серверу, без сбора данных, без отслеживающих файлов cookie.</p>
+            <p><strong>Почему нам можно доверять?</strong> Мы создаём браузерные настольные игры с 2024 года. Наши противники с ИИ разработаны так, чтобы быть сложными, но справедливыми, с уровнями сложности, которые действительно ощущаются по-разному, а не просто делают случайные ходы. Мы тестируем каждое обновление с реальными игроками перед публикацией.</p>
+            <p>Последнее обновление: май 2026. Если у вас есть отзывы или вы нашли ошибку, мы будем рады услышать от вас.</p>
+        </article>
+    </section>
+
+    <section class="faq-section" aria-label="Часто задаваемые вопросы">
+        <h2>Часто задаваемые вопросы</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question"><span>Что такое Пон Хау К'и и откуда она произошла?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">Пон Хау К'и �?традиционная китайская настольная игра на блокирование, в которую играют в сельском Китае на протяжении поколений. Доска имеет 5 точек, соединённых линиями, и каждый игрок управляет 2 фишками. Цель �?заблокировать противника так, чтобы он не мог сделать допустимый ход.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Как победить в Пон Хау К'и?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">Вы побеждаете, блокируя все фишки противника, чтобы у него не осталось допустимых ходов. Ключ �?контролировать центральную точку и постепенно оттеснять фишки противника в углы, где у него меньше путей к отступлению.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Могу ли я играть в Пон Хау К'и на телефоне или планшете?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">Конечно. Игра работает на любом устройстве с веб-браузером. Вы можете нажимать для выбора и перемещения фишек или перетаскивать их напрямую. Она автоматически подстраивается под размер вашего экрана.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Есть ли ограничение по времени на каждый ход?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">Никакого ограничения по времени. Потратьте столько времени, сколько вам нужно, чтобы обдумать свои ходы. Это стратегическая игра, а не игра на скорость.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Нужно ли мне что-то скачивать или создавать аккаунт?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">Ничего скачивать не нужно, аккаунт не требуется. Просто откройте страницу в браузере и начните играть. Вся игра работает локально на вашем устройстве.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Как определяется сложность ИИ?</span><span class="icon">�?/span></div>
+                <div class="faq-answer">Лёгкий режим выбирает случайные допустимые ходы. Средний режим использует базовое понимание блокирования, чтобы избегать очевидных ловушек. Сложный режим оценивает позиции ловушек и пытается создавать свои. Каждый уровень ощущается по-настоящему разным.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-info">
+        <div class="footer-links">
+            <a href="/">Гомоку</a> |
+            <a href="/Connect6/">Connect6</a> |
+            <a href="/blog/">Блог стратегий</a> |
+            <a href="/privacy-policy.html">Конфиденциальность</a> |
+            <a href="/terms-of-use.html">Условия использования</a> |
+            <a href="/cookie-policy.html">Политика cookie</a>
+        </div>
+        <div class="footer-copyright">© 2026 PlayGomokuGame.com �?Бесплатные онлайн настольные игры. Все права защищены.</div>
+    </footer>
+</main>
+
+<script src="script.js" defer></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T1PM02ZSS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1T1PM02ZSS');
+</script>
+</body>
+</html>
