@@ -145,6 +145,51 @@
     </url>
 
     <url>
+        <loc>https://playgomokugame.com/Pong-Hau-Ki/</loc>
+        <lastmod>2026-05-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Pong Hau K'i multilingual versions -->
+    <url>
+        <loc>https://playgomokugame.com/Pong-Hau-Ki/index-de.html</loc>
+        <lastmod>2026-05-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://playgomokugame.com/Pong-Hau-Ki/index-fr.html</loc>
+        <lastmod>2026-05-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://playgomokugame.com/Pong-Hau-Ki/index-it.html</loc>
+        <lastmod>2026-05-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://playgomokugame.com/Pong-Hau-Ki/index-pt.html</loc>
+        <lastmod>2026-05-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://playgomokugame.com/Pong-Hau-Ki/index-es.html</loc>
+        <lastmod>2026-05-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://playgomokugame.com/Pong-Hau-Ki/index-ru.html</loc>
+        <lastmod>2026-05-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
         <loc>https://playgomokugame.com/blog/</loc>
         <lastmod>2026-05-04</lastmod>
         <changefreq>weekly</changefreq>
