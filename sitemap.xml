@@ -231,4 +231,18 @@
         <priority>0.4</priority>
     </url>
 
+    <url>
+        <loc>https://playgomokugame.com/disclaimer.html</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+
+    <url>
+        <loc>https://playgomokugame.com/contact.html</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+
 </urlset>
