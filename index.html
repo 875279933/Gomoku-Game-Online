@@ -115,6 +115,48 @@
     </div>
 
     <div class="info-vertical">
+        <div class="social-share">
+            <span class="share-label">Share this game:</span>
+            <div class="share-buttons">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://playgomokugame.com/" target="_blank" rel="noopener noreferrer" class="share-btn facebook" aria-label="Share on Facebook">
+                    <span class="share-icon">📘</span>
+                    <span class="share-text">Facebook</span>
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=https://playgomokugame.com/&text=Play%20Gomoku%20Game%20Online%20for%20free%20-%20Classic%20Five%20in%20a%20Row" target="_blank" rel="noopener noreferrer" class="share-btn twitter" aria-label="Share on X (Twitter)">
+                    <span class="share-icon">🐦</span>
+                    <span class="share-text">X</span>
+                </a>
+                <a href="https://pinterest.com/pin/create/button/?url=https://playgomokugame.com/&description=Play%20Gomoku%20Game%20Online%20for%20free" target="_blank" rel="noopener noreferrer" class="share-btn pinterest" aria-label="Share on Pinterest">
+                    <span class="share-icon">📌</span>
+                    <span class="share-text">Pinterest</span>
+                </a>
+                <a href="https://www.reddit.com/submit?url=https://playgomokugame.com/&title=Play%20Gomoku%20Game%20Online%20-%20Classic%20Five%20in%20a%20Row" target="_blank" rel="noopener noreferrer" class="share-btn reddit" aria-label="Share on Reddit">
+                    <span class="share-icon">🤖</span>
+                    <span class="share-text">Reddit</span>
+                </a>
+                <button class="share-btn copy-link" onclick="copyShareLink()" aria-label="Copy link">
+                    <span class="share-icon">🔗</span>
+                    <span class="share-text">Copy Link</span>
+                </button>
+            </div>
+            <span id="copy-success" class="copy-success" style="display: none;">✓ Link copied!</span>
+        </div>
+
+        <script>
+            function copyShareLink() {
+                const url = 'https://playgomokugame.com/';
+                navigator.clipboard.writeText(url).then(() => {
+                    const successMsg = document.getElementById('copy-success');
+                    successMsg.style.display = 'inline-block';
+                    setTimeout(() => {
+                        successMsg.style.display = 'none';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy:', err);
+                });
+            }
+        </script>
+
         <div class="info-card">
             <h3>🎯 What is Gomoku Game Online?</h3>
             <p><strong>Gomoku Game Online</strong>, also known as "Five in a Row", is a classic abstract strategy game. In this digital version of the timeless Gomoku Game, two players alternate placing black and white stones on a 15×15 board. The first to form an unbroken line of five stones horizontally, vertically, or diagonally wins. Simple rules, deep tactics — a true brain sport. Play <strong>Gomoku Online</strong> for free right now and challenge our enhanced AI. You can read more on <a href="https://en.wikipedia.org/wiki/Gomoku">Wikipedia Gomoku</a> page.</p>
