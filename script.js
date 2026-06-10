@@ -434,9 +434,9 @@ document.addEventListener('DOMContentLoaded', () => {
             board[mv.y][mv.x] = null;
             if (win) return mv;
         }
-        // 95% pick best, 5% random among top 3 (mistake rate halved and narrowed)
-        if (moves.length > 1 && Math.random() < 0.05) {
-            let sub = Math.min(3, moves.length);
+        // 98% pick best, 2% random among top 2 (mistake rate halved again)
+        if (moves.length > 1 && Math.random() < 0.02) {
+            let sub = Math.min(2, moves.length);
             return moves[Math.floor(Math.random() * sub)];
         }
         return moves[0];
@@ -456,8 +456,8 @@ document.addEventListener('DOMContentLoaded', () => {
             board[mv.y][mv.x] = null;
             if (win) return mv;
         }
-        // Random among top 4 instead of top 8 (candidate quality doubled)
-        let limit = Math.min(4, moves.length);
+        // Random among top 2 instead of top 4 (candidate quality doubled again)
+        let limit = Math.min(2, moves.length);
         if (limit === 0) return null;
         return moves[Math.floor(Math.random() * limit)];
     }
