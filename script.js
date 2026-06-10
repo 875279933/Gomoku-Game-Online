@@ -150,51 +150,91 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.addEventListener('click', () => { if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume(); }, { once: true });
     
     // ---------- Scoring and win/loss logic (enhanced) ----------
-    const PATTERNS = { FIVE: 1e7, LIVE_FOUR: 5e5, SLEEP_FOUR: 5e4, LIVE_THREE: 8000, SLEEP_THREE: 900, LIVE_TWO: 200, SLEEP_TWO: 40 };
+    // Patterns: correct live/sleep detection and compound bonuses
+    const PATTERNS = {
+        FIVE: 1e9,
+        LIVE_FOUR: 1e6,
+        SLEEP_FOUR: 5e4,
+        LIVE_THREE: 1e4,
+        SLEEP_THREE: 500,
+        LIVE_TWO: 200,
+        SLEEP_TWO: 40,
+        LIVE_ONE: 10
+    };
     const dirs = [[1,0],[0,1],[1,1],[1,-1]];
-    
-    function getDirScore(x, y, dx, dy, col) {
-        let cnt = 1, openRight = false, openLeft = false;
+
+    // Returns {cnt, openLeft, openRight, blocks} for a direction
+    // cnt: stones in line (including center), openLeft/Right: one-end open, blocks: endpoints blocked
+    function scanDir(x, y, dx, dy, col) {
+        let cnt = 0, openLeft = false, openRight = false;
+        let leftBlocked = false, rightBlocked = false;
+        // Scan positive direction
         for (let s = 1; s <= 5; s++) {
             let nx = x + dx * s, ny = y + dy * s;
-            if (nx < 0 || nx >= BOARD_SIZE || ny < 0 || ny >= BOARD_SIZE) break;
+            if (nx < 0 || nx >= BOARD_SIZE || ny < 0 || ny >= BOARD_SIZE) { rightBlocked = true; break; }
             if (board[ny][nx] === col) cnt++;
-            else { if (board[ny][nx] === null) openRight = (s === 1 || (s > 1 && board[ny-dy][nx-dx] === col)); break; }
+            else { if (board[ny][nx] === null) openRight = true; rightBlocked = true; break; }
         }
+        // Scan negative direction
         for (let s = 1; s <= 5; s++) {
             let nx = x - dx * s, ny = y - dy * s;
-            if (nx < 0 || nx >= BOARD_SIZE || ny < 0 || ny >= BOARD_SIZE) break;
+            if (nx < 0 || nx >= BOARD_SIZE || ny < 0 || ny >= BOARD_SIZE) { leftBlocked = true; break; }
             if (board[ny][nx] === col) cnt++;
-            else { if (board[ny][nx] === null) openLeft = (s === 1 || (s > 1 && board[ny+dy][nx+dx] === col)); break; }
+            else { if (board[ny][nx] === null) openLeft = true; leftBlocked = true; break; }
         }
-        let open = openLeft || openRight;
-        if (cnt >= 5) return PATTERNS.FIVE;
-        if (cnt === 4) return open ? PATTERNS.LIVE_FOUR : PATTERNS.SLEEP_FOUR;
-        if (cnt === 3) return open ? PATTERNS.LIVE_THREE : PATTERNS.SLEEP_THREE;
-        if (cnt === 2) return open ? PATTERNS.LIVE_TWO : PATTERNS.SLEEP_TWO;
+        return { cnt, openLeft, openRight, bothBlocked: leftBlocked && rightBlocked };
+    }
+
+    function getDirScore(x, y, dx, dy, col) {
+        const r = scanDir(x, y, dx, dy, col);
+        if (r.cnt >= 5) return PATTERNS.FIVE;
+        const openCount = (r.openLeft ? 1 : 0) + (r.openRight ? 1 : 0);
+        if (r.cnt === 4) return openCount >= 1 ? PATTERNS.LIVE_FOUR : 0; // sleep four is weak, treated as 0
+        if (r.cnt === 3) return openCount === 2 ? PATTERNS.LIVE_THREE : openCount === 1 ? PATTERNS.SLEEP_THREE : 0;
+        if (r.cnt === 2) return openCount === 2 ? PATTERNS.LIVE_TWO : openCount === 1 ? PATTERNS.SLEEP_TWO : 0;
+        if (r.cnt === 1 && openCount === 2) return PATTERNS.LIVE_ONE;
         return 0;
     }
-    
+
+    // Count patterns for compound bonus detection
+    function countPatternTypes(x, y, col) {
+        let liveFour = 0, sleepFour = 0, liveThree = 0, sleepThree = 0, liveTwo = 0;
+        for (let [dx, dy] of dirs) {
+            const r = scanDir(x, y, dx, dy, col);
+            if (r.cnt >= 5) { /* win already handled */ }
+            else if (r.cnt === 4 && (r.openLeft || r.openRight)) liveFour++;
+            else if (r.cnt === 3) {
+                if (r.openLeft && r.openRight) liveThree++;
+                else if (r.openLeft || r.openRight) sleepThree++;
+            }
+            else if (r.cnt === 2 && r.openLeft && r.openRight) liveTwo++;
+        }
+        return { liveFour, sleepFour, liveThree, sleepThree, liveTwo };
+    }
+
     function evalPositionScore(x, y, col) {
         board[y][x] = col;
         let total = 0;
-        for (let [dx, dy] of dirs) total += getDirScore(x, y, dx, dy, col);
+        const counted = { liveFour: 0, sleepFour: 0, liveThree: 0, sleepThree: 0, liveTwo: 0 };
+        for (let [dx, dy] of dirs) {
+            const sc = getDirScore(x, y, dx, dy, col);
+            total += sc;
+            // Track pattern counts for compound detection (avoid double-counting same line)
+            const r = scanDir(x, y, dx, dy, col);
+            if (r.cnt === 4 && (r.openLeft || r.openRight)) counted.liveFour++;
+            if (r.cnt === 3 && r.openLeft && r.openRight) counted.liveThree++;
+            if (r.cnt === 3 && ((r.openLeft && !r.openRight) || (!r.openLeft && r.openRight))) counted.sleepThree++;
+            if (r.cnt === 2 && r.openLeft && r.openRight) counted.liveTwo++;
+        }
+        // Compound pattern bonuses (non-overlapping direction lines)
+        if (counted.liveFour >= 2) total += PATTERNS.FIVE;       // 双活四 = win
+        if (counted.liveFour >= 1 && counted.liveThree >= 1) total += PATTERNS.FIVE; // 冲四+活三 = win
+        if (counted.liveThree >= 2) total += PATTERNS.FIVE * 0.95; // 双活三 ≈ win
+        if (counted.liveFour >= 1) total += PATTERNS.LIVE_FOUR * 0.8; // 单独冲四加分
         board[y][x] = null;
         return total;
     }
-    
-    function evalFullBoard(col) {
-        let total = 0;
-        for (let i = 0; i < BOARD_SIZE; i++) {
-            for (let j = 0; j < BOARD_SIZE; j++) {
-                if (board[i][j] === col) {
-                    for (let [dx, dy] of dirs) total += getDirScore(j, i, dx, dy, col);
-                }
-            }
-        }
-        return total;
-    }
-    
+
     function checkWin(x, y, pl) {
         if (board[y][x] !== pl) return false;
         for (let [dx, dy] of dirs) {
@@ -213,10 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return false;
     }
-    
+
     function isDraw() {
-        for (let i = 0; i < BOARD_SIZE; i++) 
-            for (let j = 0; j < BOARD_SIZE; j++) 
+        for (let i = 0; i < BOARD_SIZE; i++)
+            for (let j = 0; j < BOARD_SIZE; j++)
                 if (board[i][j] === null) return false;
         return true;
     }
@@ -224,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateStatus() {
         if (!gameActive) {
             if (winner === 'player') tipTextSpan.innerText = 'You win! Great match';
-            else if (winner === 'ai') tipTextSpan.innerText = 'AI wins �� try again';
+            else if (winner === 'ai') tipTextSpan.innerText = 'AI wins �� try again';
             else if (winner === 'draw') tipTextSpan.innerText = 'Draw! Well played';
             else tipTextSpan.innerText = currentTurn === 'player' ? 'Your turn' : 'AI thinking';
             return;
@@ -266,15 +306,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // AI move functions (using original intelligent scoring, difficulty aware)
+    function hasNeighbor(x, y, dist) {
+        for (let dy = -dist; dy <= dist; dy++) {
+            for (let dx = -dist; dx <= dist; dx++) {
+                if (dx === 0 && dy === 0) continue;
+                let nx = x + dx, ny = y + dy;
+                if (nx >= 0 && nx < BOARD_SIZE && ny >= 0 && ny < BOARD_SIZE && board[ny][nx] !== null) return true;
+            }
+        }
+        return false;
+    }
+
     function getBasicMovesList() {
         let moves = [];
+        let emptyBoard = true;
         for (let i = 0; i < BOARD_SIZE; i++) {
             for (let j = 0; j < BOARD_SIZE; j++) {
-                if (board[i][j] === null) {
-                    let offense = evalPositionScore(j, i, 'ai');
-                    let defense = evalPositionScore(j, i, 'player');
-                    moves.push({ x: j, y: i, score: offense + defense * 0.85 });
-                }
+                if (board[i][j] !== null) { emptyBoard = false; break; }
+            }
+            if (!emptyBoard) break;
+        }
+        for (let i = 0; i < BOARD_SIZE; i++) {
+            for (let j = 0; j < BOARD_SIZE; j++) {
+                if (board[i][j] !== null) continue;
+                if (!emptyBoard && !hasNeighbor(j, i, 2)) continue;
+                let offense = evalPositionScore(j, i, 'ai');
+                let defense = evalPositionScore(j, i, 'player');
+                // Strong defense boost when opponent has live-four or better
+                let defenseWeight = defense >= PATTERNS.LIVE_FOUR ? 10000 : 0.95;
+                moves.push({ x: j, y: i, score: offense + defense * defenseWeight });
             }
         }
         moves.sort((a,b) => b.score - a.score);
@@ -284,29 +344,80 @@ document.addEventListener('DOMContentLoaded', () => {
     function getHardAIMove() {
         let moves = getBasicMovesList();
         if (moves.length === 0) return null;
-        let candidates = moves.slice(0, 15);
+        // Immediate win
+        for (let mv of moves.slice(0, 20)) {
+            board[mv.y][mv.x] = 'ai';
+            let win = checkWin(mv.x, mv.y, 'ai');
+            board[mv.y][mv.x] = null;
+            if (win) return mv;
+        }
+        // Must block
+        for (let mv of moves.slice(0, 20)) {
+            board[mv.y][mv.x] = 'player';
+            let win = checkWin(mv.x, mv.y, 'player');
+            board[mv.y][mv.x] = null;
+            if (win) return mv;
+        }
+        let candidates = moves.slice(0, 10);
         let bestMove = null;
         let bestValue = -Infinity;
         for (let mv of candidates) {
             board[mv.y][mv.x] = 'ai';
-            let aiBoardScore = evalFullBoard('ai');
-            let opponentBest = 0;
-            for (let i = 0; i < BOARD_SIZE; i++) {
-                for (let j = 0; j < BOARD_SIZE; j++) {
-                    if (board[i][j] === null) {
-                        let threat = evalPositionScore(j, i, 'player');
-                        if (threat > opponentBest) opponentBest = threat;
-                    }
-                }
-            }
+            let value = minimax(2, -Infinity, Infinity, false);
             board[mv.y][mv.x] = null;
-            let value = aiBoardScore - (opponentBest * 1.3);
             if (value > bestValue) {
                 bestValue = value;
                 bestMove = mv;
             }
         }
-        return bestMove ? { x: bestMove.x, y: bestMove.y } : (moves[0] || null);
+        return bestMove || moves[0];
+    }
+
+    function minimax(depth, alpha, beta, isMaximizing) {
+        if (depth === 0) return evaluateBoardState();
+        let moves = getBasicMovesList();
+        if (moves.length === 0) return 0;
+        let limit = Math.min(moves.length, 6);
+        if (isMaximizing) {
+            let maxEval = -Infinity;
+            for (let i = 0; i < limit; i++) {
+                let mv = moves[i];
+                board[mv.y][mv.x] = 'ai';
+                let evalScore = minimax(depth - 1, alpha, beta, false);
+                board[mv.y][mv.x] = null;
+                maxEval = Math.max(maxEval, evalScore);
+                alpha = Math.max(alpha, evalScore);
+                if (beta <= alpha) break;
+            }
+            return maxEval;
+        } else {
+            let minEval = Infinity;
+            for (let i = 0; i < limit; i++) {
+                let mv = moves[i];
+                board[mv.y][mv.x] = 'player';
+                let evalScore = minimax(depth - 1, alpha, beta, true);
+                board[mv.y][mv.x] = null;
+                minEval = Math.min(minEval, evalScore);
+                beta = Math.min(beta, evalScore);
+                if (beta <= alpha) break;
+            }
+            return minEval;
+        }
+    }
+
+    function evaluateBoardState() {
+        let bestAI = 0, bestPl = 0;
+        for (let y = 0; y < BOARD_SIZE; y++) {
+            for (let x = 0; x < BOARD_SIZE; x++) {
+                if (board[y][x] === null && hasNeighbor(x, y, 2)) {
+                    let a = evalPositionScore(x, y, 'ai');
+                    let p = evalPositionScore(x, y, 'player');
+                    if (a > bestAI) bestAI = a;
+                    if (p > bestPl) bestPl = p;
+                }
+            }
+        }
+        return bestAI - bestPl * 1.05;
     }
     
     function getMediumMove(moves) {
@@ -424,11 +535,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('.faq-answer').forEach(ans => {
                     if (ans !== a && ans.classList.contains('show')) {
                         ans.classList.remove('show');
-                        ans.parentElement.querySelector('.faq-question .icon').textContent = '��';
+                        ans.parentElement.querySelector('.faq-question .icon').textContent = '��';
                     }
                 });
-                if (!open) { a.classList.add('show'); icon.textContent = '��'; }
-                else { a.classList.remove('show'); icon.textContent = '��'; }
+                if (!open) { a.classList.add('show'); icon.textContent = '��'; }
+                else { a.classList.remove('show'); icon.textContent = '��'; }
             });
         });
     }
