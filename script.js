@@ -421,12 +421,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function getMediumMove(moves) {
-        if (moves.length > 1 && Math.random() < 0.12) return moves[1];
+        // Must win / must block
+        for (let mv of moves.slice(0, 10)) {
+            board[mv.y][mv.x] = 'ai';
+            let win = checkWin(mv.x, mv.y, 'ai');
+            board[mv.y][mv.x] = null;
+            if (win) return mv;
+        }
+        for (let mv of moves.slice(0, 10)) {
+            board[mv.y][mv.x] = 'player';
+            let win = checkWin(mv.x, mv.y, 'player');
+            board[mv.y][mv.x] = null;
+            if (win) return mv;
+        }
+        // 95% pick best, 5% random among top 3 (mistake rate halved and narrowed)
+        if (moves.length > 1 && Math.random() < 0.05) {
+            let sub = Math.min(3, moves.length);
+            return moves[Math.floor(Math.random() * sub)];
+        }
         return moves[0];
     }
     
     function getEasyMove(moves) {
-        let limit = Math.min(8, moves.length);
+        // Must win / must block
+        for (let mv of moves.slice(0, 10)) {
+            board[mv.y][mv.x] = 'ai';
+            let win = checkWin(mv.x, mv.y, 'ai');
+            board[mv.y][mv.x] = null;
+            if (win) return mv;
+        }
+        for (let mv of moves.slice(0, 10)) {
+            board[mv.y][mv.x] = 'player';
+            let win = checkWin(mv.x, mv.y, 'player');
+            board[mv.y][mv.x] = null;
+            if (win) return mv;
+        }
+        // Random among top 4 instead of top 8 (candidate quality doubled)
+        let limit = Math.min(4, moves.length);
         if (limit === 0) return null;
         return moves[Math.floor(Math.random() * limit)];
     }
