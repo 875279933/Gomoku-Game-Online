@@ -1,4 +1,4 @@
-﻿// Wait for DOM to be fully loaded
+// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // ---------- Configuration ----------
     const BOARD_SIZE = 15;
@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentTurn = 'player';   // 'player' or 'ai'
     let gameActive = true;
     let winner = null;
-    let currentDifficulty = 'medium';
+    let currentDifficulty = 'hard';
     let history = [];
     let playerScore = 0, aiScore = 0;
 
@@ -420,53 +420,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return bestAI - bestPl * 1.05;
     }
     
-    function getMediumMove(moves) {
-        // Must win / must block
-        for (let mv of moves.slice(0, 10)) {
-            board[mv.y][mv.x] = 'ai';
-            let win = checkWin(mv.x, mv.y, 'ai');
-            board[mv.y][mv.x] = null;
-            if (win) return mv;
-        }
-        for (let mv of moves.slice(0, 10)) {
-            board[mv.y][mv.x] = 'player';
-            let win = checkWin(mv.x, mv.y, 'player');
-            board[mv.y][mv.x] = null;
-            if (win) return mv;
-        }
-        // 98% pick best, 2% random among top 2 (mistake rate halved again)
-        if (moves.length > 1 && Math.random() < 0.02) {
-            let sub = Math.min(2, moves.length);
-            return moves[Math.floor(Math.random() * sub)];
-        }
-        return moves[0];
-    }
-    
-    function getEasyMove(moves) {
-        // Must win / must block
-        for (let mv of moves.slice(0, 10)) {
-            board[mv.y][mv.x] = 'ai';
-            let win = checkWin(mv.x, mv.y, 'ai');
-            board[mv.y][mv.x] = null;
-            if (win) return mv;
-        }
-        for (let mv of moves.slice(0, 10)) {
-            board[mv.y][mv.x] = 'player';
-            let win = checkWin(mv.x, mv.y, 'player');
-            board[mv.y][mv.x] = null;
-            if (win) return mv;
-        }
-        // Random among top 2 instead of top 4 (candidate quality doubled again)
-        let limit = Math.min(2, moves.length);
-        if (limit === 0) return null;
-        return moves[Math.floor(Math.random() * limit)];
-    }
-    
-    function getBestMoveByDifficulty() {
+    function getBestMove() {
         let moves = getBasicMovesList();
         if (!moves.length) return null;
-        if (currentDifficulty === 'easy') return getEasyMove(moves);
-        if (currentDifficulty === 'medium') return getMediumMove(moves);
         return getHardAIMove();
     }
     
@@ -482,16 +438,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!gameActive || currentTurn !== 'ai') return;
         if (aiThinking) return;
         aiThinking = true;
-        let delayMs = 80;
-        if (currentDifficulty === 'easy') delayMs = 80;
-        else if (currentDifficulty === 'medium') delayMs = 180;
-        else delayMs = 380;
+        let delayMs = 380;
         await new Promise(resolve => {
             pendingAITimer = setTimeout(resolve, delayMs);
         });
         pendingAITimer = null;
         if (!gameActive || currentTurn !== 'ai') { aiThinking = false; return; }
-        let best = getBestMoveByDifficulty();
+        let best = getBestMove();
         if (best) {
             applyMove(best.x, best.y, 'ai', true);
             if (gameActive && currentTurn === 'ai') {
@@ -549,15 +502,6 @@ document.addEventListener('DOMContentLoaded', () => {
         aiThinking = false;
     }
     
-    function setDifficulty(lev) {
-        currentDifficulty = lev;
-        document.querySelectorAll('.difficulty-btn').forEach(btn => {
-            if (btn.dataset.diff === lev) btn.classList.add('active');
-            else btn.classList.remove('active');
-        });
-        resetGame();
-    }
-    
     function initFaq() {
         document.querySelectorAll('.faq-item').forEach(item => {
             let q = item.querySelector('.faq-question'), a = item.querySelector('.faq-answer'), icon = q.querySelector('.icon');
@@ -566,11 +510,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('.faq-answer').forEach(ans => {
                     if (ans !== a && ans.classList.contains('show')) {
                         ans.classList.remove('show');
-                        ans.parentElement.querySelector('.faq-question .icon').textContent = '+';
+                        ans.parentElement.querySelector('.faq-question .icon').textContent = '��';
                     }
                 });
-                if (!open) { a.classList.add('show'); icon.textContent = '-'; }
-                else { a.classList.remove('show'); icon.textContent = '+'; }
+                if (!open) { a.classList.add('show'); icon.textContent = '��'; }
+                else { a.classList.remove('show'); icon.textContent = '��'; }
             });
         });
     }
@@ -582,6 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedLang = this.value;
             let targetUrl = 'https://playgomokugame.com/';
             if (selectedLang === 'en') targetUrl = 'https://playgomokugame.com/';
+			else if (selectedLang === 'en') targetUrl = 'https://playgomokugame.com/';
             else if (selectedLang === 'es') targetUrl = 'https://playgomokugame.com/es/';
             else if (selectedLang === 'fr') targetUrl = 'https://playgomokugame.com/fr/';
             else if (selectedLang === 'de') targetUrl = 'https://playgomokugame.com/de/';
@@ -600,16 +545,12 @@ document.addEventListener('DOMContentLoaded', () => {
         resetGame();
         updateScoreUI();
         canvas.addEventListener('click', handleCanvasClick);
-        document.querySelectorAll('.difficulty-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => setDifficulty(e.currentTarget.dataset.diff));
-        });
         resetBtn.onclick = () => resetGame();
         undoBtn.onclick = () => undoLatest();
         resetScoreBtn.onclick = () => resetScores();
-        setDifficulty(currentDifficulty);
         initFaq();
         initLanguageSwitcher();
-}
-
-init();
+    }
+    
+    init();
 });
