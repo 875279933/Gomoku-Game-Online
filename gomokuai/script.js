@@ -551,6 +551,43 @@ document.addEventListener('DOMContentLoaded', () => {
         initFaq();
         initLanguageSwitcher();
     }
-    
+
+    function initFaq() {
+        document.querySelectorAll('.faq-item').forEach(item => {
+            let q = item.querySelector('.faq-question'), a = item.querySelector('.faq-answer'), icon = q.querySelector('.icon');
+            q.addEventListener('click', () => {
+                let open = a.classList.contains('show');
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    if (ans !== a && ans.classList.contains('show')) {
+                        ans.classList.remove('show');
+                        ans.parentElement.querySelector('.faq-question .icon').textContent = '+';
+                    }
+                });
+                if (!open) { a.classList.add('show'); icon.textContent = '-'; }
+                else { a.classList.remove('show'); icon.textContent = '+'; }
+            });
+        });
+    }
+
+    function initLanguageSwitcher() {
+        const langSelect = document.getElementById('langSelect');
+        if (!langSelect) return;
+        langSelect.addEventListener('change', function() {
+            const selectedLang = this.value;
+            let targetUrl = 'https://playgomokugame.com/';
+            if (selectedLang === 'en') targetUrl = 'https://playgomokugame.com/';
+            else if (selectedLang === 'es') targetUrl = 'https://playgomokugame.com/es/';
+            else if (selectedLang === 'fr') targetUrl = 'https://playgomokugame.com/fr/';
+            else if (selectedLang === 'de') targetUrl = 'https://playgomokugame.com/de/';
+            else if (selectedLang === 'ja') targetUrl = 'https://playgomokugame.com/ja/';
+            else if (selectedLang === 'pt') targetUrl = 'https://playgomokugame.com/pt/';
+            else if (selectedLang === 'th') targetUrl = 'https://playgomokugame.com/th/';
+            else if (selectedLang === 'it') targetUrl = 'https://playgomokugame.com/it/';
+            else if (selectedLang === 'hi') targetUrl = 'https://playgomokugame.com/hi/';
+            else if (selectedLang === 'ko') targetUrl = 'https://playgomokugame.com/ko/';
+            window.location.href = targetUrl;
+        });
+    }
+
     init();
 });
