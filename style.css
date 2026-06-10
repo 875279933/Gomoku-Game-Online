@@ -410,6 +410,43 @@ body {
     line-height: 1.5;
 }
 
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.game-card {
+    display: block;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    border-color: #cbd5e1;
+}
+
+.game-card h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.1rem;
+    color: #1e4b6e;
+}
+
+.game-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #4a5568;
+    line-height: 1.4;
+}
+
 /* ---------- FAQ Section ---------- */
 .faq-section {
     margin: 2rem 0 1.5rem;
