@@ -1,4 +1,4 @@
-﻿// Wait for DOM to be fully loaded
+// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // ---------- Configuration ----------
     const BOARD_SIZE = 15;
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Returns {cnt, openLeft, openRight, blocks} for a direction
     // cnt: stones in line (including center), openLeft/Right: one-end open, blocks: endpoints blocked
     function scanDir(x, y, dx, dy, col) {
-        let cnt = 0, openLeft = false, openRight = false;
+        let cnt = 1, openLeft = false, openRight = false;
         let leftBlocked = false, rightBlocked = false;
         // Scan positive direction
         for (let s = 1; s <= 5; s++) {
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateStatus() {
         if (!gameActive) {
             if (winner === 'player') tipTextSpan.innerText = 'You win! Great match';
-            else if (winner === 'ai') tipTextSpan.innerText = 'AI wins �� try again';
+            else if (winner === 'ai') tipTextSpan.innerText = 'AI wins — try again';
             else if (winner === 'draw') tipTextSpan.innerText = 'Draw! Well played';
             else tipTextSpan.innerText = currentTurn === 'player' ? 'Your turn' : 'AI thinking';
             return;
@@ -358,12 +358,13 @@ document.addEventListener('DOMContentLoaded', () => {
             board[mv.y][mv.x] = null;
             if (win) return mv;
         }
-        let candidates = moves.slice(0, 10);
+        // 3-ply lookahead on top 8 candidates (was: 2-ply on top 10)
+        let candidates = moves.slice(0, 8);
         let bestMove = null;
         let bestValue = -Infinity;
         for (let mv of candidates) {
             board[mv.y][mv.x] = 'ai';
-            let value = minimax(2, -Infinity, Infinity, false);
+            let value = minimax(3, -Infinity, Infinity, false);
             board[mv.y][mv.x] = null;
             if (value > bestValue) {
                 bestValue = value;
@@ -434,14 +435,22 @@ document.addEventListener('DOMContentLoaded', () => {
             board[mv.y][mv.x] = null;
             if (win) return mv;
         }
-        // 98% pick best, 2% random among top 2 (mistake rate halved again)
-        if (moves.length > 1 && Math.random() < 0.02) {
-            let sub = Math.min(2, moves.length);
-            return moves[Math.floor(Math.random() * sub)];
+        // 1-ply lookahead on top 8 candidates (was: 2% random blunders + greedy)
+        let candidates = moves.slice(0, 8);
+        let bestMove = candidates[0];
+        let bestValue = -Infinity;
+        for (let mv of candidates) {
+            board[mv.y][mv.x] = 'ai';
+            let value = minimax(1, -Infinity, Infinity, false);
+            board[mv.y][mv.x] = null;
+            if (value > bestValue) {
+                bestValue = value;
+                bestMove = mv;
+            }
         }
-        return moves[0];
+        return bestMove || moves[0];
     }
-    
+
     function getEasyMove(moves) {
         // Must win / must block
         for (let mv of moves.slice(0, 10)) {
@@ -456,10 +465,8 @@ document.addEventListener('DOMContentLoaded', () => {
             board[mv.y][mv.x] = null;
             if (win) return mv;
         }
-        // Random among top 2 instead of top 4 (candidate quality doubled again)
-        let limit = Math.min(2, moves.length);
-        if (limit === 0) return null;
-        return moves[Math.floor(Math.random() * limit)];
+        // Greedy: pick the highest-scored move (was: random among top 2)
+        return moves[0];
     }
     
     function getBestMoveByDifficulty() {
@@ -485,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let delayMs = 80;
         if (currentDifficulty === 'easy') delayMs = 80;
         else if (currentDifficulty === 'medium') delayMs = 180;
-        else delayMs = 380;
+        else delayMs = 520;
         await new Promise(resolve => {
             pendingAITimer = setTimeout(resolve, delayMs);
         });
@@ -494,11 +501,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let best = getBestMoveByDifficulty();
         if (best) {
             applyMove(best.x, best.y, 'ai', true);
-            if (gameActive && currentTurn === 'ai') {
-                aiThinking = false;
-                aiMove();
-                return;
-            }
         } else if (isDraw()) {
             endGame('draw');
         }
@@ -525,17 +527,23 @@ document.addEventListener('DOMContentLoaded', () => {
             else return;
         }
         if (history.length === 0) return;
-        let last = history.pop();
-        board[last.y][last.x] = null;
+        // If the last move was AI's, undo both the AI's response and the player's preceding move
+        if (history[history.length - 1].player === 'ai' && history.length >= 2) {
+            let lastAI = history.pop();
+            board[lastAI.y][lastAI.x] = null;
+            let lastPlayer = history.pop();
+            board[lastPlayer.y][lastPlayer.x] = null;
+            currentTurn = 'player';
+        } else {
+            let last = history.pop();
+            board[last.y][last.x] = null;
+            currentTurn = last.player;
+        }
         redrawGame();
-        currentTurn = last.player;
         if (!gameActive) { gameActive = true; winner = null; }
         updateStatus();
-        if (gameActive && currentTurn === 'ai') {
-            setTimeout(() => aiMove(), 50);
-        }
     }
-    
+
     function resetGame() {
         cancelPendingAI();
         board = Array(BOARD_SIZE).fill().map(() => Array(BOARD_SIZE).fill(null));
@@ -545,8 +553,6 @@ document.addEventListener('DOMContentLoaded', () => {
         currentTurn = 'player';
         redrawGame();
         updateStatus();
-        if (pendingAITimer) clearTimeout(pendingAITimer);
-        aiThinking = false;
     }
     
     function setDifficulty(lev) {
