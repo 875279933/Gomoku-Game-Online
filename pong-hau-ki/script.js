@@ -88,11 +88,16 @@
             }
         }
 
-        if (moves.length > 0) {
-            const r = Math.floor(Math.random() * moves.length);
-            const { from, to } = moves[r];
-            applyMove(from, to);
+        if (moves.length === 0) {
+            // AI has no legal moves → AI loses, player wins
+            aiThinking = false;
+            endGame(0);
+            return;
         }
+
+        const r = Math.floor(Math.random() * moves.length);
+        const { from, to } = moves[r];
+        applyMove(from, to);
 
         currentPlayer = 0;
         aiThinking = false;
