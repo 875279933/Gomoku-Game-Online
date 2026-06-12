@@ -358,13 +358,13 @@ document.addEventListener('DOMContentLoaded', () => {
             board[mv.y][mv.x] = null;
             if (win) return mv;
         }
-        // 3-ply lookahead on top 8 candidates (was: 2-ply on top 10)
+        // 5-ply lookahead on top 8 candidates (was: 4-ply on top 8)
         let candidates = moves.slice(0, 8);
         let bestMove = null;
         let bestValue = -Infinity;
         for (let mv of candidates) {
             board[mv.y][mv.x] = 'ai';
-            let value = minimax(3, -Infinity, Infinity, false);
+            let value = minimax(5, -Infinity, Infinity, false);
             board[mv.y][mv.x] = null;
             if (value > bestValue) {
                 bestValue = value;
@@ -435,13 +435,13 @@ document.addEventListener('DOMContentLoaded', () => {
             board[mv.y][mv.x] = null;
             if (win) return mv;
         }
-        // 1-ply lookahead on top 8 candidates (was: 2% random blunders + greedy)
-        let candidates = moves.slice(0, 8);
+        // 4-ply lookahead on top 6 candidates (was: 3-ply on top 6)
+        let candidates = moves.slice(0, 6);
         let bestMove = candidates[0];
         let bestValue = -Infinity;
         for (let mv of candidates) {
             board[mv.y][mv.x] = 'ai';
-            let value = minimax(1, -Infinity, Infinity, false);
+            let value = minimax(4, -Infinity, Infinity, false);
             board[mv.y][mv.x] = null;
             if (value > bestValue) {
                 bestValue = value;
@@ -465,8 +465,20 @@ document.addEventListener('DOMContentLoaded', () => {
             board[mv.y][mv.x] = null;
             if (win) return mv;
         }
-        // Greedy: pick the highest-scored move (was: random among top 2)
-        return moves[0];
+        // 3-ply lookahead on top 6 candidates (was: 2-ply on top 6)
+        let candidates = moves.slice(0, 6);
+        let bestMove = candidates[0];
+        let bestValue = -Infinity;
+        for (let mv of candidates) {
+            board[mv.y][mv.x] = 'ai';
+            let value = minimax(3, -Infinity, Infinity, false);
+            board[mv.y][mv.x] = null;
+            if (value > bestValue) {
+                bestValue = value;
+                bestMove = mv;
+            }
+        }
+        return bestMove || moves[0];
     }
     
     function getBestMoveByDifficulty() {
@@ -490,9 +502,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (aiThinking) return;
         aiThinking = true;
         let delayMs = 80;
-        if (currentDifficulty === 'easy') delayMs = 80;
-        else if (currentDifficulty === 'medium') delayMs = 180;
-        else delayMs = 520;
+        if (currentDifficulty === 'easy') delayMs = 840;
+        else if (currentDifficulty === 'medium') delayMs = 1640;
+        else delayMs = 2080;
         await new Promise(resolve => {
             pendingAITimer = setTimeout(resolve, delayMs);
         });
