@@ -358,13 +358,13 @@ document.addEventListener('DOMContentLoaded', () => {
             board[mv.y][mv.x] = null;
             if (win) return mv;
         }
-        // 3-ply lookahead on top 12 candidates (was: 2-ply on top 10)
-        let candidates = moves.slice(0, 12);
+        // 6-ply lookahead on top 10 candidates (deeper than homepage's 5-ply/8)
+        let candidates = moves.slice(0, 10);
         let bestMove = null;
         let bestValue = -Infinity;
         for (let mv of candidates) {
             board[mv.y][mv.x] = 'ai';
-            let value = minimax(3, -Infinity, Infinity, false);
+            let value = minimax(6, -Infinity, Infinity, false);
             board[mv.y][mv.x] = null;
             if (value > bestValue) {
                 bestValue = value;
@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!gameActive || currentTurn !== 'ai') return;
         if (aiThinking) return;
         aiThinking = true;
-        let delayMs = 600;
+        let delayMs = 1200;
         await new Promise(resolve => {
             pendingAITimer = setTimeout(resolve, delayMs);
         });
