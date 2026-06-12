@@ -382,10 +382,8 @@ function undoMove() {
     if (stonesInCurrentTurn === 0 && moveCount > 0) {
         moveCount--;
         currentPlayer = currentPlayer === 'black' ? 'white' : 'black';
-        stonesInCurrentTurn = moveCount === 0 ? 1 : 2;
-    } else {
-        stonesInCurrentTurn = 0;
     }
+    stonesInCurrentTurn = 0;
     
     updateStatus();
     updateCounts();
