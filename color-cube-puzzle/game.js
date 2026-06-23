@@ -431,6 +431,22 @@
   }
 
   ready(function () {
+    (function(){
+      var btn=document.getElementById('menuBtn');
+      var nav=document.getElementById('navLinks');
+      if(!btn||!nav)return;
+      function close(){nav.classList.remove('open');btn.classList.remove('is-open');btn.setAttribute('aria-expanded','false');document.body.classList.remove('nav-open');}
+      btn.addEventListener('click',function(e){
+        e.stopPropagation();
+        var open=nav.classList.toggle('open');
+        btn.classList.toggle('is-open',open);
+        btn.setAttribute('aria-expanded',open?'true':'false');
+        document.body.classList.toggle('nav-open',open);
+      });
+      nav.addEventListener('click',function(e){if(e.target.tagName==='A')close();});
+      document.addEventListener('click',function(e){if(!nav.contains(e.target)&&!btn.contains(e.target))close();});
+      window.addEventListener('resize',function(){if(window.innerWidth>640)close();});
+    })();
     if (bind()) buildLevel();
   });
 })();
