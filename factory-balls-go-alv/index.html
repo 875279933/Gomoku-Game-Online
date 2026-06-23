@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ff8a6b">
+<title>Factory Balls Go Alv — Free Online Puzzle Game in Your Browser</title>
+<meta name="description" content="Factory Balls Go Alv is a free paint-and-match puzzle game. Recreate the target ball using limited paint tools, ten hand-tuned levels, no install.">
+<meta name="keywords" content="factory balls go alv, factory balls, paint puzzle, ball matching game, free puzzle game, browser game, casual game, online game">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://playgomokugame.com/factory-balls-go-alv/">
+<link rel="icon" href="../favicon.ico">
+<meta property="og:title" content="Factory Balls Go Alv — Free Online Puzzle Game">
+<meta property="og:description" content="Paint, match, and clear ten levels in your browser. Free, no install, original take on the factory balls formula.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://playgomokugame.com/factory-balls-go-alv/">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Factory Balls Go Alv","description":"A free paint-and-match puzzle where players use limited paint tools to recreate a target ball.","genre":"Puzzle","playMode":"SinglePlayer","applicationCategory":"GameApplication","operatingSystem":"Any (Browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+<div class="nav-inner">
+<a href="./" class="logo">
+<span class="logo-mark" aria-hidden="true">🎨</span>
+Factory Balls Go Alv
+</a>
+<div class="nav-links">
+<a href="../">Home</a>
+<a href="#how">How</a>
+<a href="#levels">Levels</a>
+<a href="#tips">Tips</a>
+<a href="#faq">FAQ</a>
+<a href="#play" class="nav-cta">Play Now</a>
+</div>
+<button class="menu-btn" type="button" aria-label="Menu">☰</button>
+</div>
+</nav>
+
+<header class="hero" id="top">
+<span class="badge">Free · Original take · Plays in your browser</span>
+<h1>Factory Balls Go Alv.<br><span class="accent">Paint. Match. Solve.</span></h1>
+<p class="lede">A free browser take on the factory balls formula. You get limited paint tools. The target sits next to you. Make the two balls match — that's the whole job.</p>
+</header>
+
+<section class="game-stage" id="play" aria-label="Game">
+<div class="hud">
+<div>Level · <b id="level">1</b><span class="muted"> / <b id="total">10</b></span></div>
+<div>Moves · <b id="moves">0</b></div>
+</div>
+<div class="arena">
+<div class="ball-pane">
+<h3>Your Ball</h3>
+<div class="canvas-frame">
+<canvas id="ball" width="200" height="200" aria-label="Your ball"></canvas>
+</div>
+</div>
+<div class="ball-pane target-pane">
+<h3>Target</h3>
+<div class="canvas-frame">
+<canvas id="target" width="200" height="200" aria-label="Target ball"></canvas>
+</div>
+</div>
+</div>
+<div id="win" class="win-banner"></div>
+<div class="tools-wrap">
+<h3>Paint Tools</h3>
+<div class="tools" id="tools"></div>
+</div>
+<div class="controls">
+<button class="btn btn-primary" id="reset" type="button">Reset Ball</button>
+<button class="btn btn-ghost" id="prev" type="button">Previous</button>
+<button class="btn btn-ghost" id="next" type="button">Next</button>
+</div>
+</section>
+
+<section class="block" id="about">
+<div class="eyebrow">The game</div>
+<h2>What is Factory Balls Go Alv?</h2>
+<p>Factory Balls Go Alv is a free paint-and-match puzzle. Each level gives you a target ball and a small set of paint tools. Every tool has a limited number of uses, painted straight onto your ball. When your ball matches the target, the level clears.</p>
+<p>This is an original browser take on the factory balls idea. It's a fan-built version, not the CrazyGames build, and it runs in any modern tab. If you've played factory balls go alv before, this one strips it back to the core: paint, plan, match, move on.</p>
+
+<div class="grid-3">
+<div class="feature">
+<div class="icon">🎯</div>
+<h3>Ten hand-tuned levels</h3>
+<p>Each round teaches a new idea, from a single paint pass to layered patterns.</p>
+</div>
+<div class="feature">
+<div class="icon">🧠</div>
+<h3>Plan the paint order</h3>
+<p>Tools are limited, so the order you use them matters. Think two moves ahead.</p>
+</div>
+<div class="feature">
+<div class="icon">📱</div>
+<h3>Touch and mouse ready</h3>
+<p>Tap a tool, watch the ball update. Works on desktop, tablet, and phone.</p>
+</div>
+</div>
+</section>
+
+<section class="block" id="how">
+<div class="eyebrow">Getting started</div>
+<h2>How Factory Balls Go Alv works</h2>
+<p class="muted">The rule is one line. The strategy takes a few rounds to settle in.</p>
+<ol class="steps">
+<li>Look at the target ball on the right and your plain white ball on the left.</li>
+<li>Pick a paint tool from the row below — every tool shows its color, zone, and uses left.</li>
+<li>Tap a tool to paint the matching zones on your ball with that color.</li>
+<li>Keep going until your ball matches the target. The level clears automatically.</li>
+<li>Stuck on one? Hit Reset Ball to start the level over with full tools.</li>
+</ol>
+</section>
+
+<section class="block" id="levels">
+<div class="eyebrow">Round guide</div>
+<h2>Levels in Factory Balls Go Alv</h2>
+<p>There are ten levels in this build. The first few are warm-ups. The last few ask you to chain tools in the right order.</p>
+<ul class="bullets">
+<li><b>Levels 1-3</b> — one paint tool per round. Get used to the click, the paint, the match.</li>
+<li><b>Levels 4-6</b> — two tools per round. Order starts to matter.</li>
+<li><b>Levels 7-8</b> — alternating stripes and gaps. Think before you paint.</li>
+<li><b>Levels 9-10</b> — three tools, three colors, one chance. Plan the full sequence first.</li>
+</ul>
+</section>
+
+<section class="block" id="tips">
+<div class="eyebrow">Strategy</div>
+<h2>Tips for clearing every level</h2>
+<p class="muted">Factory Balls Go Alv rewards the player who plans the whole sequence before clicking the first tool.</p>
+<ul class="bullets">
+<li>Read the target top to bottom. Note every color and where it sits.</li>
+<li>Pick the tool that paints the largest region first. You can always paint over it later.</li>
+<li>Save narrow tools (Middle, Gaps) for the last step so they don't get covered up.</li>
+<li>If a level feels tight, hit Reset and try the tools in a different order.</li>
+<li>Most factory balls go alv puzzles have one exact solution. The first paint usually decides the rest.</li>
+</ul>
+</section>
+
+<section class="block" id="faq">
+<div class="eyebrow">Questions</div>
+<h2>Factory Balls Go Alv FAQ</h2>
+<div class="faq-item">
+<h3>Is Factory Balls Go Alv free?</h3>
+<p>Yes. No sign-up, no install, no ads inside the puzzle.</p>
+</div>
+<div class="faq-item">
+<h3>Is this the same as the CrazyGames build?</h3>
+<p>No. This is an original browser version inspired by the factory balls go alv idea. It uses different levels, a cleaner tool set, and runs as a single page with no third-party scripts.</p>
+</div>
+<div class="faq-item">
+<h3>How many levels are there?</h3>
+<p>Ten. They ramp from a single paint pass to a three-color sequence at the end.</p>
+</div>
+<div class="faq-item">
+<h3>Can I play on my phone?</h3>
+<p>Yep. The tools work with touch, and the balls scale to fit the screen.</p>
+</div>
+<div class="faq-item">
+<h3>Does my progress save?</h3>
+<p>Not in this build. Use Previous and Next to jump between levels, and Reset Ball to start a level fresh.</p>
+</div>
+</section>
+
+<footer>
+<p><strong>Factory Balls Go Alv</strong> · Free browser puzzle</p>
+<p><a href="#top">Back to top</a></p>
+</footer>
+<script src="game.js" defer></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N1TL6FMLYR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N1TL6FMLYR');
+</script>
+</body>
+</html>

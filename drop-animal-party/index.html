@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ff5a3c">
+<title>Drop Animal Party — Free Merge Puzzle Game in Your Browser</title>
+<meta name="description" content="Drop Animal Party is a free merge puzzle game. Drop cute animals, match pairs, and grow the biggest critter on the board. No download, no sign-up.">
+<meta name="keywords" content="drop animal party, animal merge game, drop puzzle, free puzzle game, browser game, merge animals, casual game, online game">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://playgomokugame.com/drop-animal-party/">
+<link rel="icon" href="../favicon.ico">
+<meta property="og:title" content="Drop Animal Party — Free Merge Puzzle Game">
+<meta property="og:description" content="Drop, match, and grow your animal crew. Free browser puzzle, no install.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://playgomokugame.com/drop-animal-party/">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Drop Animal Party","description":"A merge puzzle where players drop animals into a container and combine matching pairs into bigger critters.","genre":"Puzzle","playMode":"SinglePlayer","applicationCategory":"GameApplication","operatingSystem":"Any (Browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+<div class="nav-inner">
+<a href="./" class="logo">
+<span class="logo-mark" aria-hidden="true">🐾</span>
+Drop Animal Party
+</a>
+<div class="nav-links">
+<a href="../">Home</a>
+<a href="#how">How</a>
+<a href="#animals">Animals</a>
+<a href="#tips">Tips</a>
+<a href="#faq">FAQ</a>
+<a href="#play" class="nav-cta">Play Now</a>
+</div>
+<button class="menu-btn" type="button" aria-label="Menu">☰</button>
+</div>
+</nav>
+
+<header class="hero" id="top">
+<span class="badge">Free · No download · Plays in your browser</span>
+<h1>Drop Animal Party.<br><span class="accent">Stack, match, grow.</span></h1>
+<p class="lede">Drop cute critters into the box. Two of the same kind merge into a bigger one. Don't let the board overflow — that's Drop Animal Party in one breath.</p>
+</header>
+
+<section class="game-stage" id="play" aria-label="Game">
+<div class="hud">
+<div>Score · <b id="score">0</b></div>
+<div>Best · <b id="best">0</b></div>
+</div>
+<div class="canvas-frame">
+<canvas id="game" width="480" height="720" aria-label="Drop Animal Party game board"></canvas>
+</div>
+<div class="controls">
+<button class="btn btn-primary" id="dropBtn" type="button">Drop</button>
+<button class="btn btn-ghost" id="resetBtn" type="button">Reset</button>
+</div>
+</section>
+
+<section class="block" id="about">
+<div class="eyebrow">The game</div>
+<h2>What is Drop Animal Party?</h2>
+<p>Drop Animal Party is a merge puzzle you play in your browser. Cute animals fall from the top of the board. You aim each one with the mouse or your finger. When two of the same kind bump into each other, they pop into a bigger animal and your score jumps.</p>
+<p>There's a dashed line near the top of the box. If your animals stack past it for more than a second, the round ends. Aim well, merge often, beat your best. A full run takes about three minutes, which is why people come back to Drop Animal Party between meetings or on the train.</p>
+
+<div class="grid-3">
+<div class="feature">
+<div class="icon">⚡</div>
+<h3>Opens in a second</h3>
+<p>No downloads, no plug-ins. Load the page and you're playing.</p>
+</div>
+<div class="feature">
+<div class="icon">📱</div>
+<h3>Touch friendly</h3>
+<p>Swipe to aim, tap to drop. Works on any modern phone browser.</p>
+</div>
+<div class="feature">
+<div class="icon">💾</div>
+<h3>Saves your best</h3>
+<p>Your high score stays on this device until you clear browser data.</p>
+</div>
+</div>
+</section>
+
+<section class="block" id="how">
+<div class="eyebrow">Getting started</div>
+<h2>How Drop Animal Party works</h2>
+<p class="muted">Five steps. The first round teaches you the rest.</p>
+<ol class="steps">
+<li>Move your mouse or finger to set the drop angle at the top of the board.</li>
+<li>Press Drop, click the board, or hit Space to release the animal.</li>
+<li>When two of the same kind touch, they merge into the next size up.</li>
+<li>Bigger merges are worth more points. Chain reactions score the highest.</li>
+<li>The round ends if animals stack past the dashed line for more than a second.</li>
+</ol>
+</section>
+
+<section class="block" id="animals">
+<div class="eyebrow">Roster</div>
+<h2>Meet the animals</h2>
+<p>There are eleven tiers in the game. You start with the smallest five dropping in. Merge your way up to the dragon at the top.</p>
+<div class="animals">
+<div class="tiers">
+<div class="tier"><span class="e">🐭</span><span class="n">TIER 1</span></div>
+<div class="tier"><span class="e">🐹</span><span class="n">TIER 2</span></div>
+<div class="tier"><span class="e">🐰</span><span class="n">TIER 3</span></div>
+<div class="tier"><span class="e">🐱</span><span class="n">TIER 4</span></div>
+<div class="tier"><span class="e">🐶</span><span class="n">TIER 5</span></div>
+<div class="tier"><span class="e">🦊</span><span class="n">TIER 6</span></div>
+<div class="tier"><span class="e">🐻</span><span class="n">TIER 7</span></div>
+<div class="tier"><span class="e">🐼</span><span class="n">TIER 8</span></div>
+<div class="tier"><span class="e">🦁</span><span class="n">TIER 9</span></div>
+<div class="tier"><span class="e">🐯</span><span class="n">TIER 10</span></div>
+<div class="tier"><span class="e">🐲</span><span class="n">TIER 11</span></div>
+</div>
+</div>
+</section>
+
+<section class="block" id="tips">
+<div class="eyebrow">Strategy</div>
+<h2>Tips for higher scores</h2>
+<p class="muted">Drop Animal Party rewards patience more than speed. Slow down for a moment and the board opens up.</p>
+<ul class="bullets">
+<li>Build from the bottom up. Empty gaps under a small animal are painful to fix later.</li>
+<li>Keep your biggest animals in the middle so they don't roll into the walls.</li>
+<li>Drop new animals next to a matching pair to chain reactions.</li>
+<li>Watch the next-up animal in the corner. Skip drops that don't fit your plan.</li>
+<li>Avoid narrow gaps. A pinned animal will trap you in two moves.</li>
+</ul>
+</section>
+
+<section class="block" id="faq">
+<div class="eyebrow">Questions</div>
+<h2>Drop Animal Party FAQ</h2>
+<div class="faq-item">
+<h3>Is Drop Animal Party free?</h3>
+<p>Yes. No sign-up, no install, no ads inside the game.</p>
+</div>
+<div class="faq-item">
+<h3>How is my best score saved?</h3>
+<p>It lives in your browser's local storage on this device. Clearing site data clears the score.</p>
+</div>
+<div class="faq-item">
+<h3>Can I play on my phone?</h3>
+<p>Yep. Touch and swipe work on any modern mobile browser, and the board scales to fit.</p>
+</div>
+<div class="faq-item">
+<h3>What's the largest animal?</h3>
+<p>The dragon. Two dragons don't merge, so use them as a backstop instead of a target.</p>
+</div>
+<div class="faq-item">
+<h3>Why did the game end so fast?</h3>
+<p>Probably a tall stack near the top. Aim for flat piles early. Tall piles leak past the dashed line and end the run.</p>
+</div>
+</section>
+
+<footer>
+<p><strong>Drop Animal Party</strong> · Free browser puzzle</p>
+<p><a href="#top">Back to top</a></p>
+</footer>
+<script src="game.js" defer></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N1TL6FMLYR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N1TL6FMLYR');
+</script>
+</body>
+</html>

@@ -71,7 +71,7 @@
                 <a href="https://twitter.com/intent/tweet?url=https://playgomokugame.com/&text=Play%20Gomoku%20Online%20for%20free" target="_blank" rel="noopener" class="share-btn twitter" aria-label="Share on X">X</a>
                 <a href="https://pinterest.com/pin/create/button/?url=https://playgomokugame.com/&description=Play%20Gomoku%20Online" target="_blank" rel="noopener" class="share-btn pinterest" aria-label="Share on Pinterest">Pinterest</a>
                 <a href="https://www.reddit.com/submit?url=https://playgomokugame.com/&title=Play%20Gomoku%20Online" target="_blank" rel="noopener" class="share-btn reddit" aria-label="Share on Reddit">Reddit</a>
-                <button class="share-btn copy-link" onclick="copyShareLink()" aria-label="Copy link">Copy Link</button>
+                <button class="share-btn copy-link" onClick="copyShareLink()" aria-label="Copy link">Copy Link</button>
             </div>
             <span id="copy-success" class="copy-success" style="display:none;">Link copied!</span>
         </div>
@@ -109,16 +109,69 @@
             <h2>Related Games</h2>
             <div class="games-grid">
                 <a href="/gomokuai/" class="game-card">
-                    <h3>Gomoku AI</h3>
+                    <h3>
+                        <svg class="game-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="7" cy="7" r="2.5"></circle>
+                            <circle cx="17" cy="7" r="2.5" fill="currentColor"></circle>
+                            <circle cx="7" cy="17" r="2.5" fill="currentColor"></circle>
+                            <circle cx="17" cy="17" r="2.5"></circle>
+                            <line x1="7" y1="7" x2="17" y2="17"></line>
+                        </svg>
+                        Gomoku AI
+                    </h3>
                     <p>Challenge a smart Gomoku AI in your browser. No downloads, no signup — just open and play.</p>
                 </a>
                 <a href="/Connect6/" class="game-card">
-                    <h3>Connect6</h3>
+                    <h3>
+                        <svg class="game-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="5" cy="12" r="1.8" fill="currentColor"></circle>
+                            <circle cx="9.5" cy="12" r="1.8"></circle>
+                            <circle cx="14" cy="12" r="1.8" fill="currentColor"></circle>
+                            <circle cx="18.5" cy="12" r="1.8" fill="currentColor"></circle>
+                            <circle cx="23" cy="12" r="1.8"></circle>
+                        </svg>
+                        Connect6
+                    </h3>
                     <p>A deeper twist on Gomoku: place two stones per turn and aim for six in a row.</p>
                 </a>
                 <a href="/pong-hau-ki/" class="game-card">
-                    <h3>Pong Hau K'i</h3>
+                    <h3>
+                        <svg class="game-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="7" cy="7" r="2.5"></circle>
+                            <circle cx="17" cy="7" r="2.5" fill="currentColor"></circle>
+                            <circle cx="7" cy="17" r="2.5" fill="currentColor"></circle>
+                            <circle cx="17" cy="17" r="2.5"></circle>
+                            <line x1="7" y1="7" x2="17" y2="7"></line>
+                            <line x1="7" y1="17" x2="17" y2="17"></line>
+                        </svg>
+                        Pong Hau K'i
+                    </h3>
                     <p>A classic Korean blocking game. Trap your opponent so they cannot move.</p>
+                </a>
+                <a href="/factory-balls-go-alv/" class="game-card">
+                    <h3>
+                        <svg class="game-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="8"></circle>
+                            <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
+                            <line x1="12" y1="2" x2="12" y2="6"></line>
+                            <line x1="12" y1="18" x2="12" y2="22"></line>
+                            <line x1="2" y1="12" x2="6" y2="12"></line>
+                            <line x1="18" y1="12" x2="22" y2="12"></line>
+                        </svg>
+                        Factory Balls Go
+                    </h3>
+                    <p>A clever factory puzzle game. Paint, decorate, and ship balls to match the order.</p>
+                </a>
+                <a href="/drop-animal-party/" class="game-card">
+                    <h3>
+                        <svg class="game-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 21s-7-5.5-7-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-7 11-7 11"></path>
+                            <circle cx="10" cy="11" r="0.8" fill="currentColor"></circle>
+                            <circle cx="14" cy="11" r="0.8" fill="currentColor"></circle>
+                        </svg>
+                        Drop Animal Party
+                    </h3>
+                    <p>Stack and match cute animals in this fun falling block puzzle. Chain combos for big scores.</p>
                 </a>
             </div>
         </article>
@@ -183,12 +236,12 @@ function copyShareLink() {
 }
 </script>
 <script src="./script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1T1PM02ZSS"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N1TL6FMLYR"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-1T1PM02ZSS');
+  gtag('config', 'G-N1TL6FMLYR');
 </script>
 </body>
 </html>
