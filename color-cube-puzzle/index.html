@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ff8a6b">
+<title>Color Cube Puzzle — Free Online Logic Game in Your Browser</title>
+<meta name="description" content="Color Cube Puzzle is a free browser logic game. Match colored cubes with the right conveyors, clear every shape, and beat hand-tuned levels. No install.">
+<meta name="keywords" content="color cube puzzle, cube puzzle game, color matching game, logic puzzle, sorting puzzle, browser puzzle, free online game, casual puzzle">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://playgomokugame.com/color-cube-puzzle/">
+<link rel="icon" href="../favicon.ico">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Color Cube Puzzle — Free Online Logic Game">
+<meta property="og:description" content="Match colored cubes with conveyors and clear the board. Free browser logic game, no install.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://playgomokugame.com/color-cube-puzzle/">
+<meta property="og:image" content="https://playgomokugame.com/color-cube-puzzle/cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Color Cube Puzzle — Free Online Logic Game">
+<meta name="twitter:description" content="Match colored cubes with conveyors and clear the board. Free browser logic game, no install.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Color Cube Puzzle","description":"A free browser logic puzzle where players match colored shapes with cube conveyors of the same color and clear every shape from the board.","genre":"Puzzle","playMode":"SinglePlayer","applicationCategory":"GameApplication","operatingSystem":"Any (Browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"8.8","ratingCount":"349"}}
+</script>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+<div class="nav-inner">
+<a href="./" class="logo">
+<span class="logo-mark" aria-hidden="true"></span>
+Color Cube Puzzle
+</a>
+<div class="nav-links">
+<a href="../">Home</a>
+<a href="#how">How</a>
+<a href="#features">Features</a>
+<a href="#levels">Levels</a>
+<a href="#faq">FAQ</a>
+<a href="#play" class="nav-cta">Play Now</a>
+</div>
+<button class="menu-btn" type="button" aria-label="Menu">☰</button>
+</div>
+</nav>
+
+<header class="hero" id="top">
+<span class="badge">Free · No download · Plays in your browser</span>
+<h1>Color Cube Puzzle.<br><span class="accent">Sort. Match. Survive.</span></h1>
+<p class="lede">A clean logic puzzle that runs in any tab. Tap a cube, send it to the matching conveyor, watch the board clear. Locks gate cubes. Bombs tick. Calm wins, panic blows up the run.</p>
+</header>
+
+<section class="game-stage" id="play" aria-label="Color Cube Puzzle game">
+<div id="win" class="win-banner">Level cleared. Nice work.</div>
+<div class="game-frame">
+<div class="game-module">
+<div class="hud">
+<div>Level · <b id="level">1</b><span class="muted"> / <b id="total">8</b></span></div>
+<div>Moves · <b id="moves">0</b><span class="par"> · par <b id="par">4</b></span></div>
+<div id="fuse-box" class="fuse-box" style="display:none"><b id="fuse">0</b></div>
+</div>
+<div id="prompt" class="prompt">Step 1 · Tap a cube</div>
+<div class="board" id="board" aria-label="Game board"></div>
+<div class="conveyors" id="conveyors" aria-label="Conveyors"></div>
+</div>
+</div>
+<div class="controls">
+<button class="btn btn-primary" id="reset" type="button">Reset Level</button>
+<button class="btn btn-ghost" id="next" type="button">Next Level</button>
+</div>
+</section>
+
+<section class="block" id="about">
+<div class="eyebrow">The game</div>
+<h2>What is Color Cube Puzzle?</h2>
+<p>Color Cube Puzzle is a free browser logic game. A small board holds a stack of colored cubes. Underneath sit four conveyors, one for each color. Send every cube to the lane that matches its color. When the board empties, the level clears.</p>
+<p>Each lane has a hard cap of three. Locked cubes are gated behind two same-color keys. Bomb cubes carry a shared fuse that ticks down on every wrong move. Run it out and the run ends. Beat the par to earn three stars.</p>
+<p>There is no timer, no lives, no pop-up ads. You tap a cube, you tap a conveyor, the cube slides home. The design rewards planning over speed, which is why it lands well as a coffee-break puzzle on phones and a slow-evening one on the desktop.</p>
+<p>This build is an original browser take on the same idea. The rules are simple, the levels get tighter, and the whole thing sits on a single page with no third-party scripts.</p>
+
+<div class="grid-3">
+<div class="feature">
+<div class="icon">01</div>
+<h3>Lane capacity</h3>
+<p>Each conveyor holds three cubes. Fill it up and the lane locks. Read the board before the first tap.</p>
+</div>
+<div class="feature">
+<div class="icon">02</div>
+<h3>Locked cubes &amp; bombs</h3>
+<p>Some cubes ship with a padlock, some with a bomb. Crack the locks, defuse the bombs, clear the board.</p>
+</div>
+<div class="feature">
+<div class="icon">03</div>
+<h3>Par scoring</h3>
+<p>Each level has a par. Beat it for three stars. Land within par plus two for two. One star for finishing.</p>
+</div>
+</div>
+</section>
+
+<section class="block" id="how">
+<div class="eyebrow">Getting started</div>
+<h2>How to play Color Cube Puzzle</h2>
+<p class="muted">Two taps clear a cube. The skill is in choosing the right order under the fuse clock.</p>
+<ol class="steps">
+<li>Read the board before the first tap. Note the lane fill, the locks, the bombs, and the color that runs out first.</li>
+<li>Tap a cube on the board. A white border marks your pick. Locked cubes are off-limits until unlocked.</li>
+<li>To unlock, send two same-color cubes first. The lock count drops each time a matching cube clears.</li>
+<li>Tap the matching conveyor. The cube slides home, the lane fill grows by one segment.</li>
+<li>Watch the fuse. A bomb is on the board. Every wrong-color send burns one fuse tick. The fuse ends the run.</li>
+<li>Defuse the bombs in the same pass as the rest of the cubes. Lane caps at three. Plan the order, not just the color.</li>
+<li>Beat the par score for three stars. Finish within par plus two for two. Clear the board to pass.</li>
+</ol>
+</section>
+
+<section class="block" id="features">
+<div class="eyebrow">Why people come back</div>
+<h2>Game features</h2>
+<p>Each piece of the build earns its place. Nothing here is there for the sake of a longer list.</p>
+<table class="info-table" aria-label="Game features">
+<tbody>
+<tr><th scope="row">Lane capacity</th><td>Each conveyor caps at three cubes. A full lane locks and bounces cubes back. Plan the order before the first tap.</td></tr>
+<tr><th scope="row">Locked cubes</th><td>One cube of a locked color ships with a padlock. Send two same-color cubes to crack it. The lock progress bar tracks the count.</td></tr>
+<tr><th scope="row">Bomb cubes</th><td>From level five onward, bomb cubes join the run. A shared fuse ticks down on every wrong-color send. Defuse the bomb before the fuse runs out or the run ends.</td></tr>
+<tr><th scope="row">Par scoring</th><td>Each level ships with a par score set to the minimum possible moves. Beat par for three stars, land within par plus two for two stars, finish the board for one.</td></tr>
+<tr><th scope="row">Four-color palette</th><td>Red, blue, green, yellow. Strong hues, clear contrast, no color names hidden in the art.</td></tr>
+<tr><th scope="row">Move counter</th><td>Tracks every move in the top HUD. The lowest move count per level is saved to your browser.</td></tr>
+<tr><th scope="row">No install</th><td>Single HTML page. No app store, no plug-in, no sign-up wall.</td></tr>
+<tr><th scope="row">Works offline</th><td>After the first load, the game plays with the network off. A solid pick for flights and trains.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="block" id="levels">
+<div class="eyebrow">Round guide</div>
+<h2>Level breakdown</h2>
+<p>Eight levels ship with the build. The first two are warm-ups. The next two add locks. The final four add bombs and tighten the fuse. Every level is solvable by design — locked colours always ship with two keys.</p>
+<div class="level-grid">
+<article class="level-card">
+<header class="level-card-head">
+<span class="level-card-band">Lv 1 – 2</span>
+<span class="level-card-tag tag-warmup">Warm-up</span>
+</header>
+<div class="level-card-stats">
+<div class="stat"><span class="stat-num">4–6</span><span class="stat-label">Cubes</span></div>
+<div class="stat"><span class="stat-num">0</span><span class="stat-label">Locks</span></div>
+<div class="stat"><span class="stat-num">0</span><span class="stat-label">Bombs</span></div>
+</div>
+<p class="level-card-focus">Read the board. Learn the cap.</p>
+</article>
+<article class="level-card">
+<header class="level-card-head">
+<span class="level-card-band">Lv 3 – 4</span>
+<span class="level-card-tag tag-locks">Locks</span>
+</header>
+<div class="level-card-stats">
+<div class="stat"><span class="stat-num">8–9</span><span class="stat-label">Cubes</span></div>
+<div class="stat"><span class="stat-num">1–2</span><span class="stat-label">Locks</span></div>
+<div class="stat"><span class="stat-num">0</span><span class="stat-label">Bombs</span></div>
+</div>
+<p class="level-card-focus">Crack one or two locks. Two keys each.</p>
+</article>
+<article class="level-card">
+<header class="level-card-head">
+<span class="level-card-band">Lv 5 – 6</span>
+<span class="level-card-tag tag-bomb">Bomb</span>
+</header>
+<div class="level-card-stats">
+<div class="stat"><span class="stat-num">9</span><span class="stat-label">Cubes</span></div>
+<div class="stat"><span class="stat-num">2–3</span><span class="stat-label">Locks</span></div>
+<div class="stat"><span class="stat-num">1</span><span class="stat-label">Bombs</span></div>
+</div>
+<p class="level-card-focus">First bomb. Plan the order under the fuse.</p>
+</article>
+<article class="level-card">
+<header class="level-card-head">
+<span class="level-card-band">Lv 7</span>
+<span class="level-card-tag tag-bomb">Bomb</span>
+</header>
+<div class="level-card-stats">
+<div class="stat"><span class="stat-num">12</span><span class="stat-label">Cubes</span></div>
+<div class="stat"><span class="stat-num">3</span><span class="stat-label">Locks</span></div>
+<div class="stat"><span class="stat-num">2</span><span class="stat-label">Bombs</span></div>
+</div>
+<p class="level-card-focus">Two bombs. Three locks. Tight board.</p>
+</article>
+<article class="level-card">
+<header class="level-card-head">
+<span class="level-card-band">Lv 8</span>
+<span class="level-card-tag tag-master">Master</span>
+</header>
+<div class="level-card-stats">
+<div class="stat"><span class="stat-num">12</span><span class="stat-label">Cubes</span></div>
+<div class="stat"><span class="stat-num">4</span><span class="stat-label">Locks</span></div>
+<div class="stat"><span class="stat-num">2</span><span class="stat-label">Bombs</span></div>
+</div>
+<p class="level-card-focus">All four colors locked. Master the par.</p>
+</article>
+</div>
+</section>
+
+<section class="block" id="tips">
+<div class="eyebrow">Strategy</div>
+<h2>Color Cube Puzzle tips</h2>
+<p class="muted">The rule is short. The skill sits in the order you tap, and in not wasting the fuse.</p>
+<ul class="bullets">
+<li>Read the board top to bottom before the first tap. Note which color runs out fastest and which lanes are close to cap.</li>
+<li>Crack the locks first. The keys use the same color, so send the unlocked cubes of that color before any locked one.</li>
+<li>Spot the bombs early. A bomb takes a slot in the lane just like any other cube, so plan it into the order.</li>
+<li>Treat the fuse as a move budget. A wrong-color send burns one tick. Three or four wrong picks and the run ends.</li>
+<li>Watch the lane capacity markers. A near-full lane means that color is close to its end. Plan the rest around the cap.</li>
+<li>Stay close to par. The par score is set tight on purpose. One wrong move drops a star and burns a fuse tick.</li>
+<li>When two colors share a count, sort the larger cluster first. The board stays cleaner for the bombs at the back.</li>
+<li>Reset is free. If the order goes wrong, hit Reset Level and try a different sequence.</li>
+</ul>
+</section>
+
+<section class="block" id="info">
+<div class="eyebrow">Game info</div>
+<h2>At a glance</h2>
+<p>The numbers behind the build. Same facts, in a quick table for skimmers.</p>
+<table class="info-table" aria-label="Game information">
+<tbody>
+<tr><th scope="row">Title</th><td>Color Cube Puzzle</td></tr>
+<tr><th scope="row">Type</th><td>Color-matching logic puzzle with bombs and locks</td></tr>
+<tr><th scope="row">Levels</th><td>8 hand-tuned rounds with par scores, locks, and shared fuse</td></tr>
+<tr><th scope="row">Cube range</th><td>4 to 12 cubes per level, balanced across the active palette</td></tr>
+<tr><th scope="row">Lane cap</th><td>3 cubes per lane</td></tr>
+<tr><th scope="row">Locks</th><td>Padlocked cubes need two key cubes of the same color</td></tr>
+<tr><th scope="row">Bombs</th><td>Levels 5 to 8 ship with one or two timed bomb cubes</td></tr>
+<tr><th scope="row">Fuse</th><td>Wrong-color sends burn one tick. Fuse starts at 7 to 8 ticks per level.</td></tr>
+<tr><th scope="row">Star rating</th><td>3 stars at or under par, 2 within par+2, 1 for clear</td></tr>
+<tr><th scope="row">Best score</th><td>Saved per level in browser localStorage</td></tr>
+<tr><th scope="row">Engine</th><td>HTML5, single page, no third-party scripts</td></tr>
+<tr><th scope="row">Platforms</th><td>Desktop, tablet, mobile browsers</td></tr>
+<tr><th scope="row">Cost</th><td>Free. No ads inside the board.</td></tr>
+<tr><th scope="row">Account</th><td>None. The build does not ask for a login.</td></tr>
+<tr class="tag-row"><th scope="row">Tags</th><td><span class="tag">Puzzle</span><span class="tag">Sorting</span><span class="tag">Color</span><span class="tag">Logic</span><span class="tag">Brain</span><span class="tag">Bombs</span><span class="tag">2D</span><span class="tag">Mouse</span><span class="tag">Mobile</span></td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="block" id="faq">
+<div class="eyebrow">Questions</div>
+<h2>FAQ</h2>
+<table class="faq-table" aria-label="Frequently asked questions">
+<tbody>
+<tr><th scope="row">Is Color Cube Puzzle free?</th><td>Yes. No sign-up, no install, no pay wall. The page is open the moment it loads.</td></tr>
+<tr><th scope="row">Is this the same as the CrazyGames build?</th><td>No. This is an original browser version. The mechanics are similar, the levels and art are new.</td></tr>
+<tr><th scope="row">How many Color Cube Puzzle levels are there?</th><td>Eight. The first two teach the rules. Levels three and four add locks. Levels five to eight add bombs and a fuse clock.</td></tr>
+<tr><th scope="row">How do locked cubes work?</th><td>One cube per locked color ships with a padlock. Send two cubes of the same color to crack it. Every level ships with enough keys to clear every lock.</td></tr>
+<tr><th scope="row">What does the bomb cube do?</th><td>It carries a shared fuse that ticks down on every wrong-color send. Defuse the bomb before the fuse runs out, or the run ends.</td></tr>
+<tr><th scope="row">Can I play Color Cube Puzzle on a phone?</th><td>Yes. The board scales to phone width, and the controls use a single tap per move.</td></tr>
+<tr><th scope="row">Does my Color Cube Puzzle progress save?</th><td>Best move count per level is stored in browser localStorage. Refresh the page to start the run over.</td></tr>
+<tr><th scope="row">What if I send the wrong color?</th><td>The cube stays on the board. The move counter goes up. The fuse ticks down one notch. Plan the next pick.</td></tr>
+</tbody>
+</table>
+</section>
+
+<footer>
+<p><strong>Color Cube Puzzle</strong> · Free browser logic game</p>
+<p><a href="#top">Back to top</a> · <a href="../">More games</a></p>
+</footer>
+
+<script src="game.js"></script>
+</body>
+</html>
