@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#dc2626">
+<title>Devil Dash — Free Endless Runner Game in Your Browser</title>
+<meta name="description" content="Devil Dash is a free endless runner you play in your browser. Run, jump, and dodge traps as a tiny devil on a fiery track. No download, no sign-up.">
+<meta name="keywords" content="devil dash, devil dash game, endless runner, browser runner, free running game, jump game, devil game, online arcade">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://playgomokugame.com/devil-dash/">
+<link rel="icon" href="../favicon.ico">
+<meta property="og:title" content="Devil Dash — Free Endless Runner">
+<meta property="og:description" content="Run, jump, and dodge traps as a tiny devil on a fiery track. Free browser game, no install.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://playgomokugame.com/devil-dash/">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Devil Dash","description":"Devil Dash is an endless side-scrolling runner where a small devil sprints through a fiery track, jumping over traps and collecting soul orbs. The longer the run, the higher the score.","genre":"Arcade","playMode":"SinglePlayer","applicationCategory":"GameApplication","operatingSystem":"Any (Browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+<div class="nav-inner">
+<a href="./" class="logo">
+<span class="logo-mark" aria-hidden="true">😈</span>
+Devil Dash
+</a>
+<div class="nav-links" id="navLinks">
+<a href="../">Home</a>
+<a href="#about">About</a>
+<a href="#how">How</a>
+<a href="#levels">Levels</a>
+<a href="#tips">Tips</a>
+<a href="#faq">FAQ</a>
+<a href="#play" class="nav-cta">Play Now</a>
+</div>
+<button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><svg class="menu-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><line x1="3" y1="6" x2="19" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="11" x2="19" y2="11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="16" x2="19" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+</div>
+</nav>
+
+<header class="hero" id="top">
+<span class="badge">Free · No download · Plays in your browser</span>
+<h1>Devil Dash.<br><span class="accent">Run fast. Don't blink.</span></h1>
+<p class="lede">Devil Dash drops you into a side-scrolling sprint through a fiery underworld. One tap to jump, one tap to keep going. Touch a trap and the run ends.</p>
+</header>
+
+<section class="game-stage" id="play" aria-label="Game">
+<div class="hud">
+<div>Score · <b id="score">0</b></div>
+<div>Best · <b id="best">0</b></div>
+</div>
+<div class="canvas-frame">
+<canvas id="game" width="720" height="420" aria-label="Devil Dash game board"></canvas>
+<div class="touch-hint" id="touchHint">Tap or press Space to jump</div>
+</div>
+<div class="controls">
+<div class="difficulty" role="group" aria-label="Difficulty">
+<button class="diff-btn" data-diff="easy" type="button">Easy</button>
+<button class="diff-btn is-active" data-diff="normal" type="button">Normal</button>
+<button class="diff-btn" data-diff="hard" type="button">Hard</button>
+</div>
+<div class="action-row">
+<button class="btn btn-primary" id="jumpBtn" type="button">Jump</button>
+<button class="btn btn-warn" id="pauseBtn" type="button">Pause</button>
+<button class="btn btn-ghost" id="resetBtn" type="button">Reset</button>
+</div>
+</div>
+</section>
+
+<section class="block" id="about">
+<div class="eyebrow">The game</div>
+<h2>What is Devil Dash?</h2>
+<p>Devil Dash is a side-scrolling endless runner built for the browser. You play a small devil with a pitchfork, sprinting along a lava-lit track. Obstacles scroll in from the right side of the screen. Tap to jump over them, chain jumps for air time, and rack up points for every meter you survive.</p>
+<p>The track never looks the same twice. Spikes, low walls, and floating flames appear in different orders. Speed ramps up the longer you stay alive, so a calm first second often turns into a frantic last second. A full run of Devil Dash usually lasts between thirty seconds and three minutes, depending on how brave you feel.</p>
+
+<div class="grid-3">
+<div class="feature">
+<div class="icon">⚡</div>
+<h3>One-tap controls</h3>
+<p>Space, click, or tap. The whole control scheme fits on one key.</p>
+</div>
+<div class="feature">
+<div class="icon">📱</div>
+<h3>Phone ready</h3>
+<p>Touch input scales the board to fit any screen size.</p>
+</div>
+<div class="feature">
+<div class="icon">💾</div>
+<h3>Best score saved</h3>
+<p>Your record sits in your browser until you clear site data.</p>
+</div>
+</div>
+</section>
+
+<section class="block" id="how">
+<div class="eyebrow">Getting started</div>
+<h2>How Devil Dash works</h2>
+<p class="muted">Five steps. The first jump teaches you the rest.</p>
+<ol class="steps">
+<li>Pick a difficulty: Easy, Normal, or Hard. Each level changes the start speed, the top speed, and how fast traps roll in.</li>
+<li>The devil starts running the moment the round begins. No warm-up.</li>
+<li>Press Space, click the board, or tap the screen to jump over a trap.</li>
+<li>Chain two jumps in a row to clear taller obstacles. Don't tap too fast or you'll land early.</li>
+<li>Each meter adds to your score. Touch a spike or a wall and the run ends.</li>
+</ol>
+<p class="muted diff-tip">Shortcuts: 1 = Easy · 2 = Normal · 3 = Hard · P = Pause · R = Reset</p>
+</section>
+
+<section class="block" id="levels">
+<div class="eyebrow">Roster</div>
+<h2>What you'll see on the track</h2>
+<p>Three obstacle types show up in Devil Dash. Each one asks for a different timing.</p>
+<div class="table-wrap">
+<table class="data-table">
+<thead>
+<tr>
+<th>Obstacle</th>
+<th>Look</th>
+<th>How to clear it</th>
+<th>First appears</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spike</td>
+<td>Low triangle on the ground</td>
+<td>Single short jump</td>
+<td>0 m</td>
+</tr>
+<tr>
+<td>Wall</td>
+<td>Tall block blocking the lane</td>
+<td>Hold the jump button a beat longer</td>
+<td>50 m</td>
+</tr>
+<tr>
+<td>Flame</td>
+<td>Floating fire above the track</td>
+<td>Slide under, or jump over and duck back down</td>
+<td>150 m</td>
+</tr>
+<tr>
+<td>Double spike</td>
+<td>Two low triangles in a row</td>
+<td>Quick tap, quick tap</td>
+<td>300 m</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="block" id="tips">
+<div class="eyebrow">Strategy</div>
+<h2>Tips for longer Devil Dash runs</h2>
+<p class="muted">Devil Dash punishes panic. Slow eyes beat fast fingers.</p>
+<div class="grid-2">
+<div class="card">
+<h3>Read the next two obstacles</h3>
+<p>Don't look at the spike under your feet. Look at the trap two meters ahead and pre-load your jump.</p>
+</div>
+<div class="card">
+<h3>Hold the jump for high walls</h3>
+<p>A tap gives a short hop. A held button gives a tall arc. Tall walls need the tall arc.</p>
+</div>
+<div class="card">
+<h3>Stay near the middle</h3>
+<p>The left and right edges crowd the screen and shrink your reaction window. Center yourself.</p>
+</div>
+<div class="card">
+<h3>Don't chase the soul orbs</h3>
+<p>Orbs add a small bonus. They're not worth a death. Skip them when a trap is closing in.</p>
+</div>
+</div>
+</section>
+
+<section class="block" id="faq">
+<div class="eyebrow">Questions</div>
+<h2>Devil Dash FAQ</h2>
+<div class="faq-item">
+<h3>Is Devil Dash free?</h3>
+<p>Yes. No sign-up, no install, no paywalls. Open the page and play.</p>
+</div>
+<div class="faq-item">
+<h3>Where is my best score saved?</h3>
+<p>In your browser's local storage on this device. Clear site data and the score clears too.</p>
+</div>
+<div class="faq-item">
+<h3>Does Devil Dash work on phones?</h3>
+<p>Yes. Tap the board to jump. The canvas scales down so the track stays readable on small screens.</p>
+</div>
+<div class="faq-item">
+<h3>What's the highest possible score?</h3>
+<p>The game has no cap. Speed keeps climbing, so eventually the gap between traps gets shorter than your jump time and the run ends.</p>
+</div>
+<div class="faq-item">
+<h3>Can I play with one hand?</h3>
+<p>Yes. Thumb on the screen, jump with the same thumb. The whole game runs off a single input.</p>
+</div>
+</section>
+
+<footer>
+<p><strong>Devil Dash</strong> · Free browser runner</p>
+<p><a href="#top">Back to top</a></p>
+</footer>
+<script src="game.js" defer></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M9RQWWJM19"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M9RQWWJM19');
+</script>
+</body>
+</html>

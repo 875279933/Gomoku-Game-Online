@@ -247,6 +247,14 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Devil Dash -->
+    <url>
+        <loc>https://playgomokugame.com/devil-dash/</loc>
+        <lastmod>2026-06-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
     <url>
         <loc>https://playgomokugame.com/disclaimer.html</loc>
         <lastmod>2026-04-30</lastmod>
