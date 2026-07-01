@@ -78,31 +78,31 @@
 
         <article class="info-card">
             <h2>What Is Gomoku?</h2>
-            <p><strong>Gomoku</strong>, also called Five in a Row, is one of those games that takes a minute to learn and a lifetime to get good at. Two players take turns placing black and white stones on a 15x15 grid. The first to line up five stones in a row — horizontally, vertically, or diagonally — wins.</p>
-            <p>The rules are dead simple, but the strategy runs deep. That's what keeps people coming back. This version lets you play against a decent AI opponent right in your browser, no downloads or accounts needed.</p>
+            <p><strong>Gomoku</strong>, also called Five in a Row, is a classic two-player board game played on a 15x15 grid. Players alternate placing black and white stones at empty intersections. The first to line up five stones in an unbroken row — horizontally, vertically, or diagonally — wins.</p>
+            <p>The rules fit on a napkin, but real competition takes years of practice. This version pairs you with a capable AI opponent, ready to play directly in your browser. No download, no account, no setup.</p>
         </article>
 
         <article class="info-card">
             <h2>How to Play</h2>
-            <p>Black goes first. Click any empty intersection to place your stone. The AI will respond immediately. First to five in a row wins.</p>
-            <p>Made a mistake? Hit the Undo button to take back your last move (and the AI's response). Want a clean slate? Click New Game. You can also switch difficulty anytime — Easy for a relaxed game, Hard if you want a real challenge.</p>
+            <p>Black moves first. Click any open intersection to place a stone, and the AI replies on its turn. Connect five stones in a row to win.</p>
+            <p>Use Undo to take back your most recent move along with the AI's reply. Use New Game to reset the board. Difficulty can be changed at any time — Easy plays a relaxed game, Hard punishes mistakes and rewards solid opening play.</p>
         </article>
 
         <article class="info-card">
             <h2>Key Strategies</h2>
             <ul class="strategy-list">
-                <li><strong>Four-Three Fork:</strong> Set up a position where you threaten two winning lines at once. Your opponent can only block one.</li>
-                <li><strong>Live Three:</strong> Three stones in a row with both ends open. Block it immediately or you will lose.</li>
-                <li><strong>Control the Center:</strong> Early stones near the middle give you more directions to build threats.</li>
-                <li><strong>Think Ahead:</strong> Try to read two or three moves ahead. Gomoku is all about forcing your opponent into impossible choices.</li>
+                <li><strong>Four-Three Fork:</strong> Build a position that threatens two winning lines at once. The opponent can only block one.</li>
+                <li><strong>Live Three:</strong> Three stones in a row with both ends open. This must be blocked on the next move or it becomes unstoppable.</li>
+                <li><strong>Control the Center:</strong> Stones near the middle have more empty space around them, which means more ways to extend a line.</li>
+                <li><strong>Read Ahead:</strong> Strong play depends on looking two or three moves forward and forcing the opponent into a losing response.</li>
             </ul>
         </article>
 
         <article class="info-card">
             <h2>About This Site</h2>
-            <p>We built this because we love board games and got tired of apps that demand your email before you can play. Everything here runs in your browser — no servers tracking your moves, no ads popping up mid-game, no nonsense.</p>
-            <p>The AI on Hard difficulty uses a 5-ply lookahead with threat detection, so it won't fall for obvious traps. It's not unbeatable, but you will have to work for it. If you are just starting out, stick to Easy or Medium while you learn the patterns.</p>
-            <p>Last updated: April 2026. Found a bug or got feedback? We'd genuinely like to hear it.</p>
+            <p>Most online board game sites ask for an email before showing a board. We wanted something faster. PlayGomokuGame runs entirely in the browser, with no accounts, no move tracking, and no ad interruptions between turns.</p>
+            <p>The Hard AI performs a 5-ply search with threat detection, so it recognizes double threats and will not walk into a finished line. Easy and Medium are the right starting points for new players; the patterns become easier to spot after a handful of games.</p>
+            <p>Last updated: April 2026. Bug reports and feedback can be sent through the contact page.</p>
         </article>
 
         <article class="info-card related-games">
@@ -207,23 +207,23 @@
         <div class="faq-list">
             <div class="faq-item">
                 <div class="faq-question"><span>How does the AI work?</span><span class="icon">+</span></div>
-                <div class="faq-answer">Easy picks mostly random moves with basic defense. Medium balances attack and defense. Hard looks two moves ahead and actively hunts for forks. You will notice the difference.</div>
+                <div class="faq-answer">Easy picks mostly random moves with basic defense. Medium balances attack and defense. Hard runs a 5-ply search and actively looks for double threats. The gap between levels is clear after a few games.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><span>Can I undo multiple moves?</span><span class="icon">+</span></div>
-                <div class="faq-answer">Yes. Each undo removes your last move and the AI's response. Keep clicking to rewind as far as you want.</div>
+                <div class="faq-answer">Yes. Each click of Undo removes your most recent move together with the AI's reply. Keep clicking to rewind further.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><span>Does changing difficulty reset my score?</span><span class="icon">+</span></div>
-                <div class="faq-answer">No, your win/loss count stays the same. Hit the reset button next to the score if you want to start fresh.</div>
+                <div class="faq-answer">No, win and loss counts are kept across difficulty levels. Use the Reset button next to the score to clear them.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><span>Why does Hard AI take longer?</span><span class="icon">+</span></div>
-                <div class="faq-answer">It is doing more calculation — checking threats, evaluating positions, looking for forced wins. We also added a small delay so it feels more natural, not robotic.</div>
+                <div class="faq-answer">It runs more calculation per move — threat detection, position evaluation, and search for forced wins. A small delay is added so the response feels natural rather than instant.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><span>What happens if the board fills up?</span><span class="icon">+</span></div>
-                <div class="faq-answer">The game ends in a draw. No points awarded. It is rare, but it happens when both players defend perfectly.</div>
+                <div class="faq-answer">The game ends in a draw with no points awarded. Draws are uncommon and only occur when both sides defend every threat.</div>
             </div>
         </div>
     </section>

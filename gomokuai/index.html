@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -77,38 +77,37 @@
 
 <article class="info-card">
 <h2>What Is Gomoku?</h2>
-<p><strong>Gomoku</strong>, also known as <strong>Five in a Row</strong>, is a classic strategy board game played on a 15 by 15 grid. Two players take turns placing black and white stones on empty intersections, and the first to line up five stones horizontally, vertically, or diagonally wins. Our Gomoku AI brings this timeless game straight to your browser with a sharp computer opponent that adapts to your style.</p>
-<p>The rules take seconds to learn, yet the strategy runs surprisingly deep. This <strong>Gomoku AI</strong> engine evaluates threats, hunts for forks, and looks ahead so every match feels like a genuine contest. No downloads, no accounts — just open the page and start playing.</p>
+<p><strong>Gomoku</strong>, also known as <strong>Five in a Row</strong>, is a two-player strategy game played on a 15 by 15 grid. Players take turns placing black and white stones on empty intersections, and the first to line up five stones horizontally, vertically, or diagonally wins.</p>
+<p>This page hosts a browser-based <strong>Gomoku AI</strong> that runs a threat-scoring search with a two-ply lookahead. It recognizes open threes, double threats, and forced fours, so moves need to be planned rather than improvised. Open the page and the board is ready.</p>
 </article>
 
 <article class="info-card">
 <h2>How to Play</h2>
 <h3>Basic Rules</h3>
-<p>Black always goes first. Click any empty intersection to place your stone. The <strong>Gomoku AI</strong> responds immediately. The first player to create an unbroken line of five stones wins.</p>
-<p>If you are new to the game, check out our <a href="/how-to-play-gomoku.html">complete guide on how to play Gomoku</a> for a step-by-step walkthrough.</p>
+<p>Black moves first. Click any empty intersection to place a stone, and the <strong>Gomoku AI</strong> replies on its turn. Connect five stones in a row to win.</p>
+<p>For a step-by-step walkthrough, see the <a href="/how-to-play-gomoku.html">complete guide on how to play Gomoku</a>.</p>
 <h3>Undo and Reset</h3>
-<p>Made a misclick? Press the Undo button to take back your last move along with the AI's reply. Want a clean start? Hit New Game to reset the board instantly.</p>
+<p>Press Undo to take back your most recent move along with the AI's reply. Press New Game to clear the board.</p>
 </article>
 
 <article class="info-card">
 <h2>Winning Strategies</h2>
-<p>Want to beat the AI more often? These core tactics will sharpen your play.</p>
 <h3>The Four-Three Fork</h3>
-<p>Set up a position where you threaten two winning lines at once. Your opponent can only block one, which means you win on the next turn.</p>
+<p>Build a position that threatens two winning lines at once. The opponent can only block one, and the other line wins on the next move.</p>
 <h3>Live Three Defense</h3>
-<p>Three stones in a row with both ends open is called a live three. Let it survive and you are probably done. Block it the moment it appears.</p>
+<p>Three stones in a row with both ends open is a live three. If it is not blocked on the next move, the opponent wins. Watch for this pattern on every turn.</p>
 <h3>Control the Center</h3>
-<p>Early stones near the middle of the board give you more directions to build threats. The edges limit your options, so claim central space whenever you can.</p>
+<p>Stones near the middle of the board have more directions to extend. Edge stones are limited to fewer options, so central positions are worth contesting early.</p>
 <h3>Think Two Moves Ahead</h3>
-<p>Try to read a couple of turns forward. Gomoku is about forcing impossible choices, so set up sequences where every reply still leaves you ahead.</p>
-<p>For deeper analysis, read our <a href="/how-to-win-gomoku.html">guide on how to win at Gomoku</a>.</p>
+<p>Plan two turns forward before placing each stone. Sequences that force the opponent into a single losing reply are the basis of strong play.</p>
+<p>For deeper analysis, see the <a href="/how-to-win-gomoku.html">guide on how to win at Gomoku</a>.</p>
 </article>
 
 <article class="info-card">
 <h2>About This Site</h2>
-<p>We built this <strong>Gomoku AI</strong> because we love board games and wanted a fast, distraction-free way to practice tactics. Everything runs in the browser — no installs, no tracking, no ads interrupting your train of thought.</p>
-<p>The AI uses a two-ply lookahead with threat detection, so it will not fall for obvious traps. It is not perfect, but you will earn every win. Keep at it and you will start spotting the patterns that crack its defense.</p>
-<p>Last updated: April 2026. Spotted a bug or have a suggestion? We would genuinely like to hear it.</p>
+<p>PlayGomokuGame.com collects and codes traditional board games that risk being lost to time. Everything on the site runs in the browser, with no accounts, no analytics on individual moves, and no ad interruptions during play.</p>
+<p>The AI runs a two-ply lookahead with threat detection, so it will not walk into a finished line or miss an open three. Bug reports and suggestions go to the contact page and are usually answered within a week.</p>
+<p>Last updated: April 2026.</p>
 </article>
 
 <article class="info-card related-games">
@@ -139,15 +138,15 @@
 </div>
 <div class="faq-item">
 <div class="faq-question"><h3>Does changing difficulty reset my score?</h3><span class="icon">+</span></div>
-<div class="faq-answer">No, your win/loss count stays the same. Hit the reset button next to the score if you want to start fresh.</div>
+<div class="faq-answer">No, win and loss counts are kept across difficulty levels. Use the Reset button next to the score to clear them.</div>
 </div>
 <div class="faq-item">
 <div class="faq-question"><h3>Why does Hard AI take longer?</h3><span class="icon">+</span></div>
-<div class="faq-answer">It runs more calculations — checking threats, evaluating positions, and looking for forced wins. A small delay is also added so the response feels natural rather than robotic.</div>
+<div class="faq-answer">It runs more calculations per move — threat detection, position evaluation, and search for forced wins. A small delay is added so the response feels natural rather than instant.</div>
 </div>
 <div class="faq-item">
 <div class="faq-question"><h3>What happens if the board fills up?</h3><span class="icon">+</span></div>
-<div class="faq-answer">The game ends in a draw. No points are awarded. It is rare, but it happens when both players defend perfectly.</div>
+<div class="faq-answer">The game ends in a draw with no points awarded. Draws are uncommon and only occur when both sides defend every threat.</div>
 </div>
 </div>
 </section>
